@@ -1,0 +1,90 @@
+# config.yaml — Prisha Online Documentation Instagram Engine
+
+business:
+  name: "Prisha Online Documentation"
+  website: "www.prishaonlinedocumentation.com"
+  contact: "+91 98765 43210"
+  industry: "Business Documentation & Registration Services"
+  tone: "Professional, Helpful, Trustworthy, Easy to understand"
+
+target_audience:
+  - Small business owners
+  - Shop owners
+  - Startups
+  - MSME owners
+  - Freelancers
+  - Entrepreneurs
+  - Local business owners
+  - First-time business founders
+  - People applying for government registrations
+
+services:
+  - GST Registration
+  - Udyam Registration
+  - MSME Registration
+  - Shop Act Registration
+  - FSSAI Registration
+  - Startup Registration
+  - Company Registration
+  - Proprietorship Registration
+  - Government Scheme Assistance
+  - Business Documentation
+  - Compliance Assistance
+
+content_categories:
+  - GST
+  - Udyam
+  - MSME
+  - FSSAI
+  - Startup Registration
+  - Business Compliance
+  - Government Schemes
+  - Shop Act
+  - Business Growth
+  - Business Awareness
+
+storytelling_frameworks:
+  - Customer Story
+  - Founder Story
+  - Business Mistake Story
+  - Real-Life Scenario
+  - Case Study
+  - Myth vs Reality
+  - Before vs After
+  - Success Journey
+  - Common Problem
+  - Hidden Opportunity
+  - FAQ Story
+  - Government Benefit Story
+
+image:
+  width: 1080
+  height: 1080
+  format: "PNG"
+  brand_color_primary: "#1A3A5C"
+  brand_color_secondary: "#2E86AB"
+  brand_color_accent: "#F6A21E"
+  brand_color_white: "#FFFFFF"
+  brand_color_light_bg: "#F0F4F8"
+  brand_color_dark_text: "#1A1A2E"
+  brand_color_gray_text: "#5A6A7A"
+
+instagram:
+  caption_max_length: 2200
+  hashtag_max_count: 30
+  hashtag_min_count: 15
+
+pipeline:
+  retry_attempts: 3
+  retry_delay_seconds: 5
+  content_failsafe_enabled: true
+
+api:
+  gemini:
+    model: "gemini-2.0-flash"
+    max_tokens: 1024
+    temperature: 0.85
+  openai:
+    model: "gpt-4o-mini"
+    max_tokens: 1024
+    temperature: 0.85

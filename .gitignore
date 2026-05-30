@@ -1,0 +1,25 @@
+# Sensitive
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Generated data (committed only via CI)
+# data/generated_posts.json  # uncomment if you DON'T want to commit history
+# images/
+# logs/
+# output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
