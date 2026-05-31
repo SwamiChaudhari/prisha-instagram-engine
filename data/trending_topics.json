@@ -1,0 +1,66 @@
+{
+  "cached_at": "2026-06-01T03:50:12.918034+05:30",
+  "count": 6,
+  "topics": [
+    {
+      "topic": "What&#039;s MSME",
+      "headline": "📢 What&#039;s MSME",
+      "source": "msme",
+      "category": "government_scheme",
+      "date": "2026-06-01T03:50:12.917116+05:30",
+      "estimated_impact": 7,
+      "url": "https://msme.gov.in/know-about-msme",
+      "summary": "What&#039;s MSME"
+    },
+    {
+      "topic": "E-Book On Schemes of MSME-2025 (English)",
+      "headline": "🏛 New Government Scheme: E-Book On Schemes of MSME-2025 (English)",
+      "source": "msme",
+      "category": "government_scheme",
+      "date": "2026-06-01T03:50:12.917137+05:30",
+      "estimated_impact": 7,
+      "url": "https://msme.gov.in/e-book-schemes-msme",
+      "summary": "E-Book On Schemes of MSME-2025 (English)"
+    },
+    {
+      "topic": "E-Book On Schemes of MSME-2025 (Hindi)",
+      "headline": "🏛 New Government Scheme: E-Book On Schemes of MSME-2025 (Hindi)",
+      "source": "msme",
+      "category": "government_scheme",
+      "date": "2026-06-01T03:50:12.917142+05:30",
+      "estimated_impact": 7,
+      "url": "https://msme.gov.in/sites/default/files/MSME-Schemes-Booklet-Hindi.pdf",
+      "summary": "E-Book On Schemes of MSME-2025 (Hindi)"
+    },
+    {
+      "topic": "MSME Champions Portal",
+      "headline": "📢 MSME Champions Portal",
+      "source": "msme",
+      "category": "government_scheme",
+      "date": "2026-06-01T03:50:12.917147+05:30",
+      "estimated_impact": 7,
+      "url": "https://champions.gov.in",
+      "summary": "MSME Champions Portal"
+    },
+    {
+      "topic": "MSME SAMADHAAN- Delayed Payment Monitoring System",
+      "headline": "📢 MSME SAMADHAAN- Delayed Payment Monitoring System",
+      "source": "msme",
+      "category": "government_scheme",
+      "date": "2026-06-01T03:50:12.917152+05:30",
+      "estimated_impact": 7,
+      "url": "https://samadhaan.msme.gov.in",
+      "summary": "MSME SAMADHAAN- Delayed Payment Monitoring System"
+    },
+    {
+      "topic": "Udyam Registration (Online Registration for MSME)",
+      "headline": "📢 Udyam Registration (Online Registration for MSME)",
+      "source": "msme",
+      "category": "government_scheme",
+      "date": "2026-06-01T03:50:12.917159+05:30",
+      "estimated_impact": 7,
+      "url": "https://udyamregistration.gov.in",
+      "summary": "Udyam Registration (Online Registration for MSME)"
+    }
+  ]
+}

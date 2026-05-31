@@ -23,3 +23,11 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+data/*.jpg
+data/*.png
+data/reference_*
+images/*.png
+images/*.jpg
+logs/*.log
+output/*.json
+assets/identity/

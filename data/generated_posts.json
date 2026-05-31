@@ -22,28 +22,71 @@
   },
   {
     "date": "2026-06-01",
-    "timestamp": "2026-06-01T01:38:30.849152+05:30",
-    "topic": "Basic vs State vs Central FSSAI License: Which One Do You Need?",
-    "headline": "Basic vs State vs Central FSSAI License",
-    "caption": "Not all FSSAI licenses are the same. Picking the wrong one costs time and money.\n\nNot all FSSAI licenses are the same. Picking the wrong one costs time and money.\n\nIf you're in the food business — whether it's a cloud kitchen, restaurant, home bakery, or food truck — an FSSAI license isn't optional. It's the law. Operating without one can lead to heavy fines and even imprisonment. Prisha Online Documentation helps you get the right FSSAI license (Basic, State, or Central) based on your business size and turnover.\n\nDM 'FSSAI' for a free consultation on food business licensing.\n\n#FSSAI #FSSAILicense #FoodBusiness #CloudKitchen #HomeBusiness #FoodSafety #FoodLicense",
-    "hashtags": "FSSAI FSSAILicense FoodBusiness CloudKitchen HomeBusiness FoodSafety FoodLicense",
-    "category": "FSSAI",
-    "image_text": "Basic vs State vs Central FSSAI License",
-    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png",
+    "timestamp": "2026-06-01T03:53:19.707157+05:30",
+    "headline": "❓ Is Your Business Missing This Benefit?",
+    "topic": "What&#039;s MSME",
+    "category": "government_scheme",
+    "pillar": "business_registration",
+    "template": "opportunity_alert",
+    "captions": {
+      "english": "Thousands of business owners are doing this. Are you?\n\nThis is an important update for every business owner and entrepreneur. Stay informed and take action before it's too late.\n\n✓ What&#039;s MSME\n📄 Easy process available\n📩 Contact for details\n\n📩 DM us for help with registration!\n\nMSME | Prisha Online Documentation",
+      "hinglish": "Business owners, yeh padhiye — aapke liye important hai.\n\nYeh ek important update hai har business owner aur entrepreneur ke liye. Updated rahiye aur time se pehle action lijiye.\n\n✓ what&#039;s msme\n📄 aasan process available\n📩 contact ke liye details\n\n💬 Koi sawaal hai? Neeche comment karo!",
+      "seo_keywords": [
+        "MSME",
+        "Prisha Online Documentation"
+      ],
+      "hashtags": [
+        "PrishaOnlineDocumentation",
+        "BusinessRegistration",
+        "GovernmentScheme",
+        "India",
+        "Maharashtra",
+        "BusinessIndia",
+        "SmallBusiness",
+        "What",
+        "Mumbai",
+        "MaharashtraBusiness",
+        "IndianBusiness",
+        "BusinessTips"
+      ]
+    },
+    "cta": "📩 DM 'INFO'",
+    "info_blocks": [
+      {
+        "icon": "✓",
+        "text": "What&#039;s MSME",
+        "highlight": ""
+      },
+      {
+        "icon": "📄",
+        "text": "Easy process available",
+        "highlight": ""
+      },
+      {
+        "icon": "📩",
+        "text": "Contact for details",
+        "highlight": ""
+      }
+    ],
+    "image_path": "/home/hp/instagram_engine/images/post_1780266199.png",
+    "use_face": false,
+    "virality_scores": {
+      "curiosity": 10,
+      "financial_opportunity": 4,
+      "urgency": 4,
+      "trust": 7,
+      "visual_appeal": 7,
+      "shareability": 6,
+      "engagement_potential": 7,
+      "local_relevance": 6,
+      "lead_generation": 7,
+      "humanization": 7
+    },
+    "overall_virality": 65.5,
+    "reference_similarity": 65,
+    "humanization_score": 10,
     "published": false,
-    "media_id": ""
-  },
-  {
-    "date": "2026-06-01",
-    "timestamp": "2026-06-01T01:41:36.072971+05:30",
-    "topic": "A-Z Guide to DPIIT Recognition for Startups",
-    "headline": "A-Z Guide to DPIIT Recognition for Startups",
-    "caption": "Most founders focus on the product and ignore the paperwork. Big mistake.\n\nMost founders focus on the product and ignore the paperwork. Big mistake.\n\nStartup India recognition by DPIIT gives your new business access to tax exemptions for 3 years, easier compliance, IPR fast-tracking, and access to government funding schemes. But the application requires proper documentation and a clear innovation story. Prisha Online Documentation's experts guide you through every step.\n\nRegister your startup with expert help — contact Prisha Online!\n\n#Startup #StartupIndia #DPIT #Entrepreneurship #NewBusiness #BusinessRegistration #StartupIndiaRegistration",
-    "hashtags": "Startup StartupIndia DPIT Entrepreneurship NewBusiness BusinessRegistration StartupIndiaRegistration",
-    "category": "Startup Registration",
-    "image_text": "A-Z Guide to DPIIT Recognition for Startups",
-    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png",
-    "published": true,
-    "media_id": "17877250158468806"
+    "media_id": "",
+    "dry_run": true
   }
 ]

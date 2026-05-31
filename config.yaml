@@ -1,90 +1,236 @@
-# config.yaml — Prisha Online Documentation Instagram Engine
+# config.yaml — Prisha Online Documentation Instagram Engine v2.0
 
 business:
   name: "Prisha Online Documentation"
   website: "www.prishaonlinedocumentation.com"
   contact: "+91 98765 43210"
-  industry: "Business Documentation & Registration Services"
-  tone: "Professional, Helpful, Trustworthy, Easy to understand"
+  industry: "Business Documentation, Registration & Government Services"
+  tone: "Professional, Trustworthy, Urgency-driven, Easy to understand"
+  niche: "Government schemes, business registration, loans, compliance"
 
-target_audience:
-  - Small business owners
-  - Shop owners
-  - Startups
-  - MSME owners
-  - Freelancers
-  - Entrepreneurs
-  - Local business owners
-  - First-time business founders
-  - People applying for government registrations
-
+# SERVICES (24 total, grouped by pillar)
 services:
-  - GST Registration
-  - Udyam Registration
-  - MSME Registration
-  - Shop Act Registration
-  - FSSAI Registration
-  - Startup Registration
-  - Company Registration
-  - Proprietorship Registration
-  - Government Scheme Assistance
-  - Business Documentation
-  - Compliance Assistance
+  registration:
+    - GST Registration
+    - Udyam Registration
+    - MSME Registration
+    - Shop Act Registration
+    - FSSAI Registration
+    - Startup Registration
+    - Company Registration
+    - Proprietorship Registration
+  loans_subsidies:
+    - PMEGP Loan
+    - Mudra Loan
+    - PM Vishwakarma
+    - Startup Funding
+    - Government Subsidies
+  compliance:
+    - Business Compliance
+    - GST Filing
+    - ITR Filing
+    - Annual Compliance
+    - License Renewal
+  certificates:
+    - Income Certificate
+    - Caste Certificate
+    - Domicile Certificate
+  digital_services:
+    - PAN Card Services
+    - Aadhaar Services
+    - Passport Assistance
+    - Scholarship Assistance
+    - CSC Services
+    - Online Government Forms
+    - Digital Services
+    - Xerox & Documentation
 
-content_categories:
-  - GST
-  - Udyam
-  - MSME
-  - FSSAI
-  - Startup Registration
-  - Business Compliance
-  - Government Schemes
-  - Shop Act
-  - Business Growth
-  - Business Awareness
+# CONTENT PILLARS (8)
+content_pillars:
+  government_schemes:    { weight: 20, templates: [government_scheme, opportunity_alert] }
+  business_registration: { weight: 15, templates: [opportunity_alert, business_growth] }
+  loans_subsidies:       { weight: 20, templates: [opportunity_alert, breaking_news] }
+  compliance_updates:    { weight: 10, templates: [warning_policy, breaking_news] }
+  business_growth:       { weight: 10, templates: [business_growth, opportunity_alert] }
+  student_services:      { weight: 10, templates: [government_scheme, quick_tips] }
+  success_stories:       { weight: 5,  templates: [business_growth] }
+  myth_vs_reality:       { weight: 10, templates: [warning_policy, breaking_news] }
 
-storytelling_frameworks:
-  - Customer Story
-  - Founder Story
-  - Business Mistake Story
-  - Real-Life Scenario
-  - Case Study
-  - Myth vs Reality
-  - Before vs After
-  - Success Journey
-  - Common Problem
-  - Hidden Opportunity
-  - FAQ Story
-  - Government Benefit Story
+# WEEKLY CONTENT MIX
+weekly_mix:
+  monday:    opportunity_alert
+  tuesday:   government_scheme
+  wednesday: breaking_news
+  thursday:  business_growth
+  friday:    warning_policy
+  saturday:  success_story
+  sunday:    quick_tips
 
+# STYLE DNA
+style:
+  colors:
+    background_primary:   "#0A0E11"
+    background_secondary: "#1A1A2E"
+    background_accent:    "#16213E"
+    text_primary:         "#FFFFFF"
+    text_secondary:       "#B0B0B0"
+    accent_green:         "#00FF88"
+    accent_yellow:        "#FFD700"
+    accent_red:           "#FF3333"
+    accent_blue:          "#4A90D9"
+  typography:
+    headline_font:  "Bebas Neue, Anton, Impact"
+    body_font:      "Montserrat, Poppins, Inter"
+    headline_size:  "72-96"
+    body_size:      "24-32"
+    cta_size:       "28-36"
+  ratios:
+    dark_background: 0.70
+    white_text:      0.20
+    accent_colors:   0.10
+  layout:
+    image_width:   1080
+    image_height:  1080
+    headline_zone: "top 20%"
+    visual_zone:   "middle 60%"
+    info_zone:     "bottom 20%"
+
+# HEADLINE PATTERNS
+headline_patterns:
+  alert:
+    prefix: "🚨"
+    patterns:
+      - "New Rule Every {target} Should Know"
+      - "Major Update For {target}"
+      - "Breaking: {topic}"
+      - "Alert: {target} Must Know This"
+  warning:
+    prefix: "⚠️"
+    patterns:
+      - "Most {target} Miss This Benefit"
+      - "Don't Apply Before Reading This"
+      - "{target} Are Losing Money"
+      - "This Mistake Costs {target} Lakhs"
+  money:
+    prefix: "💰"
+    patterns:
+      - "Government Giving {amount} Support"
+      - "This Registration Unlocks {benefit}"
+      - "Get {amount} Without Collateral"
+      - "{target} Can Save Lakhs"
+  hot:
+    prefix: "🔥"
+    patterns:
+      - "Trending: {topic}"
+      - "Why {target} Are Rushing For This"
+      - "The {topic} Everyone Is Talking About"
+  question:
+    prefix: "❓"
+    patterns:
+      - "Is Your {business} Missing This?"
+      - "Why Don't {target} Know About {topic}?"
+      - "What {target} Don't Know About {topic}"
+  growth:
+    prefix: "📈"
+    patterns:
+      - "How {target} Grew Their Business"
+      - "From Zero To {amount}: {story}"
+      - "The Secret {target} Use To Grow"
+  official:
+    prefix: "🏛"
+    patterns:
+      - "Government Launches {scheme}"
+      - "New Scheme For {target}"
+      - "Apply Now: {scheme} Opens"
+
+# CTA POOL
+cta_pool:
+  - "📩 DM 'INFO'"
+  - "💬 Comment 'GUIDE'"
+  - "📌 Save This Post"
+  - "🔁 Share With Friends"
+  - "📞 Contact Us Today"
+  - "📩 Send Message For Details"
+  - "💬 Comment 'HELP'"
+  - "🔗 Link In Bio"
+  - "📞 Call For Free Consultation"
+  - "💬 Tag Someone Who Needs This"
+  - "📌 Share With Business Friends"
+  - "💬 Comment Your Business Type"
+
+# VIRALITY METRICS (10 total)
+virality_metrics:
+  curiosity:             { weight: 1.5, threshold: 8 }
+  financial_opportunity:  { weight: 1.5, threshold: 8 }
+  urgency:               { weight: 1.2, threshold: 8 }
+  trust:                 { weight: 1.2, threshold: 8 }
+  visual_appeal:         { weight: 1.0, threshold: 8 }
+  shareability:          { weight: 1.0, threshold: 8 }
+  engagement_potential:  { weight: 1.0, threshold: 8 }
+  local_relevance:       { weight: 0.8, threshold: 8 }
+  lead_generation:       { weight: 1.5, threshold: 8 }
+  humanization:          { weight: 1.3, threshold: 8 }
+
+# FACE USAGE RULE
+face_usage:
+  enabled: true
+  percentage: 0.65
+  roles:
+    - business_consultant
+    - government_scheme_advisor
+    - registration_expert
+    - msme_expert
+    - startup_mentor
+    - documentation_specialist
+  preserve:
+    - face
+    - beard
+    - hairstyle
+    - skin_tone
+    - body_structure
+  never:
+    - beautify
+    - change_facial_structure
+    - alter_skin_tone
+    - change_beard
+
+# FEED DIVERSITY
+feed_diversity:
+  max_same_pillar_streak: 1
+  max_same_template_weekly: 2
+  history_window: 30
+  topic_dedup: true
+
+# IMAGE GENERATION
 image:
+  provider: "pil"
   width: 1080
   height: 1080
   format: "PNG"
-  brand_color_primary: "#1A3A5C"
-  brand_color_secondary: "#2E86AB"
-  brand_color_accent: "#F6A21E"
-  brand_color_white: "#FFFFFF"
-  brand_color_light_bg: "#F0F4F8"
-  brand_color_dark_text: "#1A1A2E"
-  brand_color_gray_text: "#5A6A7A"
 
-instagram:
-  caption_max_length: 2200
-  hashtag_max_count: 30
-  hashtag_min_count: 15
-
-pipeline:
-  retry_attempts: 3
-  retry_delay_seconds: 5
-  content_failsafe_enabled: true
-
+# API CONFIG
 api:
   gemini:
     model: "gemini-2.0-flash"
-    max_tokens: 1024
+    max_tokens: 2048
     temperature: 0.85
   openai:
     model: "gpt-4o-mini"
-    max_tokens: 1024
+    max_tokens: 2048
     temperature: 0.85
+
+# PIPELINE CONFIG
+pipeline:
+  max_regenerate_attempts: 3
+  headline_variations: 15
+  min_reference_similarity: 85
+  auto_publish: true
+  post_time_ist: "10:00"
+
+# FUTURE: REELS
+future:
+  reels:
+    enabled: false
+    aspect_ratio: "9:16"
+    duration_seconds: "30-60"
+    provider: "runway"
