@@ -317,11 +317,9 @@ class InstagramPublisher:
         Upload image to a publicly accessible URL so Instagram can fetch it.
 
         Strategy (in order of preference):
-        1. If IMAGE_HOST_URL env var is set, use that as base URL
-        2. Upload to Imgur (free, no auth needed for anonymous)
-        3. Return None (caller must handle)
-
-        For production, set up Cloudinary, AWS S3, or similar and set IMAGE_HOST_URL.
+        1. GitHub raw URL (for GitHub Actions CI/CD)
+        2. Imgur anonymous upload (free, requires IMGUR_CLIENT_ID)
+        3. Custom IMAGE_HOST_URL
 
         Args:
             image_path: Local path to image file
@@ -329,30 +327,38 @@ class InstagramPublisher:
         Returns:
             Publicly accessible URL string, or None on failure.
         """
-        # Option 1: Custom image host (recommended for production)
-        image_host = get_env("IMAGE_HOST_URL")
-        if image_host:
-            # If you have a server that accepts uploads, implement that here
-            # For now, just log that it's configured
-            log.info(f"IMAGE_HOST_URL configured: {image_host}")
-            # TODO: Implement upload to custom host
-            pass
+        # Option 0: Explicit image URL override (for CI/CD)
+        image_url_override = get_env("IMAGE_URL_OVERRIDE")
+        if image_url_override:
+            log.info(f"Using IMAGE_URL_OVERRIDE: {image_url_override}")
+            return image_url_override
 
-        # Option 2: Imgur anonymous upload (free, no API key needed)
+        # Option 1: GitHub Actions — construct raw GitHub URL
+        # In CI, the image is committed to the repo and accessed via raw.githubusercontent.com
+        github_repo = get_env("GITHUB_REPOSITORY")  # e.g., "SwamiChaudhari/prisha-instagram-engine"
+        if github_repo:
+            image_name = Path(image_path).name
+            github_branch = get_env("GITHUB_REF_NAME", "main")
+            raw_url = f"https://raw.githubusercontent.com/{github_repo}/{github_branch}/images/{image_name}"
+            log.info(f"Using GitHub raw URL: {raw_url}")
+            return raw_url
+
+        # Option 2: Imgur upload
         imgur_client_id = get_env("IMGUR_CLIENT_ID")
         if imgur_client_id:
             return self._upload_to_imgur(image_path, imgur_client_id)
 
-        # Option 3: If the image is already at a public URL (e.g., GitHub raw)
-        # This won't work for local files, but useful if image is pre-uploaded
-        log.warn(
-            "No image upload service configured. "
-            "Set IMGUR_CLIENT_ID or IMAGE_HOST_URL in .env. "
-            "Attempting to use GitHub raw URL if running in CI."
-        )
+        # Option 3: Custom image host
+        image_host = get_env("IMAGE_HOST_URL")
+        if image_host:
+            log.info(f"IMAGE_HOST_URL configured: {image_host}")
+            # For custom hosts, assume the image is already accessible
+            # Implement custom upload logic here if needed
 
-        # For GitHub Actions: we can commit the image and use raw.githubusercontent.com
-        # This is handled in the workflow by committing the image first
+        log.error(
+            "No image upload service configured. "
+            "Set IMGUR_CLIENT_ID for local runs, or run in GitHub Actions."
+        )
         return None
 
     def _upload_to_imgur(self, image_path: str, client_id: str) -> str | None:

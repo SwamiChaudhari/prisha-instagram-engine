@@ -9,18 +9,21 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install system dependencies for Pillow
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libjpeg-dev zlib1g-dev fonts-dejavu fonts-liberation
@@ -30,22 +33,47 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Instagram Engine
+      # Phase 1: Generate content + image, commit image to repo
+      - name: Generate content and image
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           INSTAGRAM_BUSINESS_ID: ${{ secrets.INSTAGRAM_BUSINESS_ID }}
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          IMGUR_CLIENT_ID: ${{ secrets.IMGUR_CLIENT_ID }}
         run: |
-          python main.py 2>&1 | tee run_output.log
+          python main.py --dry-run 2>&1 | tee generate_output.log
+          echo "IMAGE_NAME=$(ls images/post_*.png 2>/dev/null | tail -1 | xargs basename)" >> "$GITHUB_ENV"
 
-      - name: Commit updated post history and logs
+      - name: Commit and push image to repo
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add images/ data/ output/
+          git diff --quiet --staged || git commit -m "Image for $(date -u +%Y-%m-%d) [phase 1]"
+          git push || echo "Nothing to push"
+
+      # Phase 2: Wait for CDN, then publish with known image URL
+      - name: Wait for GitHub CDN propagation
+        run: sleep 15
+
+      - name: Publish to Instagram
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          INSTAGRAM_BUSINESS_ID: ${{ secrets.INSTAGRAM_BUSINESS_ID }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          # Override: use the known raw URL for this run's image
+          IMAGE_URL_OVERRIDE: "https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/${{ env.IMAGE_NAME }}"
+        run: |
+          python main.py 2>&1 | tee publish_output.log
+
+      - name: Commit post history and logs
         if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/generated_posts.json logs/ images/ output/ run_output.log 2>/dev/null || true
-          git diff --quiet --staged || git commit -m "Engine run: $(date -u +%Y-%m-%d)"
+          git add data/generated_posts.json logs/ output/ *.log 2>/dev/null || true
+          git diff --quiet --staged || git commit -m "Engine run: $(date -u +%Y-%m-%d) [phase 2]"
           git push || echo "Nothing to push"
