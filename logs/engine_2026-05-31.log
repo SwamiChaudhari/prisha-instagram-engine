@@ -3,3 +3,13 @@
 2026-05-30 19:00:06 │ INFO    │ dedup_engine │ Picked category: Business Awareness │ extra={'category_counts': {'GST': 1, 'Udyam': 1}}
 2026-05-30 19:00:06 │ DEBUG   │ image_engine │ Fonts loaded: regular=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf, bold=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
 2026-05-30 19:00:06 │ INFO    │ image_engine │ Image saved: /home/hp/instagram_engine/images/test_output.png
+2026-05-31 10:39:15 │ INFO    │ main │ ============================================================
+2026-05-31 10:39:15 │ INFO    │ main │   TEST: Verify Instagram Credentials
+2026-05-31 10:39:15 │ INFO    │ main │ ============================================================
+2026-05-31 10:39:16 │ ERROR   │ instagram_publisher │ Credential verification failed │ extra={'error': 'Invalid OAuth access token - Cannot parse access token', 'code': 190}
+2026-05-31 10:39:16 │ ERROR   │ main │ Credentials are INVALID or misconfigured.
+2026-05-31 10:43:45 │ INFO    │ main │ ============================================================
+2026-05-31 10:43:45 │ INFO    │ main │   TEST: Verify Instagram Credentials
+2026-05-31 10:43:45 │ INFO    │ main │ ============================================================
+2026-05-31 10:43:46 │ INFO    │ instagram_publisher │ Credentials verified: @prisha.online.multiservices │ extra={'id': '17841416139250148', 'name': 'Prisha Online Centre | CSC & Maha e-Seva'}
+2026-05-31 10:43:46 │ INFO    │ main │ Credentials are VALID.

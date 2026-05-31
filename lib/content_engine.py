@@ -144,7 +144,7 @@ class ContentEngine:
             },
         }
 
-        max_retries = 3
+        max_retries = 5
         for attempt in range(1, max_retries + 1):
             try:
                 log.debug(f"Gemini attempt {attempt}/{max_retries}")
@@ -154,6 +154,11 @@ class ContentEngine:
                     json=payload,
                     timeout=60,
                 )
+                if resp.status_code == 429:
+                    wait = 10 * attempt
+                    log.warn(f"Gemini rate limited (429), waiting {wait}s before retry", extra={"attempt": attempt})
+                    time.sleep(wait)
+                    continue
                 resp.raise_for_status()
                 data = resp.json()
 
@@ -173,7 +178,7 @@ class ContentEngine:
             except requests.exceptions.RequestException as e:
                 log.warn(f"Gemini request failed (attempt {attempt})", extra={"error": str(e)})
                 if attempt < max_retries:
-                    time.sleep(2 * attempt)
+                    time.sleep(5 * attempt)
             except Exception as e:
                 log.error(f"Gemini unexpected error: {e}")
                 break
