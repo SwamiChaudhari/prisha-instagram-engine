@@ -1,0 +1,58 @@
+20:06:00 │ INFO    │ Loaded 2 posts from history
+20:06:00 │ INFO    │ DedupEngine initialized: 2 posts in history, 2 topics tracked
+20:06:00 │ INFO    │ ============================================================
+20:06:00 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine Starting
+20:06:00 │ INFO    │ ============================================================
+20:06:00 │ INFO    │ ============================================================
+20:06:00 │ INFO    │   Step 1: Picking Category
+20:06:00 │ INFO    │ ============================================================
+20:06:00 │ INFO    │ Picked category: FSSAI │ extra={'category_counts': {'GST': 1, 'MSME': 1}}
+20:06:00 │ INFO    │ Selected category: FSSAI
+20:06:00 │ INFO    │ ============================================================
+20:06:00 │ INFO    │   Step 2: Generating Content
+20:06:00 │ INFO    │ ============================================================
+20:06:00 │ WARNING │ Gemini rate limited (429), waiting 10s before retry │ extra={'attempt': 1}
+20:06:10 │ WARNING │ Gemini rate limited (429), waiting 20s before retry │ extra={'attempt': 2}
+20:06:30 │ WARNING │ Gemini rate limited (429), waiting 30s before retry │ extra={'attempt': 3}
+20:07:00 │ WARNING │ Gemini rate limited (429), waiting 40s before retry │ extra={'attempt': 4}
+20:07:40 │ WARNING │ Gemini rate limited (429), waiting 50s before retry │ extra={'attempt': 5}
+20:08:30 │ WARNING │ OPENAI_API_KEY not set, skipping OpenAI.
+20:08:30 │ WARNING │ Both APIs failed — using template fallback
+20:08:30 │ INFO    │ Content generated │ category=FSSAI | topic=Basic vs State vs Central FSSAI License: Which One Do You Need?
+20:08:30 │ INFO    │ Topic: Basic vs State vs Central FSSAI License: Which One Do You Need?
+20:08:30 │ INFO    │ Headline: Basic vs State vs Central FSSAI License
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │   Step 3: Duplicate Check
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │   Step 4: Building Caption
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │ Caption built (671 chars)
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │   Step 5: Generating Image
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
+20:08:30 │ INFO    │ Image generated: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │   Step 6: DRY RUN — Skipping Instagram publish
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │ Dry run: post would be published with caption:
+20:08:30 │ INFO    │ Not all FSSAI licenses are the same. Picking the wrong one costs time and money.
+
+Not all FSSAI licenses are the same. Picking the wrong one costs time and money.
+
+If you're in the food business — whe...
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │   Step 7: Saving to History
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │ History saved. Total posts: 3
+20:08:30 │ INFO    │ Result saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/output/result_2026-06-01.json
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │   PIPELINE SUMMARY
+20:08:30 │ INFO    │ ============================================================
+20:08:30 │ INFO    │ Date:      2026-06-01
+20:08:30 │ INFO    │ Category:  FSSAI
+20:08:30 │ INFO    │ Topic:     Basic vs State vs Central FSSAI License: Which One Do You Need?
+20:08:30 │ INFO    │ Headline:  Basic vs State vs Central FSSAI License
+20:08:30 │ INFO    │ Success:   True
+20:08:30 │ INFO    │ Skipped:   False

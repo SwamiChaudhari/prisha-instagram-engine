@@ -72,3 +72,133 @@ MSME registration opens ...
 2026-05-31 19:56:00 │ INFO    │ main │ Headline:  Top 5 Benefits of MSME Registration Most Business Owners Don
 2026-05-31 19:56:00 │ INFO    │ main │ Success:   True
 2026-05-31 19:56:00 │ INFO    │ main │ Skipped:   False
+2026-05-31 20:06:00 │ INFO    │ main │ Loaded 2 posts from history
+2026-05-31 20:06:00 │ INFO    │ dedup_engine │ DedupEngine initialized: 2 posts in history, 2 topics tracked
+2026-05-31 20:06:00 │ DEBUG   │ image_engine │ Fonts loaded: regular=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf, bold=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+2026-05-31 20:06:00 │ INFO    │ main │ ============================================================
+2026-05-31 20:06:00 │ INFO    │ main │   PRISHA ONLINE DOCUMENTATION — Instagram Engine Starting
+2026-05-31 20:06:00 │ INFO    │ main │ ============================================================
+2026-05-31 20:06:00 │ INFO    │ main │ ============================================================
+2026-05-31 20:06:00 │ INFO    │ main │   Step 1: Picking Category
+2026-05-31 20:06:00 │ INFO    │ main │ ============================================================
+2026-05-31 20:06:00 │ INFO    │ dedup_engine │ Picked category: FSSAI │ extra={'category_counts': {'GST': 1, 'MSME': 1}}
+2026-05-31 20:06:00 │ INFO    │ main │ Selected category: FSSAI
+2026-05-31 20:06:00 │ INFO    │ main │ ============================================================
+2026-05-31 20:06:00 │ INFO    │ main │   Step 2: Generating Content
+2026-05-31 20:06:00 │ INFO    │ main │ ============================================================
+2026-05-31 20:06:00 │ DEBUG   │ content_engine │ Gemini attempt 1/5
+2026-05-31 20:06:00 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 10s before retry │ extra={'attempt': 1}
+2026-05-31 20:06:10 │ DEBUG   │ content_engine │ Gemini attempt 2/5
+2026-05-31 20:06:10 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 20s before retry │ extra={'attempt': 2}
+2026-05-31 20:06:30 │ DEBUG   │ content_engine │ Gemini attempt 3/5
+2026-05-31 20:06:30 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 30s before retry │ extra={'attempt': 3}
+2026-05-31 20:07:00 │ DEBUG   │ content_engine │ Gemini attempt 4/5
+2026-05-31 20:07:00 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 40s before retry │ extra={'attempt': 4}
+2026-05-31 20:07:40 │ DEBUG   │ content_engine │ Gemini attempt 5/5
+2026-05-31 20:07:40 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 50s before retry │ extra={'attempt': 5}
+2026-05-31 20:08:30 │ WARNING │ content_engine │ OPENAI_API_KEY not set, skipping OpenAI.
+2026-05-31 20:08:30 │ WARNING │ content_engine │ Both APIs failed — using template fallback
+2026-05-31 20:08:30 │ INFO    │ content_engine │ Content generated │ category=FSSAI | topic=Basic vs State vs Central FSSAI License: Which One Do You Need?
+2026-05-31 20:08:30 │ INFO    │ main │ Topic: Basic vs State vs Central FSSAI License: Which One Do You Need?
+2026-05-31 20:08:30 │ INFO    │ main │ Headline: Basic vs State vs Central FSSAI License
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │   Step 3: Duplicate Check
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │   Step 4: Building Caption
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │ Caption built (671 chars)
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │   Step 5: Generating Image
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ image_engine │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
+2026-05-31 20:08:30 │ INFO    │ main │ Image generated: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │   Step 6: DRY RUN — Skipping Instagram publish
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │ Dry run: post would be published with caption:
+2026-05-31 20:08:30 │ INFO    │ main │ Not all FSSAI licenses are the same. Picking the wrong one costs time and money.
+
+Not all FSSAI licenses are the same. Picking the wrong one costs time and money.
+
+If you're in the food business — whe...
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │   Step 7: Saving to History
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │ History saved. Total posts: 3
+2026-05-31 20:08:30 │ INFO    │ main │ Result saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/output/result_2026-06-01.json
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │   PIPELINE SUMMARY
+2026-05-31 20:08:30 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:30 │ INFO    │ main │ Date:      2026-06-01
+2026-05-31 20:08:30 │ INFO    │ main │ Category:  FSSAI
+2026-05-31 20:08:30 │ INFO    │ main │ Topic:     Basic vs State vs Central FSSAI License: Which One Do You Need?
+2026-05-31 20:08:30 │ INFO    │ main │ Headline:  Basic vs State vs Central FSSAI License
+2026-05-31 20:08:30 │ INFO    │ main │ Success:   True
+2026-05-31 20:08:30 │ INFO    │ main │ Skipped:   False
+2026-05-31 20:08:47 │ INFO    │ main │ Loaded 3 posts from history
+2026-05-31 20:08:47 │ INFO    │ dedup_engine │ DedupEngine initialized: 3 posts in history, 3 topics tracked
+2026-05-31 20:08:47 │ DEBUG   │ image_engine │ Fonts loaded: regular=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf, bold=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+2026-05-31 20:08:47 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:47 │ INFO    │ main │   PRISHA ONLINE DOCUMENTATION — Instagram Engine Starting
+2026-05-31 20:08:47 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:47 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:47 │ INFO    │ main │   Step 1: Picking Category
+2026-05-31 20:08:47 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:47 │ INFO    │ dedup_engine │ Picked category: Startup Registration │ extra={'category_counts': {'GST': 1, 'MSME': 1, 'FSSAI': 1}}
+2026-05-31 20:08:47 │ INFO    │ main │ Selected category: Startup Registration
+2026-05-31 20:08:47 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:47 │ INFO    │ main │   Step 2: Generating Content
+2026-05-31 20:08:47 │ INFO    │ main │ ============================================================
+2026-05-31 20:08:47 │ DEBUG   │ content_engine │ Gemini attempt 1/5
+2026-05-31 20:08:47 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 10s before retry │ extra={'attempt': 1}
+2026-05-31 20:08:57 │ DEBUG   │ content_engine │ Gemini attempt 2/5
+2026-05-31 20:08:57 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 20s before retry │ extra={'attempt': 2}
+2026-05-31 20:09:17 │ DEBUG   │ content_engine │ Gemini attempt 3/5
+2026-05-31 20:09:17 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 30s before retry │ extra={'attempt': 3}
+2026-05-31 20:09:47 │ DEBUG   │ content_engine │ Gemini attempt 4/5
+2026-05-31 20:09:47 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 40s before retry │ extra={'attempt': 4}
+2026-05-31 20:10:27 │ DEBUG   │ content_engine │ Gemini attempt 5/5
+2026-05-31 20:10:27 │ WARNING │ content_engine │ Gemini rate limited (429), waiting 50s before retry │ extra={'attempt': 5}
+2026-05-31 20:11:17 │ WARNING │ content_engine │ OPENAI_API_KEY not set, skipping OpenAI.
+2026-05-31 20:11:17 │ WARNING │ content_engine │ Both APIs failed — using template fallback
+2026-05-31 20:11:17 │ INFO    │ content_engine │ Content generated │ category=Startup Registration | topic=A-Z Guide to DPIIT Recognition for Startups
+2026-05-31 20:11:17 │ INFO    │ main │ Topic: A-Z Guide to DPIIT Recognition for Startups
+2026-05-31 20:11:17 │ INFO    │ main │ Headline: A-Z Guide to DPIIT Recognition for Startups
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ main │   Step 3: Duplicate Check
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ main │   Step 4: Building Caption
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ main │ Caption built (648 chars)
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ main │   Step 5: Generating Image
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ image_engine │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
+2026-05-31 20:11:17 │ INFO    │ main │ Image generated: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ main │   Step 6: Publishing to Instagram
+2026-05-31 20:11:17 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:17 │ INFO    │ instagram_publisher │ Using IMAGE_URL_OVERRIDE: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_2026-06-01.png
+2026-05-31 20:11:17 │ DEBUG   │ instagram_publisher │ Creating media container (attempt 1/3)
+2026-05-31 20:11:22 │ INFO    │ instagram_publisher │ Media container created: 18129021046537976
+2026-05-31 20:11:22 │ INFO    │ instagram_publisher │ Waiting for media processing...
+2026-05-31 20:11:32 │ DEBUG   │ instagram_publisher │ Publishing container (attempt 1/3)
+2026-05-31 20:11:36 │ INFO    │ instagram_publisher │ Container published: 17877250158468806
+2026-05-31 20:11:36 │ INFO    │ instagram_publisher │ Post published successfully! Media ID: 17877250158468806
+2026-05-31 20:11:36 │ INFO    │ main │ Published! Media ID: 17877250158468806
+2026-05-31 20:11:36 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:36 │ INFO    │ main │   Step 7: Saving to History
+2026-05-31 20:11:36 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:36 │ INFO    │ main │ History saved. Total posts: 4
+2026-05-31 20:11:36 │ INFO    │ main │ Result saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/output/result_2026-06-01.json
+2026-05-31 20:11:36 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:36 │ INFO    │ main │   PIPELINE SUMMARY
+2026-05-31 20:11:36 │ INFO    │ main │ ============================================================
+2026-05-31 20:11:36 │ INFO    │ main │ Date:      2026-06-01
+2026-05-31 20:11:36 │ INFO    │ main │ Category:  Startup Registration
+2026-05-31 20:11:36 │ INFO    │ main │ Topic:     A-Z Guide to DPIIT Recognition for Startups
+2026-05-31 20:11:36 │ INFO    │ main │ Headline:  A-Z Guide to DPIIT Recognition for Startups
+2026-05-31 20:11:36 │ INFO    │ main │ Success:   True
+2026-05-31 20:11:36 │ INFO    │ main │ Skipped:   False
