@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
+    # Grant GITHUB_TOKEN permission to push
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_TOKEN }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -35,6 +38,7 @@ jobs:
 
       # Phase 1: Generate content + image, commit image to repo
       - name: Generate content and image
+        id: generate
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -43,9 +47,11 @@ jobs:
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
         run: |
           python main.py --dry-run 2>&1 | tee generate_output.log
-          echo "IMAGE_NAME=$(ls images/post_*.png 2>/dev/null | tail -1 | xargs basename)" >> "$GITHUB_ENV"
+          IMAGE_NAME=$(ls images/post_*.png 2>/dev/null | tail -1 | xargs basename 2>/dev/null)
+          echo "IMAGE_NAME=$IMAGE_NAME" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push image to repo
+        if: steps.generate.outputs.IMAGE_NAME != ''
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -55,17 +61,18 @@ jobs:
 
       # Phase 2: Wait for CDN, then publish with known image URL
       - name: Wait for GitHub CDN propagation
+        if: steps.generate.outputs.IMAGE_NAME != ''
         run: sleep 15
 
       - name: Publish to Instagram
+        if: steps.generate.outputs.IMAGE_NAME != ''
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           INSTAGRAM_BUSINESS_ID: ${{ secrets.INSTAGRAM_BUSINESS_ID }}
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
-          # Override: use the known raw URL for this run's image
-          IMAGE_URL_OVERRIDE: "https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/${{ env.IMAGE_NAME }}"
+          IMAGE_URL_OVERRIDE: "https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/${{ steps.generate.outputs.IMAGE_NAME }}"
         run: |
           python main.py 2>&1 | tee publish_output.log
 
