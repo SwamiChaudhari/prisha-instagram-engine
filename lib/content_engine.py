@@ -112,24 +112,283 @@ class ContentEngine:
         tone = self.config.get("business", {}).get("tone", "Professional")
         prompt = _make_user_prompt(category, used_topics, used_headlines, services, frameworks, tone)
 
-        # Try Gemini first, then OpenAI
+        # Try Gemini first, then OpenAI, then template fallback
         result = self._try_gemini(prompt)
         if result is None:
             result = self._try_openai(prompt)
         if result is None:
-            raise RuntimeError("Both Gemini and OpenAI content generation failed. Check API keys and quotas.")
+            log.warn("Both APIs failed — using template fallback")
+            result = self._template_fallback(category, used_topics, used_headlines)
 
         # Validate
         validated = self._validate_output(result, category)
         log.info("Content generated", category=category, topic=validated.get("topic", ""))
         return validated
 
+    # ── Template Fallback ───────────────────────────────────────────────────────
+
+    def _template_fallback(self, category: str, used_topics: list[str], used_headlines: list[str]) -> dict:
+        """
+        Generate content from templates when all APIs are unavailable.
+        Cycles through predefined topics/headlines based on hash of used history.
+        """
+        import hashlib
+
+        templates = {
+            "GST": {
+                "topics": [
+                    "GST Registration for Freelancers — Is It Really Necessary?",
+                    "Common GST Filing Mistakes That Lead to Penalties",
+                    "How GST Input Tax Credit Can Save Your Business Money",
+                    "GST Composition Scheme: Perfect for Small Businesses?",
+                    "Why Every E-commerce Seller Needs GST Registration",
+                ],
+                "hooks": [
+                    "Freelancers — are you ignoring GST and risking penalties?",
+                    "Most small businesses overpay GST because of these simple mistakes.",
+                    "What if you could legally reduce your tax bill by lakhs?",
+                    "Running a business without GST? Here's what you need to know.",
+                ],
+                "ctas": [
+                    "Need help with GST? DM us today!",
+                    "Call Prisha Online Documentation for hassle-free GST registration.",
+                    "Visit www.prishaonlinedocumentation.com to get started.",
+                ],
+                "hashtags": ["GST", "GSTRegistration", "TaxTips", "SmallBusinessIndia", "BusinessCompliance", "FreelancerLife", "GSTFiling", "TaxSaving"],
+            },
+            "Udyam": {
+                "topics": [
+                    "Udyam Registration: Your Business Gateway to Government Benefits",
+                    "How Udyam Registration Helped 10,000+ MSMEs Get Bank Loans",
+                    "Udyam Registration vs MSME Registration: What's the Difference?",
+                    "Step-by-Step Udyam Registration Process in 2024-25",
+                    "Why Udyam Registration Must Be Renewed — And How to Do It",
+                ],
+                "hooks": [
+                    "Did you know your small business can get loans at lower interest rates?",
+                    "Over 10,000 MSMEs unlocked benefits they didn't know existed.",
+                    "Most business owners still don't know the difference between Udyam and MSME.",
+                    "Skipping Udyam registration? You're leaving money on the table.",
+                ],
+                "ctas": [
+                    "Register your business on Udyam today — contact us!",
+                    "Let Prisha Online Documentation handle your Udyam registration.",
+                    "DM us 'UDYAM' to get started in 5 minutes.",
+                ],
+                "hashtags": ["Udyam", "UdyamRegistration", "MSMEIndia", "SmallBusiness", "GovernmentScheme", "BusinessRegistration", "StartupIndia"],
+            },
+            "MSME": {
+                "topics": [
+                    "MSME Registration: The Easiest Way to Legally Recognize Your Business",
+                    "Top 5 Benefits of MSME Registration Most Business Owners Don't Know",
+                    "How MSME Registration Helped a Local Shop Owner Get a 20 Lakh Loan",
+                    "MSME Government Subsidies: Are You Missing Out?",
+                    "Why Every Street Food Vendor Should Get MSME Registration",
+                ],
+                "hooks": [
+                    "Your small business deserves bigger opportunities — here's how to unlock them.",
+                    "A local shop owner once struggled to get a loan. MSME registration changed everything.",
+                    "The Indian government has allocated crores in subsidies for MSMEs. Are you registered?",
+                    "Even street vendors can now get government benefits. Here's how.",
+                ],
+                "ctas": [
+                    "Get your MSME certificate in 3-5 days. Call us now!",
+                    "Prisha Online Documentation — your trusted MSME registration partner.",
+                    "DM 'MSME' and we'll call you back within 24 hours.",
+                ],
+                "hashtags": ["MSME", "MSMERegistration", "SmallBusiness", "GovernmentScheme", "MakeInIndia", "BusinessIndia", "MICROBUSINESS"],
+            },
+            "FSSAI": {
+                "topics": [
+                    "FSSAI License for Home-Based Food Business — Everything You Need to Know",
+                    "Selling Food Online Without FSSAI? You Could Face Heavy Penalties",
+                    "Basic vs State vs Central FSSAI License: Which One Do You Need?",
+                    "How to Get FSSAI License for Your Cloud Kitchen in 7 Days",
+                    "FSSAI Renewal: Don't Let Your Food Business License Expire",
+                ],
+                "hooks": [
+                    "Starting a food business from home? FSSAI license is mandatory — not optional.",
+                    "Selling on Instagram or Zomato without FSSAI? Big mistake.",
+                    "Not all FSSAI licenses are the same. Picking the wrong one costs time and money.",
+                    "Your cloud kitchen can be fully legal in just one week.",
+                ],
+                "ctas": [
+                    "Apply for FSSAI license with Prisha Online Documentation today!",
+                    "Call us for FSSAI registration — quick, easy, affordable.",
+                    "DM 'FSSAI' for a free consultation on food business licensing.",
+                ],
+                "hashtags": ["FSSAI", "FSSAILicense", "FoodBusiness", "CloudKitchen", "HomeBusiness", "FoodSafety", "FoodLicense"],
+            },
+            "Startup Registration": {
+                "topics": [
+                    "Startup India Registration: Benefits Worth Lakhs for New Businesses",
+                    "How Startup India Recognition Helped This Founder Get Tax-Free Funding",
+                    "Startup vs Pvt Ltd: Which Business Structure Should You Choose?",
+                    "A-Z Guide to DPIIT Recognition for Startups",
+                    "Why Most Early-Stage Startups Delay Registration (And Regret It)",
+                ],
+                "hooks": [
+                    "Your great business idea deserves government backing. Here's how to get it.",
+                    "One founder saved 3 years of income tax by registering correctly.",
+                    "Choosing the wrong business structure can cost you lakhs in the long run.",
+                    "Most founders focus on the product and ignore the paperwork. Big mistake.",
+                ],
+                "ctas": [
+                    "Register your startup with expert help — contact Prisha Online!",
+                    "DM 'STARTUP' and we'll guide you through the entire process.",
+                    "Startup registration takes 2-3 days with us. Call now!",
+                ],
+                "hashtags": ["Startup", "StartupIndia", "DPIT", "Entrepreneurship", "NewBusiness", "BusinessRegistration", "StartupIndiaRegistration"],
+            },
+            "Company Registration": {
+                "topics": [
+                    "One Person Company (OPC): The Best Structure for Solo Founders",
+                    "Pvt Ltd vs OPC vs LLP: Which One Fits Your Business?",
+                    "How to Register a Company in India in Under 7 Days",
+                    "Common Company Registration Mistakes That Cause MCA Rejection",
+                    "Why Registering Early Saves Your Business from Legal Trouble",
+                ],
+                "hooks": [
+                    "Solo entrepreneur? OPC might be the perfect structure for you.",
+                    "Picking the wrong business entity can cost you double the taxes.",
+                    "Yes, you can register a company in India without leaving your home.",
+                    "The #1 reason MCA rejects company applications — and how to avoid it.",
+                ],
+                "ctas": [
+                    "Register your company with Prisha Online Documentation — hassle-free!",
+                    "DM 'COMPANY' for a free consultation on business structure.",
+                    "Call us to find the best structure for your new business.",
+                ],
+                "hashtags": ["CompanyRegistration", "PvtLtd", "OPC", "LLP", "BusinessInIndia", "MCA", "Entrepreneurship"],
+            },
+            "Proprietorship Registration": {
+                "topics": [
+                    "Sole Proprietorship: Simplest Way to Make Your Business Legal",
+                    "Why Every Freelancer Should Register as a Sole Proprietor",
+                    "Proprietorship Registration: Costs, Documents, and Timeline",
+                    "Door-to-Door Business? Proprietorship Registration Makes It Legit",
+                    "How to Open a Business Bank Account Without a Proprietorship Certificate",
+                ],
+                "hooks": [
+                    "Running your own business informally? Time to make it official.",
+                    "Freelancers: your work is legal the moment you register as a proprietor.",
+                    "No complex paperwork. No heavy fees. Just simple, legit business.",
+                    "Even small door-to-door businesses need this one certificate.",
+                ],
+                "ctas": [
+                    "Get your proprietorship registered in 2-3 days. Call Prisha Online!",
+                    "DM 'SOLE' to start your proprietorship registration today.",
+                    "Simple. Fast. Legal. Visit www.prishaonlinedocumentation.com",
+                ],
+                "hashtags": ["Proprietorship", "SoleProprietor", "SmallBusiness", "BusinessRegistration", "Freelancer", "BusinessIndia"],
+            },
+            "Government Schemes": {
+                "topics": [
+                    "PMEGP Scheme: Get Up to 25 Lakhs Subsidy for Your Small Business",
+                    "Mudra Loan Under PMMY: How to Apply and How Much You Can Get",
+                    "Stand-Up India SCHEME: Loans for SC/ST Women Entrepreneurs",
+                    "Credit Guarantee Scheme (CGTMSE): Loans Without Collateral",
+                    "PM Vishwakarma Scheme: Benefits for Artisans and Craftsmen",
+                ],
+                "hooks": [
+                    "The government is literally giving away lakhs in subsidies. Are you applying?",
+                    "No collateral. No heavy paperwork. Just a small business and a dream.",
+                    "Women entrepreneurs: a special government scheme wants to fund your dream.",
+                    "Banks rejecting your loan application? CGTMSE has your back.",
+                ],
+                "ctas": [
+                    "Check your eligibility today — call Prisha Online Documentation!",
+                    "DM 'SCHEME' and we'll identify which government benefits you qualify for.",
+                    "Get expert assistance with government scheme applications.",
+                ],
+                "hashtags": ["GovernmentScheme", "PMEGP", "MudraLoan", "StandUpIndia", "CGTMSE", "SmallBusiness", "Subsidy"],
+            },
+            "Shop Act Registration": {
+                "topics": [
+                    "Shop Act License: Why Every Retail Business in India Needs One",
+                    "How to Get Shop Act License in Under 5 Days",
+                    "Running a Business Without Shop Act License? Here Are the Penalties",
+                    "Shop Act Registration Documents Checklist: Don't Miss Any",
+                    "The Complete Guide to Shop Act Renewal Process",
+                ],
+                "hooks": [
+                    "If you run any shop or commercial establishment, this license is mandatory.",
+                    "Surprise inspections are real. Is your shop legally compliant?",
+                    "The fines for running without Shop Act can shut down your business.",
+                    "Missing one document can delay your license by weeks.",
+                ],
+                "ctas": [
+                    "Get your Shop Act license quickly with Prisha Online!",
+                    "DM 'SHOP ACT' to apply for your license today.",
+                    "Call us — we handle the entire process for you.",
+                ],
+                "hashtags": ["ShopAct", "ShopActLicense", "BusinessLicense", "RetailBusiness", "Compliance", "BusinessIndia"],
+            },
+            "Business Compliance": {
+                "topics": [
+                    "Annual Compliance Checklist for Small Businesses in India",
+                    "ITR Filing for Business Owners: Deadline Reminder and Penalties",
+                    "GST + ITR + Annual Compliance: Your Complete Guide",
+                    "Why Compliance Is the Cheapest Insurance for Your Business",
+                    "New Business? Here's Your First-Year Compliance Checklist",
+                ],
+                "hooks": [
+                    "Missing compliance deadlines? You could face lakhs in penalties.",
+                    "Business owners: your ITR deadline is closer than you think.",
+                    "Most new business owners don't know they need GST AND ITR AND annual filings.",
+                    "Think of compliance as insurance — cheap now, expensive if ignored.",
+                ],
+                "ctas": [
+                    "Stay compliant, stay stress-free. Contact Prisha Online!",
+                    "DM 'COMPLIANCE' for a free first-year compliance consultation.",
+                    "Let our experts handle your business compliance end-to-end.",
+                ],
+                "hashtags": ["Compliance", "ITRFiling", "GSTFiling", "BusinessIndia", "TaxFiling", "SmallBusiness", "LegalCompliance"],
+            },
+        }
+
+        # Default to a generic template if category not found
+        cat_templates = templates.get(category, templates["GST"])
+
+        # Pick based on how many topics already used (cycle through)
+        idx = len(used_topics) % len(cat_templates["topics"])
+
+        topic = cat_templates["topics"][idx]
+        hook = cat_templates["hooks"][idx % len(cat_templates["hooks"])]
+        cta = cat_templates["ctas"][idx % len(cat_templates["ctas"])]
+        hashtags = cat_templates["hashtags"]
+
+        # Build caption from hook + topic context + cta
+        service_context = {
+            "GST": "GST registration is mandatory for businesses with turnover above the threshold. It not only makes your business legal but also allows you to claim input tax credit. Many freelancers and small business owners delay GST registration and end up facing penalties. At Prisha Online Documentation, we handle end-to-end GST registration so you can focus on your business.",
+            "Udyam": "Udyam Registration is the Indian government's way of recognizing MSMEs. Once registered, your business becomes eligible for priority lending, lower interest rates on loans, tax benefits, and access to government tenders. The process is entirely online and free of cost. Prisha Online Documentation helps you get your Udyam certificate in just 3-5 working days.",
+            "MSME": "MSME registration opens doors to countless government benefits — from subsidized loans to tax exemptions, electricity bill reductions, and protection against delayed payments. Whether you're a tiny shop owner or a growing startup, being an MSME-registered business gives you a competitive edge. Let Prisha Online Documentation handle your registration.",
+            "FSSAI": "If you're in the food business — whether it's a cloud kitchen, restaurant, home bakery, or food truck — an FSSAI license isn't optional. It's the law. Operating without one can lead to heavy fines and even imprisonment. Prisha Online Documentation helps you get the right FSSAI license (Basic, State, or Central) based on your business size and turnover.",
+            "Startup Registration": "Startup India recognition by DPIIT gives your new business access to tax exemptions for 3 years, easier compliance, IPR fast-tracking, and access to government funding schemes. But the application requires proper documentation and a clear innovation story. Prisha Online Documentation's experts guide you through every step.",
+            "Company Registering": "Registering your company isn't just about legality — it's about building trust. A registered company can open corporate bank accounts, raise funding, sign contracts, and protect your personal assets. Whether it's OPC, Pvt Ltd, or LLP, we pick the right structure for you. Prisha Online Documentation makes company registration simple.",
+            "Proprietorship Registration": "A sole proprietorship is the simplest business structure in India. It requires minimal documentation, zero heavy compliance, and can be registered in just 2-3 days. Perfect for freelancers, consultants, and small shop owners who want to go legit without the complexity. Prisha Online Documentation does it all — quickly and affordably.",
+            "Government Schemes": "The Indian government runs dozens of schemes to support small businesses — from PMEGP subsidies to Mudra loans, Stand-Up India, and CGTMSE collateral-free loans. But most business owners either don't know about them or struggle with the paperwork. Prisha Online Documentation identifies which schemes you qualify for and handles the application.",
+            "Shop Act Registration": "The Shop and Establishment Act license is mandatory for every commercial establishment in India — shops, offices, restaurants, and more. Without it, you risk fines, legal complications, and even forced closure. The good news? It can be done in under 5 days. Prisha Online Documentation handles your Shop Act registration from start to finish.",
+            "Business Compliance": "Running a business means more than just making sales — you need to stay on top of GST returns, income tax filings, annual reports, and regulatory deadlines. Miss one and penalties pile up fast. Prisha Online Documentation offers comprehensive compliance packages so you never miss a deadline.",
+        }
+
+        return {
+            "topic": topic,
+            "category": category,
+            "headline": topic.split(":")[0] if ":" in topic else topic[:60],
+            "hook": hook,
+            "caption": f"{hook}\n\n{service_context.get(category, service_context['GST'])}",
+            "cta": cta,
+            "hashtags": hashtags,
+            "image_text": topic.split(":")[0][:50] if ":" in topic else topic[:50],
+        }
+
     # ── Gemini ─────────────────────────────────────────────────────────────────
 
     def _try_gemini(self, prompt: str) -> dict | None:
         api_key = get_env("GEMINI_API_KEY")
         if not api_key:
-            log.warn("GEMININ_API_KEY not set, skipping Gemini.")
+            log.warn("GEMINI_API_KEY not set, skipping Gemini.")
             return None
 
         model = self.api_config.get("gemini", {}).get("model", "gemini-2.0-flash")

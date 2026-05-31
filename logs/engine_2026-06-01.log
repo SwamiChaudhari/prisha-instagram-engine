@@ -1,0 +1,74 @@
+2026-05-31 19:41:43 │ INFO    │ main │ ============================================================
+2026-05-31 19:41:43 │ INFO    │ main │   TEST: Verify Instagram Credentials
+2026-05-31 19:41:43 │ INFO    │ main │ ============================================================
+2026-05-31 19:41:44 │ INFO    │ instagram_publisher │ Credentials verified: @prisha.online.multiservices │ extra={'id': '17841416139250148', 'name': 'Prisha Online Centre | CSC & Maha e-Seva'}
+2026-05-31 19:41:44 │ INFO    │ main │ Credentials are VALID.
+2026-05-31 19:42:05 │ INFO    │ main │ ============================================================
+2026-05-31 19:42:05 │ INFO    │ main │   TEST: Content Generation
+2026-05-31 19:42:05 │ INFO    │ main │ ============================================================
+2026-05-31 19:42:05 │ INFO    │ dedup_engine │ DedupEngine initialized: 1 posts in history, 1 topics tracked
+2026-05-31 19:42:05 │ INFO    │ dedup_engine │ Picked category: MSME │ extra={'category_counts': {'GST': 1}}
+2026-05-31 19:42:05 │ WARNING │ content_engine │ GEMININ_API_KEY not set, skipping Gemini.
+2026-05-31 19:42:05 │ WARNING │ content_engine │ OPENAI_API_KEY not set, skipping OpenAI.
+2026-05-31 19:42:05 │ ERROR   │ main │ Both Gemini and OpenAI content generation failed. Check API keys and quotas.
+2026-05-31 19:45:03 │ INFO    │ main │ ============================================================
+2026-05-31 19:45:03 │ INFO    │ main │   TEST: Image Generation
+2026-05-31 19:45:03 │ INFO    │ main │ ============================================================
+2026-05-31 19:45:03 │ DEBUG   │ image_engine │ Fonts loaded: regular=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf, bold=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+2026-05-31 19:45:03 │ INFO    │ image_engine │ Image saved: /home/hp/instagram_engine/images/post_2026-06-01.png
+2026-05-31 19:45:03 │ INFO    │ main │ Test image saved: /home/hp/instagram_engine/images/post_2026-06-01.png
+2026-05-31 19:56:00 │ INFO    │ main │ Loaded 1 posts from history
+2026-05-31 19:56:00 │ INFO    │ dedup_engine │ DedupEngine initialized: 1 posts in history, 1 topics tracked
+2026-05-31 19:56:00 │ DEBUG   │ image_engine │ Fonts loaded: regular=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf, bold=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   PRISHA ONLINE DOCUMENTATION — Instagram Engine Starting
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   Step 1: Picking Category
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ dedup_engine │ Picked category: MSME │ extra={'category_counts': {'GST': 1}}
+2026-05-31 19:56:00 │ INFO    │ main │ Selected category: MSME
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   Step 2: Generating Content
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ WARNING │ content_engine │ GEMINI_API_KEY not set, skipping Gemini.
+2026-05-31 19:56:00 │ WARNING │ content_engine │ OPENAI_API_KEY not set, skipping OpenAI.
+2026-05-31 19:56:00 │ WARNING │ content_engine │ Both APIs failed — using template fallback
+2026-05-31 19:56:00 │ INFO    │ content_engine │ Content generated │ category=MSME | topic=Top 5 Benefits of MSME Registration Most Business Owners Don't Know
+2026-05-31 19:56:00 │ INFO    │ main │ Topic: Top 5 Benefits of MSME Registration Most Business Owners Don't Know
+2026-05-31 19:56:00 │ INFO    │ main │ Headline: Top 5 Benefits of MSME Registration Most Business Owners Don
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   Step 3: Duplicate Check
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   Step 4: Building Caption
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │ Caption built (700 chars)
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   Step 5: Generating Image
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ image_engine │ Image saved: /home/hp/instagram_engine/images/post_2026-06-01.png
+2026-05-31 19:56:00 │ INFO    │ main │ Image generated: /home/hp/instagram_engine/images/post_2026-06-01.png
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   Step 6: DRY RUN — Skipping Instagram publish
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │ Dry run: post would be published with caption:
+2026-05-31 19:56:00 │ INFO    │ main │ A local shop owner once struggled to get a loan. MSME registration changed everything.
+
+A local shop owner once struggled to get a loan. MSME registration changed everything.
+
+MSME registration opens ...
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   Step 7: Saving to History
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │ History saved. Total posts: 2
+2026-05-31 19:56:00 │ INFO    │ main │ Result saved: /home/hp/instagram_engine/output/result_2026-06-01.json
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │   PIPELINE SUMMARY
+2026-05-31 19:56:00 │ INFO    │ main │ ============================================================
+2026-05-31 19:56:00 │ INFO    │ main │ Date:      2026-06-01
+2026-05-31 19:56:00 │ INFO    │ main │ Category:  MSME
+2026-05-31 19:56:00 │ INFO    │ main │ Topic:     Top 5 Benefits of MSME Registration Most Business Owners Don't Know
+2026-05-31 19:56:00 │ INFO    │ main │ Headline:  Top 5 Benefits of MSME Registration Most Business Owners Don
+2026-05-31 19:56:00 │ INFO    │ main │ Success:   True
+2026-05-31 19:56:00 │ INFO    │ main │ Skipped:   False
