@@ -1,10 +1,12 @@
 """
 style_analyzer.py — Analyze reference style and select best template for a topic.
 
-Uses the reference DNA (dark theme, news-style, info-dense) to:
-1. Select the best template for a given topic/category
-2. Generate layout specifications for the image engine
-3. Ensure consistency with reference style
+Selects from 5 premium templates:
+  authority_card    — Dark gradient, headline, stat highlights, cards, CTA
+  breaking_impact   — Bold solid bg, accent bars, row cards, big stats
+  compare_contrast  — Split layout, before/after, checklist
+  infographic_story — Vertical numbered steps, progress dots, summary
+  social_proof      — Testimonial, stat callout, quote typography
 """
 
 import random
@@ -18,29 +20,37 @@ TEMPLATES_PATH = PROJECT_ROOT / "templates" / "layout_templates.yaml"
 
 # Template selection rules based on category + topic keywords
 TEMPLATE_RULES = {
-    "breaking_news": {
-        "categories": ["compliance", "tax", "announcement"],
-        "keywords": ["deadline", "urgent", "alert", "warning", "new rule", "update", "breaking", "mandatory", "penalty"],
+    "breaking_impact": {
+        "categories": ["compliance", "tax", "compliance_updates"],
+        "keywords": ["deadline", "urgent", "alert", "warning", "new rule", "update",
+                     "breaking", "mandatory", "penalty", "fine", "act", "section"],
         "priority": 1,
     },
-    "opportunity_alert": {
-        "categories": ["loan_subsidy", "government_schemes"],
-        "keywords": ["loan", "subsidy", "scheme", "benefit", "apply", "eligible", "lakh", "crore", "fund", "grant", "free"],
+    "authority_card": {
+        "categories": ["loan_subsidy", "government_schemes", "loans_subsidies",
+                       "business_registration", "registration"],
+        "keywords": ["loan", "subsidy", "scheme", "benefit", "apply", "eligible",
+                     "lakh", "crore", "fund", "grant", "free", "registration",
+                     "udyam", "gst", "fssai", "shop act", "msme"],
         "priority": 1,
     },
-    "government_scheme": {
-        "categories": ["registration", "certificates", "government_schemes"],
-        "keywords": ["register", "certificate", "scheme", "government", "official", "launch", "announce", "udyam", "gst", "fssai", "shop act"],
+    "infographic_story": {
+        "categories": ["certificates", "student_services", "digital_services"],
+        "keywords": ["register", "certificate", "step", "guide", "how to", "process",
+                     "apply", "document", "process", "aadhaar", "pan", "passport",
+                     "scholarship", "csc"],
         "priority": 1,
     },
-    "business_growth": {
+    "social_proof": {
         "categories": ["business_growth", "success_stories"],
-        "keywords": ["grow", "success", "tip", "strategy", "hack", "guide", "how to", "improve", "increase", "profit"],
+        "keywords": ["grow", "success", "tip", "strategy", "hack", "improve",
+                     "increase", "profit", "case study", "story", "result"],
         "priority": 1,
     },
-    "warning_policy": {
-        "categories": ["compliance", "tax"],
-        "keywords": ["penalty", "fine", "deadline", "mandatory", "required", "must", "rule", "regulation", "act", "section"],
+    "compare_contrast": {
+        "categories": ["myth_vs_reality", "compliance_updates"],
+        "keywords": ["myth", "reality", "truth", "vs", "compare", "difference",
+                     "without", "with", "before", "after", "mistake"],
         "priority": 2,
     },
 }
@@ -70,13 +80,13 @@ class StyleAnalyzer:
             return {}
 
     def select_template(self, topic: str, category: str, strategy_template: str = None) -> str:
-        """
-        Select the best template for this topic.
-        Respects the weekly strategy template if provided.
-        """
-        # If strategy engine specified a template, use it (but validate)
-        if strategy_template and strategy_template in self.templates:
+        """Select the best premium template for this topic."""
+        # If strategy engine specifies a valid new template, use it
+        valid_new = {"authority_card", "breaking_impact", "compare_contrast",
+                     "infographic_story", "social_proof"}
+        if strategy_template in valid_new:
             return strategy_template
+        # Also accept old names — _map_legacy_template will handle
 
         # Score each template for this topic
         scores = {}
@@ -84,16 +94,13 @@ class StyleAnalyzer:
 
         for template_name, rules in TEMPLATE_RULES.items():
             score = 0
-            # Category match
             if category in rules.get("categories", []):
                 score += 3
-            # Keyword match
             for kw in rules.get("keywords", []):
                 if kw in topic_lower:
                     score += 2
             scores[template_name] = score
 
-        # Return highest scoring template
         if scores:
             best = max(scores, key=scores.get)
             if scores[best] > 0:
@@ -101,16 +108,23 @@ class StyleAnalyzer:
 
         # Default based on category
         defaults = {
-            "loan_subsidy": "opportunity_alert",
-            "government_schemes": "government_scheme",
-            "business_registration": "opportunity_alert",
-            "compliance": "warning_policy",
-            "tax": "warning_policy",
-            "certificates": "government_scheme",
-            "scholarship": "opportunity_alert",
-            "announcement": "breaking_news",
+            "loan_subsidy": "authority_card",
+            "loans_subsidies": "authority_card",
+            "government_schemes": "authority_card",
+            "business_registration": "authority_card",
+            "registration": "infographic_story",
+            "compliance": "breaking_impact",
+            "compliance_updates": "breaking_impact",
+            "tax": "breaking_impact",
+            "certificates": "infographic_story",
+            "student_services": "infographic_story",
+            "scholarship": "infographic_story",
+            "business_growth": "social_proof",
+            "success_stories": "social_proof",
+            "myth_vs_reality": "compare_contrast",
+            "digital_services": "infographic_story",
         }
-        return defaults.get(category, "opportunity_alert")
+        return defaults.get(category, "authority_card")
 
     def get_layout_spec(self, template_name: str) -> dict:
         """Get the full layout specification for a template."""
@@ -124,17 +138,17 @@ class StyleAnalyzer:
         }
 
     def get_color_scheme(self, template_name: str) -> dict:
-        """Get the color scheme for a template."""
+        """Get the color scheme for a template (pillar-aware)."""
         colors = self.style.get("colors", {})
         template = self.templates.get(template_name, {})
 
-        # Template-specific accent color
+        # Template-specific accent color mapping
         accent_map = {
-            "breaking_news": colors.get("accent_red", "#FF3333"),
-            "opportunity_alert": colors.get("accent_green", "#00FF88"),
-            "government_scheme": colors.get("accent_blue", "#4A90D9"),
-            "business_growth": colors.get("accent_yellow", "#FFD700"),
-            "warning_policy": colors.get("accent_red", "#FF3333"),
+            "breaking_impact": colors.get("accent_red", "#e63946"),
+            "authority_card": colors.get("accent_green", "#06d6a0"),
+            "infographic_story": colors.get("accent_blue", "#4cc9f0"),
+            "social_proof": colors.get("accent_yellow", "#f4a261"),
+            "compare_contrast": colors.get("accent_red", "#e85d04"),
         }
 
         return {
@@ -142,10 +156,10 @@ class StyleAnalyzer:
             "background_secondary": colors.get("background_secondary", "#1A1A2E"),
             "text_primary": colors.get("text_primary", "#FFFFFF"),
             "text_secondary": colors.get("text_secondary", "#B0B0B0"),
-            "accent": accent_map.get(template_name, colors.get("accent_blue", "#4A90D9")),
-            "accent_green": colors.get("accent_green", "#00FF88"),
+            "accent": accent_map.get(template_name, colors.get("accent_blue", "#4cc9f0")),
+            "accent_green": colors.get("accent_green", "#06d6a0"),
             "accent_yellow": colors.get("accent_yellow", "#FFD700"),
-            "accent_red": colors.get("accent_red", "#FF3333"),
+            "accent_red": colors.get("accent_red", "#e63946"),
         }
 
     def get_typography_spec(self, template_name: str) -> dict:
@@ -168,12 +182,16 @@ if __name__ == "__main__":
         ("GST filing deadline approaching", "compliance"),
         ("New MSME registration scheme launched", "government_schemes"),
         ("ITR filing penalty for late submission", "tax"),
+        ("5 steps to register your business", "business_registration"),
+        ("Myth: You need PAN to start business", "myth_vs_reality"),
+        ("From zero to 10 lakh turnover success story", "success_stories"),
+        ("How to apply for Aadhaar card online", "digital_services"),
     ]
 
     for topic, category in test_cases:
         template = analyzer.select_template(topic, category)
         colors = analyzer.get_color_scheme(template)
-        print(f"[{category}] {topic[:50]}")
+        print(f"[{category}] {topic[:55]}")
         print(f"  Template: {template}")
         print(f"  Accent: {colors['accent']}")
         print()

@@ -1,192 +1,91 @@
-# layout_templates.yaml — 5 Instagram post templates
+# layout_templates.yaml — 5 Premium Instagram Post Templates v3.0
 
 templates:
-  breaking_news:
-    name: "Breaking News"
-    description: "Urgent updates, policy changes, announcements"
+  authority_card:
+    name: "Authority Card"
+    description: "Dark gradient, category badge, headline, stat highlights, info grid, CTA"
     layout:
-      headline:
-        position: "top: 5%, left: 5%, right: 5%"
-        font_size: 84
-        color: "#FFFFFF"
-        style: "bold, uppercase, centered"
-        shadow: true
-      face:
-        position: "top: 25%, left: 10%, width: 35%"
-        style: "circle_crop, concerned_expression"
-        border: "3px solid #FF3333"
-      visual_elements:
-        position: "top: 25%, right: 5%, width: 50%"
-        elements: ["charts", "icons", "government_symbols"]
-      info_cards:
-        position: "bottom: 22%, left: 5%, right: 5%"
-        count: "3-5"
-        style: "dark_bg, red_accent_border, white_text"
-        icon_per_card: true
-      cta:
-        position: "bottom: 12%, left: 5%, right: 5%"
-        style: "centered, bold, yellow_text"
-      branding:
-        position: "bottom: 3%, right: 5%"
-        style: "small_logo, white_text"
+      headline_zone: "top 25%"
+      badge: true
+      accent_bar: true
+      info_zone: "middle 40% (2-col grid)"
+      stat_highlight: true
+      cta_zone: "bottom 15%"
+      brand_zone: "bottom 5%"
     color_overlay:
-      gradient: "top: #0A0E11 0%, bottom: #1A1A2E 100%"
-      vignette: true
-    mood: "urgent, serious, attention-grabbing"
+      gradient: "top-bg to bottom-bg-subtle"
+    mood: "professional, authoritative, premium"
 
-  opportunity_alert:
-    name: "Opportunity Alert"
-    description: "Loans, subsidies, schemes, financial benefits"
+  breaking_impact:
+    name: "Breaking Impact"
+    description: "Bold solid bg, accent bars top+bottom, breaking badge, row cards, big stats"
     layout:
-      headline:
-        position: "top: 5%, left: 5%, right: 5%"
-        font_size: 80
-        color: "#00FF88"
-        style: "bold, uppercase, centered"
-        glow: true
-      face:
-        position: "top: 25%, right: 8%, width: 35%"
-        style: "circle_crop, optimistic_expression"
-        border: "3px solid #00FF88"
-      visual_elements:
-        position: "top: 25%, left: 5%, width: 50%"
-        elements: ["money_icons", "rupee_symbols", "growth_charts"]
-      info_cards:
-        position: "bottom: 22%, left: 5%, right: 5%"
-        count: "4-6"
-        style: "dark_bg, green_accent_border, white_text"
-        icon_per_card: true
-        show_amounts: true
-      cta:
-        position: "bottom: 12%, left: 5%, right: 5%"
-        style: "centered, bold, green_text"
-      branding:
-        position: "bottom: 3%, right: 5%"
-        style: "small_logo, green_text"
+      headline_zone: "top 20%"
+      accent_bars: "top + bottom (8px)"
+      breaking_badge: true
+      info_zone: "middle 45% (row cards)"
+      stat_highlight: true
+      cta_zone: "bottom 15%"
+      brand_zone: "bottom 5%"
     color_overlay:
-      gradient: "top: #0A0E11 0%, bottom: #0A1A0E 100%"
-      vignette: true
-    mood: "exciting, promising, action-driven"
+      solid_bg: true
+    mood: "urgent, bold, attention-grabbing"
 
-  government_scheme:
-    name: "Government Scheme"
-    description: "New/updated government schemes, official announcements"
+  compare_contrast:
+    name: "Compare Contrast"
+    description: "Split layout, VS badge, before/after side-by-side, checklist"
     layout:
-      headline:
-        position: "top: 5%, left: 5%, right: 5%"
-        font_size: 76
-        color: "#FFFFFF"
-        style: "bold, uppercase, centered"
-      face:
-        position: "top: 28%, left: 5%, width: 30%"
-        style: "circle_crop, professional_expression, pointing_at_benefits"
-        border: "3px solid #4A90D9"
-      visual_elements:
-        position: "top: 25%, right: 5%, width: 55%"
-        elements: ["government_building", "ashoka_chakra", "certificate"]
-      info_cards:
-        position: "bottom: 22%, left: 5%, right: 5%"
-        count: "4-5"
-        style: "dark_bg, blue_accent_border, white_text"
-        icon_per_card: true
-        columns: [eligibility, benefits, process, documents]
-      cta:
-        position: "bottom: 12%, left: 5%, right: 5%"
-        style: "centered, bold, blue_text"
-      branding:
-        position: "bottom: 3%, right: 5%"
-        style: "small_logo, blue_text"
+      headline_zone: "top 20%"
+      split: "50/50 left-right"
+      vs_badge: "center circle"
+      info_zone: "middle 50% (alternating sides)"
+      cta_zone: "bottom 15%"
     color_overlay:
-      gradient: "top: #0A0E11 0%, bottom: #0E1621 100%"
-      vignette: true
-    mood: "official, trustworthy, informative"
+      gradient: "top-bg to bottom-bg-subtle"
+    mood: "comparative, revealing, educational"
 
-  business_growth:
-    name: "Business Growth"
-    description: "Tips, strategies, success stories, growth hacks"
+  infographic_story:
+    name: "Infographic Story"
+    description: "Vertical numbered steps, progress dots left side, stat summary box"
     layout:
-      headline:
-        position: "top: 5%, left: 5%, right: 5%"
-        font_size: 78
-        color: "#FFD700"
-        style: "bold, uppercase, centered"
-      face:
-        position: "top: 28%, right: 8%, width: 35%"
-        style: "circle_crop, confident_expression"
-        border: "3px solid #FFD700"
-      visual_elements:
-        position: "top: 25%, left: 5%, width: 50%"
-        elements: ["growth_chart", "arrows_up", "trophy", "target"]
-      info_cards:
-        position: "bottom: 22%, left: 5%, right: 5%"
-        count: "3-5"
-        style: "dark_bg, yellow_accent_border, white_text"
-        icon_per_card: true
-        style: "numbered_list"
-      cta:
-        position: "bottom: 12%, left: 5%, right: 5%"
-        style: "centered, bold, yellow_text"
-      branding:
-        position: "bottom: 3%, right: 5%"
-        style: "small_logo, yellow_text"
+      headline_zone: "top 20%"
+      step_zone: "middle 50% (numbered list)"
+      progress_line: "left side (80px from left)"
+      summary_box: "floating card"
+      cta_zone: "bottom 15%"
     color_overlay:
-      gradient: "top: #0A0E11 0%, bottom: #1A150A 100%"
-      vignette: true
-    mood: "inspiring, motivational, actionable"
+      gradient: "top-bg to bottom-bg-subtle"
+    mood: "educational, step-by-step, clear"
 
-  warning_policy:
-    name: "Warning / Policy Update"
-    description: "Compliance deadlines, penalties, rule changes"
+  social_proof:
+    name: "Social Proof"
+    description: "Success story badge, quote typography, stat callout box, testimonial"
     layout:
-      headline:
-        position: "top: 5%, left: 5%, right: 5%"
-        font_size: 82
-        color: "#FF3333"
-        style: "bold, uppercase, centered"
-        pulse_effect: true
-      face:
-        position: "top: 28%, left: 50%, width: 30%"
-        style: "circle_crop, serious_expression"
-        border: "3px solid #FF3333"
-      visual_elements_warning:
-        position: "top: 28%, left: 5%, width: 40%"
-        elements: ["warning_triangle", "clock", "calendar", "cross_mark"]
-      info_cards:
-        position: "bottom: 22%, left: 5%, right: 5%"
-        count: "3-5"
-        style: "dark_bg, red_accent_border, white_text"
-        icon_per_card: true
-        urgency_badges: true
-      cta:
-        position: "bottom: 12%, left: 5%, right: 5%"
-        style: "centered, bold, red_text"
-      branding:
-        position: "bottom: 3%, right: 5%"
-        style: "small_logo, red_text"
+      headline_zone: "top 20%"
+      quote_zone: "middle 30%"
+      stat_callout: "floating box (120px height)"
+      cta_zone: "bottom 15%"
     color_overlay:
-      gradient: "top: #0A0E11 0%, bottom: #1A0A0A 100%"
-      vignette: true
-    mood: "urgent, cautionary, important"
+      gradient: "top-bg to bottom-bg-subtle"
+    mood: "inspiring, trustworthy, real"
 
-# LAYER ORDER (always applied)
-layer_order:
-  1: "background_scene"
-  2: "face_subject"
-  3: "visual_elements"
-  4: "headline"
-  5: "info_cards"
-  6: "cta"
-  7: "branding"
+# Template to pillar mapping (preferred templates per content type)
+pillar_template_map:
+  loans_subsidies: ["authority_card", "breaking_impact", "infographic_story"]
+  government_schemes: ["infographic_story", "authority_card"]
+  compliance_updates: ["breaking_impact", "compare_contrast"]
+  business_registration: ["authority_card", "infographic_story"]
+  business_growth: ["social_proof", "compare_contrast"]
+  student_services: ["infographic_story", "authority_card"]
+  success_stories: ["social_proof"]
+  myth_vs_reality: ["compare_contrast", "breaking_impact"]
 
-# UNIVERSAL RULES
-universal_rules:
-  min_info_cards: 3
-  max_info_cards: 6
-  headline_max_words: 8
-  headline_min_words: 3
-  brand_logo_position: "bottom-right"
-  brand_text: "Prisha Online Documentation"
-  watermark_opacity: 0.6
-  border_padding: 40
-  card_spacing: 12
-  font_fallback: "DejaVu Sans"
+# Quality gates (applied to every generated image)
+quality_gates:
+  min_unique_colors: 20
+  max_light_pct: 0.40
+  min_accent_pct: 0.02
+  min_font_sizes: 3
+  headline_min_font_size: 48
+  auto_reject_flat_bg: true
+  auto_reject_high_whitespace: true

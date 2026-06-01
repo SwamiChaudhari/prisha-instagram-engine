@@ -47,24 +47,24 @@ services:
 
 # CONTENT PILLARS (8)
 content_pillars:
-  government_schemes:    { weight: 20, templates: [government_scheme, opportunity_alert] }
-  business_registration: { weight: 15, templates: [opportunity_alert, business_growth] }
-  loans_subsidies:       { weight: 20, templates: [opportunity_alert, breaking_news] }
-  compliance_updates:    { weight: 10, templates: [warning_policy, breaking_news] }
-  business_growth:       { weight: 10, templates: [business_growth, opportunity_alert] }
-  student_services:      { weight: 10, templates: [government_scheme, quick_tips] }
-  success_stories:       { weight: 5,  templates: [business_growth] }
-  myth_vs_reality:       { weight: 10, templates: [warning_policy, breaking_news] }
+  government_schemes:    { weight: 20, templates: [infographic_story, authority_card] }
+  business_registration: { weight: 15, templates: [authority_card, infographic_story] }
+  loans_subsidies:       { weight: 20, templates: [authority_card, breaking_impact] }
+  compliance_updates:    { weight: 10, templates: [breaking_impact, compare_contrast] }
+  business_growth:       { weight: 10, templates: [social_proof, authority_card] }
+  student_services:      { weight: 10, templates: [infographic_story, authority_card] }
+  success_stories:       { weight: 5,  templates: [social_proof] }
+  myth_vs_reality:       { weight: 10, templates: [compare_contrast, breaking_impact] }
 
 # WEEKLY CONTENT MIX
 weekly_mix:
-  monday:    opportunity_alert
-  tuesday:   government_scheme
-  wednesday: breaking_news
-  thursday:  business_growth
-  friday:    warning_policy
-  saturday:  success_story
-  sunday:    quick_tips
+  monday:    authority_card
+  tuesday:   infographic_story
+  wednesday: breaking_impact
+  thursday:  social_proof
+  friday:    authority_card
+  saturday:  social_proof
+  sunday:    infographic_story
 
 # STYLE DNA
 style:
@@ -205,8 +205,14 @@ feed_diversity:
 image:
   provider: "pil"
   width: 1080
-  height: 1080
+  height: 1350
   format: "PNG"
+  templates:
+    - authority_card
+    - breaking_impact
+    - compare_contrast
+    - infographic_story
+    - social_proof
 
 # API CONFIG
 api:

@@ -153,7 +153,7 @@ class InstagramEngine:
                 info_blocks=info_blocks,
             )
             log.info(f"English caption: {len(captions['english'])} chars")
-            log.info(f"Hinglish caption: {len(captions['hinglish'])} chars")
+            log.info(f"Marathi caption: {len(captions.get('marathi', ''))} chars")
             log.info(f"Hashtags: {len(captions['hashtags'])}")
 
             # Get CTA
@@ -178,10 +178,13 @@ class InstagramEngine:
                 "headline": best_headline,
                 "sub_headline": best_topic.get("summary", "")[:80],
                 "info_cards": info_blocks,
+                "benefits": best_topic.get("benefits", []),
                 "cta": daily_cta,
                 "template": template,
                 "color_scheme": color_scheme,
-                "accent": color_scheme.get("accent", "#4A90D9"),
+                "pillar": strategy["pillar"],
+                "brand": "@prisha.online.multiservices",
+                "key_stat": best_topic.get("key_stat", None),
                 "use_face": use_face,
                 "face_path": face_path,
                 "config": self.config,
@@ -405,7 +408,7 @@ class InstagramEngine:
         parts.append("")
         parts.append("—")
         parts.append("")
-        parts.append(captions["hinglish"])
+        parts.append(captions.get("marathi", captions.get("hinglish", "")))
         parts.append("")
         parts.append(cta)
         parts.append("")
@@ -481,7 +484,7 @@ def main():
             daily_cta = cta.get_cta(template=template, pillar=s["pillar"])
             print(f"CTA: {daily_cta}")
             print(f"\nEnglish caption:\n{caps['english'][:300]}...")
-            print(f"\nHinglish caption:\n{caps['hinglish'][:300]}...")
+            print(f"\nMarathi caption:\n{caps['marathi'][:300]}...")
         return
 
     # ── Test Image ─────────────────────────────────────────────────────────

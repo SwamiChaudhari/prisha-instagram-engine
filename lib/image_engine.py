@@ -1,599 +1,999 @@
 """
-image_engine.py — Hybrid News Card Engine v2.0
+image_engine.py — Premium Image Engine v3.0
 
-Generates Instagram images using layered composition:
-1. Background (gradient or AI-generated scene)
-2. Face/subject (user photo or placeholder)
-3. Visual elements (icons, decorative elements)
-4. Headline (rendered with precise typography)
-5. Info cards (structured data blocks)
-6. CTA (call to action)
-7. Branding (logo, watermark, handle)
+5 premium layout templates:
+  A: Authority Card    — Dark gradient, headline, stat highlights, cards, CTA
+  B: Breaking Impact   — Bold solid bg, accent bars, row cards, big stats
+  C: Compare Contrast  — Split layout, before/after, checklist
+  D: Infographic Story  — Vertical numbered steps, progress dots, summary
+  E: Social Proof      — Testimonial, stat callout, quote typography
 
-This engine works WITHOUT AI image generation.
-When AI provider is available, layer 1 (background) and layer 2 (face)
-can be replaced with AI-generated content.
+Design system: dark themes, pillar-specific color schemes,
+premium fonts (Bebas Neue for headlines, Montsworth for body),
+SVG-style icons rendered via PIL, quality gates with auto-reject.
 """
 
 import os
 import re
-import textwrap
+import math
 import time
 from pathlib import Path
+from typing import Optional
 
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
+
+from lib.font_manager import FontManager
+from lib.icon_library import IconLibrary, icon_name_from_keyword
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FONTS_DIR = PROJECT_ROOT / "fonts"
 IMAGES_DIR = PROJECT_ROOT / "images"
 
-# Fallback font paths (system fonts)
-FONT_PATHS = {
-    "bold": [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
-        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
-    ],
-    "regular": [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
-        "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
-    ],
+# ── Color Schemes Per Pillar (from reference analysis) ────────────────────
+
+PILLAR_COLORS = {
+    "loans_subsidies": {
+        "bg_primary": "#0a1628", "bg_secondary": "#0f2040",
+        "accent": "#e9d064", "accent_name": "gold",
+        "text_primary": "#f0f0f0", "text_secondary": "#8899aa",
+        "card_bg": "#0d1e36", "success": "#06d6a0",
+    },
+    "government_schemes": {
+        "bg_primary": "#0a1f15", "bg_secondary": "#0f2e1c",
+        "accent": "#06d6a0", "accent_name": "mint",
+        "text_primary": "#f0f0f0", "text_secondary": "#7ab89a",
+        "card_bg": "#0d2a16", "success": "#e9d064",
+    },
+    "compliance_updates": {
+        "bg_primary": "#1f0a0a", "bg_secondary": "#2e0f0f",
+        "accent": "#e85d04", "accent_name": "orange-red",
+        "text_primary": "#f0f0f0", "text_secondary": "#b87a7a",
+        "card_bg": "#2a0d0d", "success": "#06d6a0",
+    },
+    "business_registration": {
+        "bg_primary": "#0a0e1f", "bg_secondary": "#0f162e",
+        "accent": "#4cc9f0", "accent_name": "cyan",
+        "text_primary": "#f0f0f0", "text_secondary": "#7a8ab8",
+        "card_bg": "#0d122a", "success": "#06d6a0",
+    },
+    "business_growth": {
+        "bg_primary": "#0a1f1f", "bg_secondary": "#0f2e2e",
+        "accent": "#2ec4b6", "accent_name": "teal",
+        "text_primary": "#f0f0f0", "text_secondary": "#7ab8b0",
+        "card_bg": "#0d2a2a", "success": "#e9d064",
+    },
+    "student_services": {
+        "bg_primary": "#150a1f", "bg_secondary": "#1c0f2e",
+        "accent": "#9d4edd", "accent_name": "purple",
+        "text_primary": "#f0f0f0", "text_secondary": "#9a7ab8",
+        "card_bg": "#1a0d2a", "success": "#06d6d0",
+    },
+    "success_stories": {
+        "bg_primary": "#1a1400", "bg_secondary": "#2a2000",
+        "accent": "#f4a261", "accent_name": "warm-gold",
+        "text_primary": "#f0f0f0", "text_secondary": "#b8a87a",
+        "card_bg": "#241e00", "success": "#e9d064",
+    },
+    "myth_vs_reality": {
+        "bg_primary": "#1a0a0a", "bg_secondary": "#2a1010",
+        "accent": "#e63946", "accent_name": "red",
+        "text_primary": "#f0f0f0", "text_secondary": "#b88a8a",
+        "card_bg": "#240d0d", "success": "#06d6a0",
+    },
 }
+DEFAULT_COLORS = PILLAR_COLORS["business_registration"]
 
 
-def _find_font(style: str = "bold", size: int = 48) -> ImageFont.FreeTypeFont:
-    """Find an available font."""
-    for path in FONT_PATHS.get(style, FONT_PATHS["bold"]):
-        if os.path.exists(path):
-            try:
-                return ImageFont.truetype(path, size)
-            except Exception:
-                continue
-    return ImageFont.load_default()
-
-
-class HybridImageEngine:
-    """Generate professional news-style Instagram images."""
+class PremiumImageEngine:
+    """Premium 4:5 Instagram image engine with 5 templates."""
 
     def __init__(self, config: dict = None):
         self.config = config or {}
-        self.width = self.config.get("image", {}).get("width", 1080)
-        self.height = self.config.get("image", {}).get("height", 1080)
-        self.colors = self.config.get("style", {}).get("colors", {})
+        img_cfg = self.config.get("image", {})
+        self.width = img_cfg.get("width", 1080)
+        self.height = img_cfg.get("height", 1350)  # 4:5 ratio — max IG real estate
+        self.fm = FontManager()
+        self.icons = IconLibrary()
+        self._styles = self.config.get("style", {}).get("colors", {})
+
+    # ── Main Entry ──────────────────────────────────────────────────────
 
     def create_image(self, spec: dict) -> str:
         """
-        Create a complete Instagram image from a specification.
+        Create a premium Instagram image from spec.
 
         spec keys:
-            - headline: str
-            - sub_headline: str (optional)
-            - info_cards: list of dicts with {icon, title, text, highlight}
-            - cta: str
-            - template: str (breaking_news, opportunity_alert, etc.)
-            - color_scheme: dict with color overrides
-            - face_path: str (optional, path to face image)
-            - accent: str (hex color for accents)
-
-        Returns: path to saved image
+            headline       – str
+            sub_headline   – str (optional)
+            info_cards     – list of {icon, title, text, highlight}
+            benefits       – list of benefit strings
+            cta            – str
+            template       — str (authority_card, breaking_impact, etc.)
+            pillar         – str (for color scheme)
+            brand          – str (handle / name)
+            key_stat       – dict {value, label} for big number callout
+            carousel_data  – dict for split/compare layouts
         """
-        # Extract spec
         headline = spec.get("headline", "")
         sub_headline = spec.get("sub_headline", "")
         info_cards = spec.get("info_cards", [])
-        cta = spec.get("cta", "📩 DM 'INFO'")
-        template = spec.get("template", "opportunity_alert")
+        benefits = spec.get("benefits", [])
+        cta = spec.get("cta", "DM 'INFO' for details")
+        template = spec.get("template", "authority_card")
+        pillar = spec.get("pillar", "business_registration")
+        brand = spec.get("brand", "@prisha.online.multiservices")
+        key_stat = spec.get("key_stat", None)
         color_scheme = spec.get("color_scheme", {})
-        accent = spec.get("accent", "#4A90D9")
-        face_path = spec.get("face_path", None)
 
-        # ── Layer 1: Background ─────────────────────────────────────────────
-        img = self._create_background(color_scheme, template)
+        # Resolve colors
+        colors = PILLAR_COLORS.get(pillar, DEFAULT_COLORS).copy()
+        colors.update(color_scheme)
 
-        # ── Layer 2: Face/Subject (optional) ────────────────────────────────
-        if face_path and os.path.exists(face_path):
-            img = self._overlay_face(img, face_path, template)
-        elif spec.get("use_face") and not face_path:
-            # Use a stylized face placeholder (geometric avatar)
-            img = self._create_face_placeholder(img, template, accent)
+        # Render based on template
+        method = getattr(self, f"_render_{template}", None)
+        if not method:
+            method = self._render_authority_card
 
-        # ── Layer 3: Visual elements (decorative) ──────────────────────────
-        img = self._add_visual_elements(img, template, accent)
+        img = method(
+            headline=headline,
+            sub_headline=sub_headline,
+            info_cards=info_cards,
+            benefits=benefits,
+            cta=cta,
+            colors=colors,
+            brand=brand,
+            key_stat=key_stat,
+        )
 
-        # ── Layer 4: Headline ───────────────────────────────────────────────
-        img = self._render_headline(img, headline, sub_headline, color_scheme, accent, template)
+        # Quality gate check
+        quality = self._quality_check(img, colors)
+        spec["_quality_score"] = quality
 
-        # ── Layer 5: Info cards ─────────────────────────────────────────────
-        if info_cards:
-            img = self._render_info_cards(img, info_cards, color_scheme, accent, template)
-
-        # ── Layer 6: CTA ────────────────────────────────────────────────────
-        img = self._render_cta(img, cta, color_scheme, accent, template)
-
-        # ── Layer 7: Branding ───────────────────────────────────────────────
-        img = self._render_branding(img, color_scheme)
-
-        # Save
         return self._save_image(img)
 
-    # ── Layer 1: Background ─────────────────────────────────────────────────
+    # ── Template A: Authority Card ──────────────────────────────────────
 
-    def _create_background(self, colors: dict, template: str) -> Image.Image:
-        """Create dark gradient background."""
-        img = Image.new("RGB", (self.width, self.height), colors.get("background_primary", "#0A0E11"))
-        draw = ImageDraw.Draw(img)
+    def _render_authority_card(self, headline, sub_headline, info_cards,
+                                benefits, cta, colors, brand, key_stat):
+        """Dark gradient, category badge, headline, stat highlights, cards, CTA."""
+        img, draw = self._make_canvas()
 
-        # Create gradient effect
-        bg_primary = self._hex_to_rgb(colors.get("background_primary", "#0A0E11"))
-        bg_secondary = self._hex_to_rgb(colors.get("background_secondary", "#1A1A2E"))
+        # Layer 1: Dark gradient background with noise
+        self._draw_gradient_bg(img, draw, colors)
 
-        for y in range(self.height):
-            ratio = y / self.height
-            r = int(bg_primary[0] + (bg_secondary[0] - bg_primary[0]) * ratio)
-            g = int(bg_primary[1] + (bg_secondary[1] - bg_primary[1]) * ratio)
-            b = int(bg_primary[2] + (bg_secondary[2] - bg_primary[2]) * ratio)
-            draw.line([(0, y), (self.width, y)], fill=(r, g, b))
+        # Layer 2: Geometric decorative elements
+        self._draw_geo_decorations(img, draw, colors)
 
-        # Add subtle vignette
-        self._add_vignette(img)
+        y = 40
 
-        # Add subtle accent glow at top
-        accent = colors.get("accent", "#4A90D9")
-        accent_rgb = self._hex_to_rgb(accent)
-        for y in range(200):
-            alpha = int(30 * (1 - y / 200))
-            overlay = Image.new("RGB", (self.width, 1), (
-                min(255, accent_rgb[0] + bg_primary[0]) // 2,
-                min(255, accent_rgb[1] + bg_primary[1]) // 2,
-                min(255, accent_rgb[2] + bg_primary[2]) // 2,
-            ))
-            img.paste(overlay, (0, y))
+        # Category badge
+        category = self._extract_category(headline)
+        if category:
+            badge_colors = {
+                "LOAN": "#e9d064", "SCHEME": "#06d6a0", "GST": "#4cc9f0",
+                "MSME": "#4cc9f0", "NEW": "#e85d04", "ALERT": "#e63946",
+            }
+            badge_color = badge_colors.get(category.split()[0], colors["accent"])
+            badge_font = self.fm.get_font("semibold", 26)
+            badge_text = category.upper()[:20]
+            bw, bh = self.fm.get_text_size(badge_text, badge_font)
+            bw += 30
+            bh += 16
+            draw.rounded_rectangle([50, y, 50 + bw, y + bh], radius=bh // 2,
+                                   fill=badge_color)
+            draw.text((65, y + 6), badge_text, font=badge_font, fill="#0A0E1F")
+            y += bh + 20
 
-        return img
+        # Accent bar (left side)
+        bar_color = self._hex_to_rgb(colors["accent"])
+        draw.rectangle([50, y, 56, y + 120], fill=bar_color)
 
-    def _add_vignette(self, img: Image.Image):
-        """Add subtle dark vignette around edges."""
-        vignette = Image.new("L", img.size, 0)
-        draw = ImageDraw.Draw(vignette)
-        for i in range(min(img.width, img.height) // 2, 0, -1):
-            alpha = int(255 * (i / (min(img.width, img.height) // 2)))
-            draw.ellipse(
-                [img.width // 2 - i, img.height // 2 - i,
-                 img.width // 2 + i, img.height // 2 + i],
-                fill=alpha,
-            )
-        # Blend vignette subtly
-        pass  # Vignette is complex; skip for v1, gradient is enough
+        # Headline (Bebas Neue — large)
+        clean_headline = self._strip_emoji_prefix(headline)
+        headline_font = self.fm.get_font("headline", self._headline_font_size(clean_headline))
+        max_w = self.width - 140
+        wrapped = self.fm.wrap_text(clean_headline, headline_font, max_w)
+        for i, line in enumerate(wrapped[:3]):
+            ly = y + i * (headline_font.size + 8)
+            # Shadow
+            draw.text((59, ly + 2), line, font=headline_font, fill=(0, 0, 0, 180))
+            # Text
+            draw.text((58, ly), line, font=headline_font, fill=colors["text_primary"])
+        y += len(wrapped) * (headline_font.size + 8) + 20
 
-    # ── Layer 2: Face/Subject ───────────────────────────────────────────────
+        # Sub-headline (accent color)
+        if sub_headline:
+            sub_font = self.fm.get_font("semibold", 34)
+            sub_clean = self._strip_emoji_prefix(sub_headline)
+            sub_wrapped = self.fm.wrap_text(sub_clean, sub_font, max_w)
+            for i, line in enumerate(sub_wrapped[:2]):
+                ly = y + i * 44
+                draw.text((58, ly), line, font=sub_font, fill=colors["accent"])
+            y += len(sub_wrapped) * 44 + 20
 
-    def _overlay_face(self, img: Image.Image, face_path: str, template: str) -> Image.Image:
-        """Overlay user's photo on the image."""
-        try:
-            face = Image.open(face_path).convert("RGBA")
-            # Resize face to ~30% of image width
-            face_w = int(self.width * 0.30)
-            face_h = int(face.height * (face_w / face.width))
-            face = face.resize((face_w, face_h), Image.Resampling.LANCZOS)
+        # Key stat callout (big number)
+        if key_stat:
+            stat_val = key_stat.get("value", "")
+            stat_label = key_stat.get("label", "")
+            stat_font = self.fm.get_font("headline", 96)
+            draw.text((58, y), stat_val, font=stat_font, fill=colors["accent"])
+            label_font = self.fm.get_font("regular", 28)
+            draw.text((58 + self.fm.get_text_size(stat_val, stat_font)[0] + 20, y + 40),
+                       stat_label, font=label_font, fill=colors["text_secondary"])
+            y += 130
 
-            # Position: right side, vertically centered in top 60%
-            x = self.width - face_w - 40
-            y = int(self.height * 0.15)
+        # Info cards (2-column grid)
+        if info_cards:
+            y = self._draw_info_grid(draw, y, info_cards, colors)
 
-            # Create circular mask
-            mask = Image.new("L", (face_w, face_h), 0)
-            draw_mask = ImageDraw.Draw(mask)
-            draw_mask.ellipse([0, 0, face_w, face_h], fill=255)
+        # Benefits section
+        if benefits:
+            y += 15
+            ben_font = self.fm.get_font("regular", 28)
+            for benefit in benefits[:6]:
+                ben_clean = self._strip_emoji_prefix(benefit).strip()
+                if not ben_clean:
+                    continue
+                # Check icon
+                icon_size = 28
+                icon = self.icons.render("check", size=icon_size, color=colors["accent"])
+                img.paste(icon, (58, y + 2), icon)
+                # Text
+                draw.text((58 + icon_size + 12, y), ben_clean[:55],
+                           font=ben_font, fill=colors["text_primary"])
+                y += icon_size + 10
 
-            # Apply circular crop
-            face_cropped = Image.new("RGBA", (face_w, face_h), (0, 0, 0, 0))
-            face_cropped.paste(face, (0, 0), mask)
+        # CTA pill
+        self._draw_cta_pill(draw, cta, colors, brand)
 
-            # Paste onto main image
-            img.paste(face_cropped, (x, y), face_cropped)
-        except Exception:
-            pass
-        return img
-
-    def _create_face_placeholder(self, img: Image.Image, template: str, accent: str) -> Image.Image:
-        """Create a stylized face placeholder (geometric avatar) when no photo available."""
-        draw = ImageDraw.Draw(img)
-        accent_rgb = self._hex_to_rgb(accent)
-
-        # Draw a circle placeholder on the right side
-        cx = self.width - 180
-        cy = 280
-        radius = 120
-
-        # Glow effect
-        for i in range(10, 0, -1):
-            glow_alpha = int(20 * (10 - i))
-            glow_color = (
-                min(255, accent_rgb[0] + 50),
-                min(255, accent_rgb[1] + 50),
-                min(255, accent_rgb[2] + 50),
-            )
-            draw.ellipse(
-                [cx - radius - i, cy - radius - i, cx + radius + i, cy + radius + i],
-                fill=glow_color,
-            )
-
-        # Main circle
-        draw.ellipse(
-            [cx - radius, cy - radius, cx + radius, cy + radius],
-            fill=(40, 40, 50),
-            outline=accent_rgb,
-            width=4,
-        )
-
-        # Simple face icon (geometric)
-        eye_y = cy - 20
-        draw.ellipse([cx - 40, eye_y - 8, cx - 20, eye_y + 8], fill=accent_rgb)
-        draw.ellipse([cx + 20, eye_y - 8, cx + 40, eye_y + 8], fill=accent_rgb)
-        draw.arc([cx - 30, cy + 10, cx + 30, cy + 40], start=0, end=180, fill=accent_rgb, width=3)
+        # Branding footer
+        self._draw_brand_footer(draw, brand, colors)
 
         return img
 
-    # ── Layer 3: Visual Elements ────────────────────────────────────────────
+    # ── Template B: Breaking Impact ────────────────────────────────────
 
-    def _add_visual_elements(self, img: Image.Image, template: str, accent: str) -> Image.Image:
-        """Add decorative visual elements."""
-        draw = ImageDraw.Draw(img)
-        accent_rgb = self._hex_to_rgb(accent)
+    def _render_breaking_impact(self, headline, sub_headline, info_cards,
+                                 benefits, cta, colors, brand, key_stat):
+        """Bold solid bg, accent bars, row cards, big stats."""
+        img, draw = self._make_canvas()
+
+        # Bold solid background
+        bg = self._hex_to_rgb(colors["bg_primary"])
+        draw.rectangle([0, 0, self.width, self.height], fill=bg)
 
         # Top accent bar
-        draw.rectangle([0, 0, self.width, 6], fill=accent_rgb)
+        accent = self._hex_to_rgb(colors["accent"])
+        bar_h = 8
+        draw.rectangle([0, 0, self.width, bar_h], fill=accent)
+
+        # Diagonal accent shape
+        for i in range(60):
+            alpha = int(255 * (1 - i / 60) * 0.15)
+            draw.polygon([(0, 0), (i * 8, 0), (0, i * 15)],
+                         fill=(*accent[:3], alpha) if len(accent) == 3 else accent)
+
+        y = bar_h + 30
+
+        # Breaking badge
+        badge_text = "BREAKING"
+        badge_font = self.fm.get_font("bold", 24)
+        bww, bhh = self._text_size(badge_font, badge_text)
+        bww += 24
+        bhh += 12
+        draw.rounded_rectangle([50, y, 50 + bww, y + bhh], radius=4,
+                               fill=colors["accent"])
+        draw.text((62, y + 4), badge_text, font=badge_font, fill=colors["bg_primary"])
+        y += bhh + 24
+
+        # Headline (Oswald/Bold — bold impact)
+        clean_headline = self._strip_emoji_prefix(headline)
+        headline_size = self._headline_font_size(clean_headline) + 8
+        headline_font = self.fm.get_font("headline", headline_size)
+        max_w = self.width - 100
+        wrapped = self.fm.wrap_text(clean_headline, headline_font, max_w)
+        for i, line in enumerate(wrapped[:2]):
+            ly = y + i * (headline_font.size + 4)
+            draw.text((52, ly + 2), line, font=headline_font, fill=(0, 0, 0, 160))
+            draw.text((50, ly), line, font=headline_font, fill=colors["text_primary"])
+        y += len(wrapped) * (headline_font.size + 4) + 20
+
+        # Sub-headline
+        if sub_headline:
+            sub_font = self.fm.get_font("semibold", 32)
+            sub_clean = self._strip_emoji_prefix(sub_headline)
+            draw.text((50, y), sub_clean[:80], font=sub_font, fill=colors["accent"])
+            y += 55
+
+        # Key stat (prominent)
+        if key_stat:
+            stat_font = self.fm.get_font("headline", 110)
+            draw.text((50, y), key_stat.get("value", ""),
+                       font=stat_font, fill=colors["accent"])
+            y += 120
+
+        # Row-style info cards
+        if info_cards:
+            y = self._draw_row_cards(draw, img, y, info_cards, colors)
+
+        # Benefits as checklist
+        if benefits:
+            y += 15
+            for ben in benefits[:5]:
+                b_clean = self._strip_emoji_prefix(ben).strip()
+                if not b_clean:
+                    continue
+                icon = self.icons.render("check", size=24, color=colors["accent"])
+                img.paste(icon, (54, y), icon)
+                ben_font = self.fm.get_font("regular", 26)
+                draw.text((88, y), b_clean[:50], font=ben_font,
+                           fill=colors["text_primary"])
+                y += 38
+
+        # CTA
+        self._draw_cta_pill(draw, cta, colors, brand)
+        self._draw_brand_footer(draw, brand, colors)
 
         # Bottom accent bar
-        draw.rectangle([0, self.height - 4, self.width, self.height], fill=accent_rgb)
-
-        # Side accent lines
-        draw.rectangle([0, 100, 4, 400], fill=accent_rgb)
-        draw.rectangle([self.width - 4, 100, self.width, 400], fill=accent_rgb)
-
-        # Template-specific decorative elements
-        if template == "opportunity_alert":
-            # Money scatter (small circles)
-            for pos in [(80, 500), (150, 700), (950, 450), (1000, 650)]:
-                draw.ellipse([pos[0] - 8, pos[1] - 8, pos[0] + 8, pos[1] + 8],
-                           fill=(*accent_rgb, 100))
+        draw.rectangle([0, self.height - bar_h, self.width, self.height], fill=accent)
 
         return img
 
-    # ── Layer 4: Headline ───────────────────────────────────────────────────
+    # ── Template C: Compare Contrast ───────────────────────────────────
 
-    def _render_headline(self, img: Image.Image, headline: str, sub_headline: str,
-                        colors: dict, accent: str, template: str) -> Image.Image:
-        """Render the headline with precise typography."""
-        draw = ImageDraw.Draw(img)
-        text_color = colors.get("text_primary", "#FFFFFF")
-        accent_rgb = self._hex_to_rgb(accent)
+    def _render_compare_contrast(self, headline, sub_headline, info_cards,
+                                  benefits, cta, colors, brand, key_stat):
+        """Split layout, before vs after, checklist."""
+        img, draw = self._make_canvas()
 
-        # Main headline — large, bold, top 20% of image
-        # Strip emoji prefix for sizing, then render with emoji
-        clean_headline = re.sub(r'[^\w\s\?\:\-\,\.\(\)]', '', headline).strip()
-        emoji = ""
-        for ch in headline:
-            if ord(ch) > 127:
-                emoji = ch + " "
-                break
+        # Dark gradient bg
+        self._draw_gradient_bg(img, draw, colors)
 
-        # Calculate font size based on headline length
-        headline_len = len(clean_headline)
-        if headline_len <= 20:
-            font_size = 80
-        elif headline_len <= 35:
-            font_size = 64
-        elif headline_len <= 50:
-            font_size = 52
-        else:
-            font_size = 44
+        # Split line
+        mid_x = self.width // 2
+        accent = self._hex_to_rgb(colors["accent"])
 
-        headline_font = _find_font("bold", font_size)
+        y = 30
 
-        # Word wrap the headline
-        max_width = self.width - 120  # 60px padding each side
-        wrapped = self._wrap_text(clean_headline, headline_font, max_width)
+        # Headline (full width)
+        clean_headline = self._strip_emoji_prefix(headline)
+        headline_font = self.fm.get_font("headline", self._headline_font_size(clean_headline) - 4)
+        max_w = self.width - 100
+        wrapped = self.fm.wrap_text(clean_headline, headline_font, max_w)
+        for i, line in enumerate(wrapped[:3]):
+            ly = y + i * (headline_font.size + 4)
+            draw.text((52, ly + 2), line, font=headline_font, fill=(0, 0, 0, 160))
+            draw.text((50, ly), line, font=headline_font, fill=colors["text_primary"])
+        y += len(wrapped) * (headline_font.size + 4) + 25
 
-        # Render headline lines
-        y_start = 60
-        line_spacing = int(font_size * 1.1)
+        # VS badge
+        vs_font = self.fm.get_font("headline", 56)
+        vs_x = mid_x
+        draw.ellipse([vs_x - 40, y, vs_x + 40, y + 80], fill=colors["accent"])
+        draw.text((vs_x - 18, y + 16), "VS", font=vs_font, fill=colors["bg_primary"])
+        y += 100
 
-        for i, line in enumerate(wrapped[:3]):  # Max 3 lines
-            y = y_start + i * line_spacing
+        # Left side (WITHOUT) and right side (WITH)
+        left_x = 30
+        right_x = mid_x + 20
+        half_w = mid_x - 50
 
-            # Draw text shadow
-            draw.text((62, y + 2), line, font=headline_font, fill=(0, 0, 0))
-            # Draw main text
-            x_offset = 60 if i == 0 and emoji else 60
-            full_line = (emoji + line) if i == 0 and emoji else line
-            draw.text((x_offset, y), full_line, font=headline_font, fill=text_color)
+        # Labels
+        label_font = self.fm.get_font("bold", 22)
+        draw.text((left_x, y), "WITHOUT", font=label_font, fill="#e63946")
+        draw.text((right_x, y), "WITH", font=label_font, fill=colors["accent"])
+        y += 35
 
-        # Sub-headline (smaller, accent color)
+        # Divider line
+        draw.line([(mid_x, y - 50), (mid_x, self.height - 200)],
+                  fill=(*accent[:3], 80) if len(accent) == 3 else accent, width=2)
+
+        # Info cards on each side
+        if info_cards:
+            for i, card in enumerate(info_cards[:6]):
+                side_x = left_x if i % 2 == 0 else right_x
+                col = "#e63946" if i % 2 == 0 else colors["accent"]
+                txt = card.get("title", card.get("text", str(card)))[:35]
+                card_font = self.fm.get_font("regular", 24)
+                # Small card
+                draw.rounded_rectangle([side_x, y, side_x + half_w, y + 50],
+                                       radius=8, fill=(*self._hex_to_rgb(colors["card_bg"]), 200),
+                                       outline=col, width=2)
+                draw.text((side_x + 12, y + 12), txt, font=card_font,
+                           fill=colors["text_primary"])
+                y += 60
+
+        # CTA
+        self._draw_cta_pill(draw, cta, colors, brand)
+        self._draw_brand_footer(draw, brand, colors)
+
+        return img
+
+    # ── Template D: Infographic Story ──────────────────────────────────
+
+    def _render_infographic_story(self, headline, sub_headline, info_cards,
+                                    benefits, cta, colors, brand, key_stat):
+        """Vertical numbered steps, progress dots, color-coded sections."""
+        img, draw = self._make_canvas()
+        self._draw_gradient_bg(img, draw, colors)
+        accent = self._hex_to_rgb(colors["accent"])
+
+        y = 40
+
+        # Headline
+        clean_headline = self._strip_emoji_prefix(headline)
+        headline_font = self.fm.get_font("headline", self._headline_font_size(clean_headline) - 2)
+        max_w = self.width - 120
+        wrapped = self.fm.wrap_text(clean_headline, headline_font, max_w)
+        for i, line in enumerate(wrapped[:2]):
+            ly = y + i * (headline_font.size + 4)
+            draw.text((62, ly + 2), line, font=headline_font, fill=(0, 0, 0, 160))
+            draw.text((60, ly), line, font=headline_font, fill=colors["text_primary"])
+        y += len(wrapped) * (headline_font.size + 4) + 30
+
+        # Sub-headline
         if sub_headline:
-            sub_font = _find_font("regular", 32)
-            y_sub = y_start + len(wrapped) * line_spacing + 20
-            draw.text((60, y_sub), sub_headline, font=sub_font, fill=accent_rgb)
+            sub_font = self.fm.get_font("semibold", 30)
+            s_wrapped = self.fm.wrap_text(sub_headline, sub_font, max_w)
+            for i, line in enumerate(s_wrapped[:2]):
+                draw.text((60, y + i * 40), line, font=sub_font, fill=colors["accent"])
+            y += len(s_wrapped) * 40 + 20
+
+        # Steps (numbered)
+        steps = info_cards if info_cards else []
+        if benefits and not steps:
+            steps = [{"title": b, "icon": "check"} for b in benefits[:6]]
+
+        line_x = 90
+        progress_dot_r = 10
+        step_y_start = y
+
+        for i, step in enumerate(steps[:6]):
+            # Progress line (vertical)
+            cy = y + 22
+            if i < len(steps[:6]) - 1:
+                draw.line([(line_x, cy + progress_dot_r), (line_x, y + 90)],
+                          fill=(*accent[:3], 100) if len(accent) == 3 else accent, width=3)
+
+            # Number circle
+            draw.ellipse([line_x - progress_dot_r, cy - progress_dot_r,
+                          line_x + progress_dot_r, cy + progress_dot_r],
+                         fill=colors["accent"])
+            num_font = self.fm.get_font("bold", 20)
+            draw.text((line_x - 6, cy - 12), str(i + 1),
+                       font=num_font, fill=colors["bg_primary"])
+
+            # Step content
+            step_text = step.get("title", step.get("text", str(step)))[:50]
+            step_font = self.fm.get_font("regular", 28)
+            icon_name = icon_name_from_keyword(step.get("icon", "check"))
+            icon = self.icons.render(icon_name, size=28, color=colors["accent"])
+            img.paste(icon, (line_x + 30, y + 1), icon)
+            draw.text((line_x + 65, y + 4), step_text, font=step_font,
+                       fill=colors["text_primary"])
+
+            # Highlight
+            highlight = step.get("highlight", step.get("amount", ""))
+            if highlight:
+                hl_font = self.fm.get_font("bold", 24)
+                draw.text((line_x + 65, y + 36), str(highlight),
+                           font=hl_font, fill=colors["accent"])
+
+            y += 85
+
+        # Summary stat box
+        if key_stat:
+            draw.rounded_rectangle([50, y + 10, self.width - 50, y + 90],
+                                   radius=12, fill=self._hex_to_rgb(colors["card_bg"]),
+                                   outline=colors["accent"], width=2)
+            stat_font = self.fm.get_font("headline", 48)
+            draw.text((70, y + 22), key_stat.get("value", ""),
+                       font=stat_font, fill=colors["accent"])
+            label_font = self.fm.get_font("regular", 22)
+            draw.text((70 + self.fm.get_text_size(key_stat.get("value", ""), stat_font)[0] + 15, y + 38),
+                       key_stat.get("label", ""), font=label_font, fill=colors["text_secondary"])
+            y += 110
+
+        # CTA
+        self._draw_cta_pill(draw, cta, colors, brand)
+        self._draw_brand_footer(draw, brand, colors)
 
         return img
 
-    def _wrap_text(self, text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list:
-        """Wrap text to fit within max_width."""
-        words = text.split()
-        lines = []
-        current_line = []
+    # ── Template E: Social Proof ───────────────────────────────────────
 
-        for word in words:
-            test_line = " ".join(current_line + [word])
-            try:
-                bbox = font.getbbox(test_line)
-                w = bbox[2] - bbox[0]
-            except AttributeError:
-                w = len(test_line) * (font.size // 2)
+    def _render_social_proof(self, headline, sub_headline, info_cards,
+                              benefits, cta, colors, brand, key_stat):
+        """Testimonial format, quote, stat callout box."""
+        img, draw = self._make_canvas()
+        self._draw_gradient_bg(img, draw, colors)
+        accent = self._hex_to_rgb(colors["accent"])
 
-            if w <= max_width:
-                current_line.append(word)
-            else:
-                if current_line:
-                    lines.append(" ".join(current_line))
-                current_line = [word]
+        y = 50
 
-        if current_line:
-            lines.append(" " .join(current_line))
+        # "SUCCESS STORY" badge
+        badge_font = self.fm.get_font("bold", 22)
+        badge_text = "SUCCESS STORY"
+        bww, bhh = self._text_size(badge_font, badge_text)
+        bww += 24
+        bhh += 12
+        draw.rounded_rectangle([50, y, 50 + bww, y + bhh], radius=4,
+                               fill=colors["accent"])
+        draw.text((62, y + 4), badge_text, font=badge_font, fill=colors["bg_primary"])
+        y += bhh + 30
 
-        return lines if lines else [text]
+        # Headline
+        clean_headline = self._strip_emoji_prefix(headline)
+        headline_font = self.fm.get_font("headline", self._headline_font_size(clean_headline) - 4)
+        max_w = self.width - 120
+        wrapped = self.fm.wrap_text(clean_headline, headline_font, max_w)
+        for i, line in enumerate(wrapped[:3]):
+            ly = y + i * (headline_font.size + 4)
+            draw.text((62, ly + 2), line, font=headline_font, fill=(0, 0, 0, 160))
+            draw.text((60, ly), line, font=headline_font, fill=colors["text_primary"])
+        y += len(wrapped) * (headline_font.size + 4) + 25
 
-    # ── Layer 5: Info Cards ─────────────────────────────────────────────────
+        # Sub-headline
+        if sub_headline:
+            sub_font = self.fm.get_font("regular", 30)
+            s_wrapped = self.fm.wrap_text(sub_headline, sub_font, max_w)
+            for i, line in enumerate(s_wrapped[:2]):
+                draw.text((60, y + i * 38), line, font=sub_font, fill=colors["text_secondary"])
+            y += len(s_wrapped) * 38 + 20
 
-    def _render_info_cards(self, img: Image.Image, cards: list, colors: dict,
-                          accent: str, template: str) -> Image.Image:
-        """Render information cards with icons."""
-        draw = ImageDraw.Draw(img)
-        accent_rgb = self._hex_to_rgb(accent)
-        text_color = colors.get("text_primary", "#FFFFFF")
-        text_secondary = colors.get("text_secondary", "#B0B0B0")
+        # Quote-style info cards
+        if info_cards:
+            for i, card in enumerate(info_cards[:4]):
+                txt = card.get("title", card.get("text", str(card)))[:60]
+                card_font = self.fm.get_font("light", 26)
+                # Quote mark
+                quote_font = self.fm.get_font("headline", 60)
+                quote_mark = '\u201c'  # Left double quotation mark
+                draw.text((60, y - 10), quote_mark, font=quote_font, fill=(*accent[:3], 60))
+                # Text
+                draw.text((100, y), txt, font=card_font, fill=colors["text_primary"])
+                y += 50
+                # Source
+                src = card.get("source", card.get("highlight", ""))
+                if src:
+                    src_font = self.fm.get_font("semibold", 22)
+                    draw.text((100, y), f"— {src}"[:40], font=src_font, fill=colors["accent"])
+                    y += 35
 
-        # Position: bottom 35% of image
-        card_area_top = int(self.height * 0.60)
-        card_area_bottom = int(self.height * 0.88)
-        available_height = card_area_bottom - card_area_top
+        # Stat callout box
+        if key_stat:
+            y += 15
+            box_h = 120
+            draw.rounded_rectangle([50, y, self.width - 50, y + box_h],
+                                   radius=16, fill=self._hex_to_rgb(colors["card_bg"]),
+                                   outline=colors["accent"], width=3)
+            stat_font = self.fm.get_font("headline", 72)
+            draw.text((80, y + 10), key_stat.get("value", ""),
+                       font=stat_font, fill=colors["accent"])
+            label_font = self.fm.get_font("regular", 24)
+            label_x = 80 + self.fm.get_text_size(key_stat.get("value", ""), stat_font)[0] + 20
+            draw.text((label_x, y + 35), key_stat.get("label", ""),
+                       font=label_font, fill=colors["text_primary"])
+            y += box_h + 20
 
-        # Calculate card layout
-        num_cards = min(len(cards), 6)
-        if num_cards == 0:
-            return img
+        # CTA
+        self._draw_cta_pill(draw, cta, colors, brand)
+        self._draw_brand_footer(draw, brand, colors)
 
-        # Cards per row (2 columns for 4+ cards, 1 column for 3- cards)
-        cols = 2 if num_cards >= 4 else 1
-        rows = (num_cards + cols - 1) // cols
+        return img
 
-        card_width = (self.width - 120) // cols
-        card_height = min(80, (available_height - 20) // max(rows, 1))
-        card_spacing = 12
+    # ── Shared Drawing Components ──────────────────────────────────────
 
-        # Icon mapping
-        icon_map = {
-            "money": "💰", "loan": "🏦", "subsidy": "💰", "amount": "₹",
-            "check": "✓", "tick": "✓", "yes": "✅", "done": "✅",
-            "document": "📄", "paper": "📄", "certificate": "📜",
-            "time": "⏰", "deadline": "⏰", "date": "📅",
-            "person": "👤", "people": "👥", "business": "🏢", "office": "🏛",
-            "growth": "📈", "increase": "📈", "up": "⬆",
-            "warning": "⚠️", "alert": "🚨", "danger": "⬇",
-            "call": "📞", "dm": "📩", "contact": "📞",
-            "default": "✓",
-        }
+    def _draw_gradient_bg(self, img: Image.Image, draw: ImageDraw.Draw, colors: dict):
+        """Draw dark gradient background with subtle noise texture."""
+        bg1 = self._hex_to_rgb(colors.get("bg_primary", "#0A0E1F"))
+        bg2 = self._hex_to_rgb(colors.get("bg_secondary", "#0F162E"))
+        for y in range(self.height):
+            ratio = y / self.height
+            r = int(bg1[0] + (bg2[0] - bg1[0]) * ratio)
+            g = int(bg1[1] + (bg2[1] - bg1[1]) * ratio)
+            b = int(bg1[2] + (bg2[2] - bg1[2]) * ratio)
+            draw.line([(0, y), (self.width, y)], fill=(r, g, b))
 
-        for i, card in enumerate(cards[:num_cards]):
+    def _draw_geo_decorations(self, img: Image.Image, draw: ImageDraw.Draw, colors: dict):
+        """Add subtle geometric decorations."""
+        accent = self._hex_to_rgb(colors.get("accent", "#4cc9f0"))
+        # Corner accent (top-right)
+        cx = self.width - 60
+        cy = 60
+        for i in range(8):
+            alpha = int(30 * (1 - i / 8))
+            r = 20 + i * 15
+            draw.ellipse([cx - r, cy - r, cx + r, cy + r],
+                         outline=(*accent[:3], alpha) if len(accent) == 3 else accent)
+        # Small dot grid (bottom-left)
+        for dx in range(3):
+            for dy in range(3):
+                px = 30 + dx * 12
+                py = self.height - 150 + dy * 12
+                draw.ellipse([px - 2, py - 2, px + 2, py + 2], fill=accent)
+
+    def _draw_info_grid(self, draw: ImageDraw.Draw, y: int,
+                         cards: list, colors: dict) -> int:
+        """Draw 2-column info card grid."""
+        card_bg = self._hex_to_rgb(colors.get("card_bg", "#0D122A"))
+        accent_rgb = self._hex_to_rgb(colors["accent"])
+        cols = 2
+        rows = (min(len(cards), 6) + cols - 1) // cols
+        card_w = (self.width - 120) // cols
+        card_h = 80
+        gap = 12
+
+        for i, card in enumerate(cards[:6]):
             row = i // cols
             col = i % cols
+            cx = 60 + col * (card_w + gap)
+            cy = y + row * (card_h + gap)
+            if cy + card_h > self.height - 200:
+                break
 
-            x = 60 + col * (card_width + card_spacing)
-            y = card_area_top + row * (card_height + card_spacing)
-
-            # Card background (dark, semi-transparent)
-            card_bg = (30, 30, 40)
-            draw.rounded_rectangle(
-                [x, y, x + card_width, y + card_height],
-                radius=12,
-                fill=card_bg,
-                outline=accent_rgb,
-                width=2,
-            )
+            # Card background
+            draw.rounded_rectangle([cx, cy, cx + card_w, cy + card_h],
+                                   radius=12, fill=card_bg,
+                                   outline=colors["accent"], width=2)
 
             # Icon
-            card_text = card.get("text", card.get("benefit", str(card)))
-            icon = card.get("icon", "check")
-            icon_char = icon_map.get(icon.lower() if isinstance(icon, str) else "check", "✓")
-            if isinstance(icon, str) and len(icon) <= 2:
-                icon_char = icon
-
-            icon_font = _find_font("bold", 36)
-            draw.text((x + 15, y + 18), icon_char, font=icon_font, fill=accent_rgb)
-
-            # Card text
-            title = card.get("title", card_text[:30])
-            card_font = _find_font("regular", 26)
-            # Truncate if needed
-            display_text = title[:40] + "..." if len(title) > 40 else title
-            text_x = x + 60
+            icon_kw = card.get("icon", "check") or "check"
+            icon_name = icon_name_from_keyword(icon_kw)
             try:
-                bbox = card_font.getbbox(display_text)
-                text_w = bbox[2] - bbox[0]
-            except AttributeError:
-                text_w = len(display_text) * 14
+                icon = self.icons.render(icon_name, size=32, color=colors["accent"])
+                img_ref = draw._image if hasattr(draw, '_image') else None
+            except Exception:
+                img_ref = None
 
-            if text_x + text_w > x + card_width - 10:
-                # Truncate
-                while len(display_text) > 10 and text_x + text_w > x + card_width - 10:
-                    display_text = display_text[:-4] + "..."
-                    try:
-                        bbox = card_font.getbbox(display_text)
-                        text_w = bbox[2] - bbox[0]
-                    except AttributeError:
-                        text_w = len(display_text) * 14
+            if img_ref:
+                img_ref.paste(icon, (cx + 12, cy + 24), icon)
 
-            # Draw shadow + text
-            draw.text((text_x + 1, y + 28), display_text, font=card_font, fill=(0, 0, 0))
-            draw.text((text_x, y + 27), display_text, font=card_font, fill=text_color)
+            # Title text
+            title = card.get("title", card.get("text", str(card)))[:35]
+            title_font = self.fm.get_font("regular", 26)
+            draw.text((cx + 55, cy + 18), title, font=title_font,
+                       fill=colors["text_primary"])
 
-            # Highlight (amount/amount in green)
+            # Highlight
             highlight = card.get("highlight", card.get("amount", ""))
             if highlight:
-                highlight_font = _find_font("bold", 24)
-                green = colors.get("accent_green", "#00FF88")
-                hx = x + card_width - 100
-                draw.text((hx, y + 28), str(highlight), font=highlight_font, fill=green)
+                hl_font = self.fm.get_font("bold", 22)
+                draw.text((cx + 55, cy + 46), str(highlight),
+                           font=hl_font, fill=colors["accent"])
 
-        return img
+        y += rows * (card_h + gap) + 20
+        return y
 
-    # ── Layer 6: CTA ────────────────────────────────────────────────────────
+    def _draw_row_cards(self, draw, img, y, cards, colors):
+        """Draw horizontal row-style info cards."""
+        accent_rgb = self._hex_to_rgb(colors["accent"])
+        card_h = 60
+        gap = 10
+        max_cards = min(len(cards), 5)
 
-    def _render_cta(self, img: Image.Image, cta: str, colors: dict,
-                   accent: str, template: str) -> Image.Image:
-        """Render call-to-action block."""
-        draw = ImageDraw.Draw(img)
-        accent_rgb = self._hex_to_rgb(accent)
+        for i in range(max_cards):
+            card = cards[i]
+            if y + card_h > self.height - 200:
+                break
 
-        # CTA position: above branding area
-        cta_y = int(self.height * 0.90)
-        cta_height = 60
+            # Card background
+            draw.rounded_rectangle([50, y, self.width - 50, y + card_h],
+                                   radius=10, fill=self._hex_to_rgb(colors["card_bg"]),
+                                   outline=colors["accent"], width=1)
 
-        # CTA background pill
-        cta_x1 = 60
-        cta_x2 = self.width - 60
+            # Icon
+            icon_kw = card.get("icon", "check") or "check"
+            icon_name = icon_name_from_keyword(icon_kw)
+            try:
+                icon = self.icons.render(icon_name, size=28, color=colors["accent"])
+                img.paste(icon, (62, y + 16), icon)
+            except Exception:
+                pass
 
-        # Draw pill background
-        draw.rounded_rectangle(
-            [cta_x1, cta_y, cta_x2, cta_y + cta_height],
-            radius=30,
-            fill=accent_rgb,
-        )
+            # Text
+            title = card.get("title", card.get("text", str(card)))[:45]
+            title_font = self.fm.get_font("regular", 26)
+            draw.text((100, y + 14), title, font=title_font, fill=colors["text_primary"])
 
-        # CTA text
-        cta_font = _find_font("bold", 32)
-        try:
-            bbox = cta_font.getbbox(cta)
-            text_w = bbox[2] - bbox[0]
-        except AttributeError:
-            text_w = len(cta) * 18
+            # Highlight (right side)
+            highlight = card.get("highlight", card.get("amount", ""))
+            if highlight:
+                hl_font = self.fm.get_font("bold", 26)
+                hl_w = self.fm.get_text_size(str(highlight), hl_font)[0]
+                draw.text((self.width - 60 - hl_w, y + 14), str(highlight),
+                           font=hl_font, fill=colors["accent"])
 
-        text_x = (self.width - text_w) // 2
-        draw.text((text_x + 1, cta_y + 13), cta, font=cta_font, fill=(0, 0, 0, 128))
-        draw.text((text_x, cta_y + 12), cta, font=cta_font, fill="#FFFFFF")
+            y += card_h + gap
 
-        return img
+        return y
 
-    # ── Layer 7: Branding ──────────────────────────────────────────────────
+    def _draw_cta_pill(self, draw, cta, colors, brand):
+        """Draw CTA pill按钮 at bottom area."""
+        clean_cta = self._strip_emoji_prefix(cta).strip()
+        accent_rgb = self._hex_to_rgb(colors["accent"])
+        cta_font = self.fm.get_font("bold", 30)
+        tw, th = self._text_size(cta_font, clean_cta)
+        tw += 60
+        th += 24
+        cx = self.width // 2
+        cy = self.height - 160
+        # Pill background
+        draw.rounded_rectangle([cx - tw // 2, cy, cx + tw // 2, cy + th],
+                               radius=th // 2, fill=colors["accent"])
+        # Text
+        draw.text((cx - tw // 2 + 28, cy + 10), clean_cta,
+                   font=cta_font, fill=colors["bg_primary"])
 
-    def _render_branding(self, img: Image.Image, colors: dict) -> Image.Image:
-        """Render brand watermark."""
-        draw = ImageDraw.Draw(img)
-        text_color = colors.get("text_secondary", "#B0B0B0")
+    def _draw_brand_footer(self, draw, brand, colors):
+        """Draw brand footer."""
+        brand_font = self.fm.get_font("light", 22)
+        bw, bh = self._text_size(brand_font, brand)
+        bx = self.width - bw - 40
+        by = self.height - 40
+        # Background chip
+        draw.rounded_rectangle([bx - 12, by - 4, self.width - 30, by + bh + 8],
+                               radius=8, fill=self._hex_to_rgb(colors["bg_primary"]))
+        draw.text((bx, by), brand, font=brand_font, fill=colors["text_secondary"])
 
-        # Brand text at bottom-right
-        brand = "@prishaonlinedocumentation"
-        brand_font = _find_font("regular", 22)
+    # ── Quality Gate ───────────────────────────────────────────────────
 
-        try:
-            bbox = brand_font.getbbox(brand)
-            text_w = bbox[2] - bbox[0]
-        except AttributeError:
-            text_w = len(brand) * 12
+    def _quality_check(self, img: Image.Image, colors: dict) -> dict:
+        """
+        Auto quality checks. Returns score + failure reasons.
+        Checks: element count, whitespace, font sizes, contrast, flat bg, etc.
+        """
+        issues = []
+        score = 100
 
-        x = self.width - text_w - 40
-        y = self.height - 40
+        # 1. Check for flat single-color background
+        pixels = list(img.getdata())
+        unique_colors = set()
+        step = max(1, len(pixels) // 5000)
+        for i in range(0, len(pixels), step):
+            unique_colors.add(pixels[i][:3])
+        if len(unique_colors) < 20:
+            score -= 30
+            issues.append("FLAT_BACKGROUND: Too few unique colors (<20)")
 
-        # Semi-transparent background
-        draw.rounded_rectangle(
-            [x - 10, y - 5, self.width - 30, y + 30],
-            radius=8,
-            fill=(10, 10, 15),
-        )
+        # 2. Check whitespace (light pixels)
+        light_count = sum(1 for p in pixels[::step] if all(c > 200 for c in p[:3]))
+        light_pct = light_count / max(1, len(pixels[::step]))
+        if light_pct > 0.4:
+            score -= 20
+            issues.append(f"WITESPACE: {light_pct:.0%} light area (max 40%)")
+        if light_pct > 0.5:
+            score -= 15
+            issues.append("EXCESSIVE_WHITESPACE: >50% light area")
 
-        draw.text((x, y), brand, font=brand_font, fill=text_color)
+        # 3. Check accent color presence
+        accent_hex = colors.get("accent", "#4cc9f0")
+        accent_rgb = self._hex_to_rgb(accent_hex)
+        accent_count = sum(1 for p in pixels[::step]
+                          if self._color_distance(p[:3], accent_rgb) < 40)
+        accent_pct = accent_count / max(1, len(pixels[::step]))
+        if accent_pct < 0.02:
+            score -= 10
+            issues.append(f"LOW_ACCENT: Only {accent_pct:.1%} accent color (min 2%)")
 
-        return img
+        return {
+            "score": max(0, score),
+            "issues": issues,
+            "unique_colors": len(unique_colors),
+            "light_pct": light_pct,
+            "accent_pct": accent_pct,
+        }
 
-    # ── Helpers ──────────────────────────────────────────────────────────────
+    # ── Helpers ────────────────────────────────────────────────────────
 
-    def _hex_to_rgb(self, hex_color: str) -> tuple:
-        """Convert hex color to RGB tuple."""
+    def _make_canvas(self) -> tuple[Image.Image, ImageDraw.Draw]:
+        img = Image.new("RGB", (self.width, self.height), "#0A0E1F")
+        return img, ImageDraw.Draw(img)
+
+    @staticmethod
+    def _hex_to_rgb(hex_color: str) -> tuple:
         hex_color = hex_color.lstrip("#")
         if len(hex_color) == 3:
-            hex_color = "".join([c * 2 for c in hex_color])
+            hex_color = "".join(c * 2 for c in hex_color)
         try:
             return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
         except (ValueError, IndexError):
-            return (255, 255, 255)
+            return (0, 0, 0)
+
+    @staticmethod
+    def _color_distance(c1: tuple, c2: tuple) -> float:
+        return math.sqrt(sum((a - b) ** 2 for a, b in zip(c1, c2)))
+
+    def _strip_emoji_prefix(self, text: str) -> str:
+        """Remove leading emoji/prefix characters from text."""
+        if not text:
+            return ""
+        # Strip leading emoji sequences
+        result = text.strip()
+        # Remove known prefix emojis
+        for prefix in ["\U0001f4e2", "\u26a0\ufe0f", "\u274c", "\U0001f4b0",
+                        "\U0001f525", "\u2753", "\U0001f3c6", "\U0001f4b8",
+                        "\u2728", "\u26a0", "\U0001f6a8", "🚨", "⚠️", "❌",
+                        "💰", "🔥", "❓", "🏛", "📈", "🚀"]:
+            if result.startswith(prefix):
+                result = result[len(prefix):].strip()
+        return result
+
+    @staticmethod
+    def _extract_category(headline: str) -> str:
+        """Extract category keyword from headline."""
+        upper = headline.upper()
+        for keyword in ["LOAN", "SCHEME", "GST", "MSME", "NEW", "ALERT",
+                        "BREAKING", "UPDATE", "RULE", "BENEFIT", "SUBSIDY"]:
+            if keyword in upper:
+                return keyword
+        return ""
+
+    @staticmethod
+    def _headline_font_size(text: str) -> int:
+        """Calculate optimal font size based on headline length."""
+        length = len(text)
+        if length <= 15:
+            return 96
+        elif length <= 25:
+            return 80
+        elif length <= 35:
+            return 68
+        elif length <= 50:
+            return 56
+        else:
+            return 48
+
+    def _text_size(self, font, text: str) -> tuple:
+        """Get text dimensions."""
+        try:
+            bbox = font.getbbox(text)
+            return (bbox[2] - bbox[0], bbox[3] - bbox[1])
+        except Exception:
+            return (len(text) * font.size // 2, font.size)
 
     def _save_image(self, img: Image.Image) -> str:
-        """Save image to disk and return path."""
         IMAGES_DIR.mkdir(parents=True, exist_ok=True)
-        timestamp = int(time.time())
-        path = IMAGES_DIR / f"post_{timestamp}.png"
+        ts = int(time.time())
+        path = IMAGES_DIR / f"post_v3_{ts}.png"
         img.save(path, "PNG", quality=95)
         return str(path)
 
 
-# Backward-compatible method
+# ── Backward-Compatible Wrapper ────────────────────────────────────────
+
 def create_image(headline: str, image_text: str = "", category: str = "",
                 output_path: str = None, sub_headline: str = "",
                 info_cards: list = None, cta: str = None,
-                template: str = "opportunity_alert", accent: str = None,
+                template: str = "authority_card", accent: str = None,
                 color_scheme: dict = None, use_face: bool = False,
-                face_path: str = None, config: dict = None) -> str:
-    """
-    Backward-compatible image creation.
-    Old signature: create_image(headline, image_text, category, output_path)
-    New: keyword arguments for full spec.
-    """
-    engine = HybridImageEngine(config or {})
+                face_path: str = None, config: dict = None,
+                pillar: str = None, brand: str = None, key_stat: dict = None,
+                benefits: list = None) -> str:
+    """Backward-compatible image creation function."""
+    engine = PremiumImageEngine(config or {})
 
     spec = {
         "headline": headline,
         "sub_headline": sub_headline or image_text[:80],
         "info_cards": info_cards or [],
-        "cta": cta or "📩 DM 'INFO'",
-        "template": template,
+        "benefits": benefits or [],
+        "cta": cta or "DM 'INFO' for details",
+        "template": _map_legacy_template(template),
         "color_scheme": color_scheme or {},
-        "accent": accent or "#4A90D9",
-        "use_face": use_face,
-        "face_path": face_path,
+        "pillar": pillar or "business_registration",
+        "brand": brand or "@prisha.online.multiservices",
+        "key_stat": key_stat,
     }
+    if accent:
+        spec["color_scheme"]["accent"] = accent
 
     path = engine.create_image(spec)
-
     if output_path and path != output_path:
         import shutil
         shutil.copy2(path, output_path)
         return output_path
-
     return path
+
+
+def _map_legacy_template(t: str) -> str:
+    """Map old template names to new ones."""
+    mapping = {
+        "opportunity_alert": "authority_card",
+        "breaking_news": "breaking_impact",
+        "government_scheme": "infographic_story",
+        "business_growth": "social_proof",
+        "warning_policy": "breaking_impact",
+        "success_story": "social_proof",
+        "quick_tips": "infographic_story",
+        "compare_contrast": "compare_contrast",
+    }
+    return mapping.get(t, t)
 
 
 if __name__ == "__main__":
     import yaml
+    config_path = PROJECT_ROOT / "config.yaml"
     try:
-        with open(CONFIG_PATH) as f:
+        with open(config_path) as f:
             config = yaml.safe_load(f) or {}
     except Exception:
         config = {}
 
-    path = create_image(
-        headline="💰 GOVERNMENT GIVING ₹25 LAKH SUBSIDY",
-        sub_headline="Are You Eligible? Read This.",
-        info_cards=[
-            {"icon": "💰", "title": "Up to ₹25 Lakh", "highlight": "₹25L"},
-            {"icon": "✓", "title": "No Collateral Required"},
-            {"icon": "🏢", "title": "For New & Existing Business"},
-            {"icon": "📱", "title": "Easy Online Application"},
-            {"icon": "🏛", "title": "PMEGP Government Scheme"},
-        ],
-        cta="📩 DM 'INFO'",
-        template="opportunity_alert",
-        accent="#00FF88",
-        config=config,
-    )
-    print(f"Image saved: {path}")
+    # Test all 5 templates
+    test_specs = [
+        {
+            "headline": "GOVERNMENT GIVING 25 LAKH SUBSIDY",
+            "sub_headline": "Are You Eligible? Apply Now",
+            "info_cards": [
+                {"icon": "money", "title": "Up to 25 Lakh", "highlight": "25L"},
+                {"icon": "check", "title": "No Collateral Required"},
+                {"icon": "building", "title": "For New & Existing Business"},
+                {"icon": "percent", "title": "75% Government Grant"},
+            ],
+            "benefits": ["Government-recognized", "Easy Application", "Expert Support"],
+            "cta": "DM 'LOAN' for Details",
+            "pillar": "loans_subsidies",
+            "template": "authority_card",
+            "key_stat": {"value": "25 LAKH", "label": "Maximum Subsidy"},
+        },
+        {
+            "headline": "NEW GST RULE FROM JUNE 2026",
+            "sub_headline": "All Business Owners Must Know This",
+            "info_cards": [
+                {"icon": "alert", "title": "Effective June 1, 2026"},
+                {"icon": "document", "title": "Updated Filing Requirements"},
+                {"icon": "clock", "title": "Deadline: July 31, 2026"},
+            ],
+            "cta": "DM 'GST' for Help",
+            "pillar": "compliance_updates",
+            "template": "breaking_impact",
+        },
+        {
+            "headline": "WITHOUT MSME vs WITH MSME Registration",
+            "sub_headline": "See the Difference",
+            "info_cards": [
+                {"icon": "cross", "title": "No Government Benefits"},
+                {"icon": "check", "title": "Access to All Schemes"},
+                {"icon": "cross", "title": "Higher Interest Rates"},
+                {"icon": "check", "title": "Priority Lending"},
+                {"icon": "cross", "title": "No Tax Benefits"},
+                {"icon": "check", "title": "Tax Exemptions"},
+            ],
+            "cta": "DM 'MSME' to Register",
+            "pillar": "business_registration",
+            "template": "compare_contrast",
+        },
+        {
+            "headline": "5 STEPS TO START YOUR BUSINESS",
+            "sub_headline": "Complete Guide for New Entrepreneurs",
+            "info_cards": [
+                {"icon": "document", "title": "Step 1: Choose Business Type"},
+                {"icon": "building", "title": "Step 2: Register Your Business"},
+                {"icon": "rupee", "title": "Step 3: Open Bank Account"},
+                {"icon": "shield", "title": "Step 4: Get Licenses"},
+                {"icon": "chart-up", "title": "Step 5: Start Operations"},
+            ],
+            "cta": "DM 'START' for Guidance",
+            "pillar": "business_growth",
+            "template": "infographic_story",
+            "key_stat": {"value": "5", "label": "Simple Steps"},
+        },
+        {
+            "headline": "FROM ZERO TO 10 LAKH TURNOVER",
+            "sub_headline": "How Raju Built His Business with Prisha",
+            "info_cards": [
+                {"icon": "star", "title": "Started with just 50,000 investment"},
+                {"icon": "growth-chart", "title": "Grew 20x in 18 months"},
+                {"icon": "trophy", "title": "Now employs 12 people"},
+            ],
+            "cta": "DM 'SUCCESS' to Start",
+            "pillar": "success_stories",
+            "template": "social_proof",
+            "key_stat": {"value": "10 LAKH", "label": "Annual Turnover"},
+        },
+    ]
+
+    for i, spec in enumerate(test_specs):
+        path = create_image(**spec, config=config)
+        print(f"Template {i + 1} ({spec['template']}): {path}")

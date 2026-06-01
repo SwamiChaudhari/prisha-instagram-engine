@@ -156,3 +156,306 @@ This is an important update for every busines...
 2026-05-31 22:23:19 │ INFO    │ main │ Virality:  65.5%
 2026-05-31 22:23:19 │ INFO    │ main │ Reference: 65%
 2026-05-31 22:23:19 │ INFO    │ main │ Success:   True
+2026-05-31 23:05:26 │ INFO    │ dedup_engine │ DedupEngine initialized: 3 posts in history, 3 topics tracked
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 1: Post Strategy
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Strategy: opportunity_alert | Pillar: loans_subsidies | Face: False
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 2: Trend Research
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Found 6 topics from research
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 3: Topic Selection
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Selected: 🏛 New Government Scheme: E-Book On Schemes of MSME-2025 (English)
+2026-05-31 23:05:26 │ INFO    │ main │ Category: government_scheme | Score: 56.9/100
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 4: Style Analysis
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Template: opportunity_alert
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 5: Headline Competition
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Winner: ❓ Is Your Business Missing This Benefit?
+2026-05-31 23:05:26 │ INFO    │ main │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 6: Content Creation
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ English caption: 313 chars
+2026-05-31 23:05:26 │ INFO    │ main │ Hinglish caption: 311 chars
+2026-05-31 23:05:26 │ INFO    │ main │ Hashtags: 13
+2026-05-31 23:05:26 │ INFO    │ main │ CTA: 📩 Send Message For Details
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 7: Image Composition
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Image saved: /home/hp/instagram_engine/images/post_1780268726.png
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   Step 8: Quality Gate
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Virality Score: 63.0%
+2026-05-31 23:05:26 │ INFO    │ main │ Reference Similarity: 60%
+2026-05-31 23:05:26 │ INFO    │ main │   ✓ curiosity: 10/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ financial_opportunity: 4/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ urgency: 4/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ trust: 7/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ visual_appeal: 7/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ shareability: 6/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ engagement_potential: 7/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ local_relevance: 6/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ lead_generation: 5/10
+2026-05-31 23:05:26 │ INFO    │ main │   ✗ humanization: 7/10
+2026-05-31 23:05:26 │ INFO    │ main │ Humanization: PASS (10/10)
+2026-05-31 23:05:26 │ WARNING │ main │ Virality check failed on: ['financial_opportunity', 'urgency', 'trust', 'visual_appeal', 'shareability', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
+2026-05-31 23:05:26 │ WARNING │ main │ Attempting regeneration...
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   DRY RUN — Skipping Instagram publish
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Dry run complete. Post would be published with:
+2026-05-31 23:05:26 │ INFO    │ main │   Headline: ❓ Is Your Business Missing This Benefit?
+2026-05-31 23:05:26 │ INFO    │ main │   Caption: The one document every business needs.
+
+This is an important update for every business owner and ent...
+2026-05-31 23:05:26 │ INFO    │ main │ History saved. Total posts: 4
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │   PIPELINE SUMMARY
+2026-05-31 23:05:26 │ INFO    │ main │ ============================================================
+2026-05-31 23:05:26 │ INFO    │ main │ Date:      2026-06-01
+2026-05-31 23:05:26 │ INFO    │ main │ Template:  opportunity_alert
+2026-05-31 23:05:26 │ INFO    │ main │ Pillar:    loans_subsidies
+2026-05-31 23:05:26 │ INFO    │ main │ Headline:  ❓ Is Your Business Missing This Benefit?
+2026-05-31 23:05:26 │ INFO    │ main │ Virality:  63.0%
+2026-05-31 23:05:26 │ INFO    │ main │ Reference: 60%
+2026-05-31 23:05:26 │ INFO    │ main │ Success:   True
+2026-05-31 23:13:33 │ ERROR   │ instagram_publisher │ No image upload service configured. Set IMGUR_CLIENT_ID for local runs, or run in GitHub Actions.
+2026-05-31 23:21:32 │ INFO    │ instagram_publisher │ Using IMAGE_URL_OVERRIDE: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_20260601_044941.png
+2026-05-31 23:21:32 │ DEBUG   │ instagram_publisher │ Creating media container (attempt 1/3)
+2026-05-31 23:21:34 │ ERROR   │ instagram_publisher │ Container creation failed: Only photo or video can be accepted as media type. │ extra={'code': 9004}
+2026-05-31 23:21:39 │ DEBUG   │ instagram_publisher │ Creating media container (attempt 2/3)
+2026-05-31 23:21:41 │ ERROR   │ instagram_publisher │ Container creation failed: Only photo or video can be accepted as media type. │ extra={'code': 9004}
+2026-05-31 23:21:51 │ DEBUG   │ instagram_publisher │ Creating media container (attempt 3/3)
+2026-05-31 23:21:53 │ ERROR   │ instagram_publisher │ Container creation failed: Only photo or video can be accepted as media type. │ extra={'code': 9004}
+2026-05-31 23:25:31 │ INFO    │ instagram_publisher │ Using IMAGE_URL_OVERRIDE: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_20260601_045432.png
+2026-05-31 23:25:31 │ DEBUG   │ instagram_publisher │ Creating media container (attempt 1/3)
+2026-05-31 23:25:42 │ INFO    │ instagram_publisher │ Media container created: 18129035203537976
+2026-05-31 23:25:42 │ INFO    │ instagram_publisher │ Waiting for media processing...
+2026-05-31 23:25:52 │ DEBUG   │ instagram_publisher │ Publishing container (attempt 1/3)
+2026-05-31 23:25:58 │ INFO    │ instagram_publisher │ Container published: 17866487235625552
+2026-05-31 23:25:58 │ INFO    │ instagram_publisher │ Post published successfully! Media ID: 17866487235625552
+2026-06-01 06:15:19 │ INFO    │ dedup_engine │ DedupEngine initialized: 5 posts in history, 5 topics tracked
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 1: Post Strategy
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Strategy: warning_policy | Pillar: government_schemes | Face: True
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 2: Trend Research
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Found 6 topics from research
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 3: Topic Selection
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Selected: 📢 MSME Champions Portal
+2026-06-01 06:15:19 │ INFO    │ main │ Category: government_scheme | Score: 55.9/100
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 4: Style Analysis
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Template: warning_policy
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 5: Headline Competition
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Winner: ❓ Is Your Business Missing This Benefit?
+2026-06-01 06:15:19 │ INFO    │ main │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 6: Content Creation
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ English caption: 312 chars
+2026-06-01 06:15:19 │ INFO    │ main │ Hinglish caption: 290 chars
+2026-06-01 06:15:19 │ INFO    │ main │ Hashtags: 13
+2026-06-01 06:15:19 │ INFO    │ main │ CTA: 💬 Comment 'HELP'
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 7: Image Composition
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Image saved: /home/hp/instagram_engine/images/post_1780294519.png
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 8: Quality Gate
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Virality Score: 65.8%
+2026-06-01 06:15:19 │ INFO    │ main │ Reference Similarity: 65%
+2026-06-01 06:15:19 │ INFO    │ main │   ✓ curiosity: 10/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✗ financial_opportunity: 4/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✗ urgency: 4/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✗ trust: 7/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✗ visual_appeal: 7/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✗ shareability: 6/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✓ engagement_potential: 9/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✗ local_relevance: 6/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✗ lead_generation: 5/10
+2026-06-01 06:15:19 │ INFO    │ main │   ✓ humanization: 8/10
+2026-06-01 06:15:19 │ INFO    │ main │ Humanization: PASS (10/10)
+2026-06-01 06:15:19 │ WARNING │ main │ Virality check failed on: ['financial_opportunity', 'urgency', 'trust', 'visual_appeal', 'shareability', 'local_relevance', 'lead_generation']
+2026-06-01 06:15:19 │ WARNING │ main │ Attempting regeneration...
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   Step 9: Publishing to Instagram
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ ERROR   │ instagram_publisher │ No image upload service configured. Set IMGUR_CLIENT_ID for local runs, or run in GitHub Actions.
+2026-06-01 06:15:19 │ ERROR   │ main │ Publish failed: Failed to get a public URL for the image. Configure a CDN or image host.
+2026-06-01 06:15:19 │ INFO    │ main │ History saved. Total posts: 6
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │   PIPELINE SUMMARY
+2026-06-01 06:15:19 │ INFO    │ main │ ============================================================
+2026-06-01 06:15:19 │ INFO    │ main │ Date:      2026-06-01
+2026-06-01 06:15:19 │ INFO    │ main │ Template:  warning_policy
+2026-06-01 06:15:19 │ INFO    │ main │ Pillar:    government_schemes
+2026-06-01 06:15:19 │ INFO    │ main │ Headline:  ❓ Is Your Business Missing This Benefit?
+2026-06-01 06:15:19 │ INFO    │ main │ Virality:  65.8%
+2026-06-01 06:15:19 │ INFO    │ main │ Reference: 65%
+2026-06-01 06:15:19 │ INFO    │ main │ Success:   False
+2026-06-01 06:15:19 │ INFO    │ main │ Error:     Failed to get a public URL for the image. Configure a CDN or image host.
+2026-06-01 06:17:55 │ INFO    │ instagram_publisher │ Credentials verified: @prisha.online.multiservices │ extra={'id': '17841416139250148', 'name': 'Prisha Online Centre | CSC & Maha e-Seva'}
+2026-06-01 06:18:35 │ INFO    │ instagram_publisher │ Using IMAGE_URL_OVERRIDE: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_1780294519.png
+2026-06-01 06:18:35 │ DEBUG   │ instagram_publisher │ Creating media container (attempt 1/3)
+2026-06-01 06:18:40 │ INFO    │ instagram_publisher │ Media container created: 18129074644537976
+2026-06-01 06:18:40 │ INFO    │ instagram_publisher │ Waiting for media processing...
+2026-06-01 06:18:50 │ DEBUG   │ instagram_publisher │ Publishing container (attempt 1/3)
+2026-06-01 06:18:54 │ INFO    │ instagram_publisher │ Container published: 18110568491501951
+2026-06-01 06:18:54 │ INFO    │ instagram_publisher │ Post published successfully! Media ID: 18110568491501951
+2026-06-01 08:31:47 │ INFO    │ main │ ============================================================
+2026-06-01 08:31:47 │ INFO    │ main │   TEST: Image Generation
+2026-06-01 08:31:47 │ INFO    │ main │ ============================================================
+2026-06-01 08:31:48 │ INFO    │ main │ Test image saved: /home/hp/instagram_engine/images/post_v3_1780302708.png
+2026-06-01 08:32:12 │ INFO    │ main │ ============================================================
+2026-06-01 08:32:12 │ INFO    │ main │   TEST: Content Generation Pipeline
+2026-06-01 08:32:12 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:35 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:35 │ INFO    │ main │   TEST: Content Generation Pipeline
+2026-06-01 08:34:35 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ dedup_engine │ DedupEngine initialized: 6 posts in history, 6 topics tracked
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   Step 1: Post Strategy
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ Strategy: authority_card | Pillar: business_growth | Face: True
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   Step 2: Trend Research
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ Found 6 topics from research
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   Step 3: Topic Selection
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ Selected: 📢 MSME SAMADHAAN- Delayed Payment Monitoring System
+2026-06-01 08:34:44 │ INFO    │ main │ Category: government_scheme | Score: 54.6/100
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   Step 4: Style Analysis
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ Template: authority_card
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   Step 5: Headline Competition
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ Winner: ❓ Is Your Business Missing This Benefit?
+2026-06-01 08:34:44 │ INFO    │ main │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   Step 6: Content Creation
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ English caption: 180 chars
+2026-06-01 08:34:44 │ ERROR   │ main │ Pipeline failed: 'hinglish'
+2026-06-01 08:34:44 │ DEBUG   │ main │ Traceback (most recent call last):
+  File "/home/hp/instagram_engine/main.py", line 156, in run
+    log.info(f"Hinglish caption: {len(captions['hinglish'])} chars")
+                                      ~~~~~~~~^^^^^^^^^^^^
+KeyError: 'hinglish'
+
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │   PIPELINE SUMMARY
+2026-06-01 08:34:44 │ INFO    │ main │ ============================================================
+2026-06-01 08:34:44 │ INFO    │ main │ Date:      2026-06-01
+2026-06-01 08:34:44 │ INFO    │ main │ Template:  authority_card
+2026-06-01 08:34:44 │ INFO    │ main │ Pillar:    business_growth
+2026-06-01 08:34:44 │ INFO    │ main │ Headline:  ❓ Is Your Business Missing This Benefit?
+2026-06-01 08:34:44 │ INFO    │ main │ Virality:  N/A%
+2026-06-01 08:34:44 │ INFO    │ main │ Reference: N/A%
+2026-06-01 08:34:44 │ INFO    │ main │ Success:   False
+2026-06-01 08:34:44 │ INFO    │ main │ Error:     'hinglish'
+2026-06-01 08:35:58 │ INFO    │ dedup_engine │ DedupEngine initialized: 6 posts in history, 6 topics tracked
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 1: Post Strategy
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Strategy: authority_card | Pillar: loans_subsidies | Face: True
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 2: Trend Research
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Found 6 topics from research
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 3: Topic Selection
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Selected: 📢 MSME SAMADHAAN- Delayed Payment Monitoring System
+2026-06-01 08:35:58 │ INFO    │ main │ Category: government_scheme | Score: 54.6/100
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 4: Style Analysis
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Template: authority_card
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 5: Headline Competition
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Winner: ❓ Is Your Business Missing This Benefit?
+2026-06-01 08:35:58 │ INFO    │ main │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 6: Content Creation
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ English caption: 181 chars
+2026-06-01 08:35:58 │ INFO    │ main │ Marathi caption: 167 chars
+2026-06-01 08:35:58 │ INFO    │ main │ Hashtags: 12
+2026-06-01 08:35:58 │ INFO    │ main │ CTA: 💬 Tag Someone Who Needs This
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 7: Image Composition
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Image saved: /home/hp/instagram_engine/images/post_v3_1780302958.png
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   Step 8: Quality Gate
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Virality Score: 60.1%
+2026-06-01 08:35:58 │ INFO    │ main │ Reference Similarity: 60%
+2026-06-01 08:35:58 │ INFO    │ main │   ✓ curiosity: 10/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ financial_opportunity: 4/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ urgency: 4/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ trust: 7/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ visual_appeal: 7/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ shareability: 6/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ engagement_potential: 5/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ local_relevance: 6/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ lead_generation: 4/10
+2026-06-01 08:35:58 │ INFO    │ main │   ✗ humanization: 7/10
+2026-06-01 08:35:58 │ INFO    │ main │ Humanization: FAIL (9/10)
+2026-06-01 08:35:58 │ WARNING │ main │   ⚠ No clear CTA in caption
+2026-06-01 08:35:58 │ WARNING │ main │ Virality check failed on: ['financial_opportunity', 'urgency', 'trust', 'visual_appeal', 'shareability', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
+2026-06-01 08:35:58 │ WARNING │ main │ Attempting regeneration...
+2026-06-01 08:35:58 │ WARNING │ main │ Humanization concerns detected — publishing with caution
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   DRY RUN — Skipping Instagram publish
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Dry run complete. Post would be published with:
+2026-06-01 08:35:58 │ INFO    │ main │   Headline: ❓ Is Your Business Missing This Benefit?
+2026-06-01 08:35:58 │ INFO    │ main │   Caption: 📋 Important update for every business owner.
+
+A new government scheme has been launched that directl...
+2026-06-01 08:35:58 │ INFO    │ main │ History saved. Total posts: 7
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │   PIPELINE SUMMARY
+2026-06-01 08:35:58 │ INFO    │ main │ ============================================================
+2026-06-01 08:35:58 │ INFO    │ main │ Date:      2026-06-01
+2026-06-01 08:35:58 │ INFO    │ main │ Template:  authority_card
+2026-06-01 08:35:58 │ INFO    │ main │ Pillar:    loans_subsidies
+2026-06-01 08:35:58 │ INFO    │ main │ Headline:  ❓ Is Your Business Missing This Benefit?
+2026-06-01 08:35:58 │ INFO    │ main │ Virality:  60.1%
+2026-06-01 08:35:58 │ INFO    │ main │ Reference: 60%
+2026-06-01 08:35:58 │ INFO    │ main │ Success:   True
