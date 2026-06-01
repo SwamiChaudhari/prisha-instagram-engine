@@ -1,58 +1,76 @@
-20:06:00 │ INFO    │ Loaded 2 posts from history
-20:06:00 │ INFO    │ DedupEngine initialized: 2 posts in history, 2 topics tracked
-20:06:00 │ INFO    │ ============================================================
-20:06:00 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine Starting
-20:06:00 │ INFO    │ ============================================================
-20:06:00 │ INFO    │ ============================================================
-20:06:00 │ INFO    │   Step 1: Picking Category
-20:06:00 │ INFO    │ ============================================================
-20:06:00 │ INFO    │ Picked category: FSSAI │ extra={'category_counts': {'GST': 1, 'MSME': 1}}
-20:06:00 │ INFO    │ Selected category: FSSAI
-20:06:00 │ INFO    │ ============================================================
-20:06:00 │ INFO    │   Step 2: Generating Content
-20:06:00 │ INFO    │ ============================================================
-20:06:00 │ WARNING │ Gemini rate limited (429), waiting 10s before retry │ extra={'attempt': 1}
-20:06:10 │ WARNING │ Gemini rate limited (429), waiting 20s before retry │ extra={'attempt': 2}
-20:06:30 │ WARNING │ Gemini rate limited (429), waiting 30s before retry │ extra={'attempt': 3}
-20:07:00 │ WARNING │ Gemini rate limited (429), waiting 40s before retry │ extra={'attempt': 4}
-20:07:40 │ WARNING │ Gemini rate limited (429), waiting 50s before retry │ extra={'attempt': 5}
-20:08:30 │ WARNING │ OPENAI_API_KEY not set, skipping OpenAI.
-20:08:30 │ WARNING │ Both APIs failed — using template fallback
-20:08:30 │ INFO    │ Content generated │ category=FSSAI | topic=Basic vs State vs Central FSSAI License: Which One Do You Need?
-20:08:30 │ INFO    │ Topic: Basic vs State vs Central FSSAI License: Which One Do You Need?
-20:08:30 │ INFO    │ Headline: Basic vs State vs Central FSSAI License
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │   Step 3: Duplicate Check
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │   Step 4: Building Caption
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │ Caption built (671 chars)
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │   Step 5: Generating Image
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
-20:08:30 │ INFO    │ Image generated: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │   Step 6: DRY RUN — Skipping Instagram publish
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │ Dry run: post would be published with caption:
-20:08:30 │ INFO    │ Not all FSSAI licenses are the same. Picking the wrong one costs time and money.
+09:39:55 │ INFO    │ DedupEngine initialized: 7 posts in history, 7 topics tracked
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 1: Post Strategy
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Strategy: authority_card | Pillar: loans_subsidies | Face: False
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 2: Trend Research
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Found 6 topics from research
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 3: Topic Selection
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Selected: 📢 Udyam Registration (Online Registration for MSME)
+09:39:55 │ INFO    │ Category: government_scheme | Score: 54.6/100
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 4: Style Analysis
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Template: authority_card
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 5: Headline Competition
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
+09:39:55 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 6: Content Creation
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ English caption: 206 chars
+09:39:55 │ INFO    │ Marathi caption: 172 chars
+09:39:55 │ INFO    │ Hashtags: 12
+09:39:55 │ INFO    │ CTA: 💬 Comment 'GUIDE'
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 7: Image Composition
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1780306795.png
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   Step 8: Quality Gate
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Virality Score: 61.2%
+09:39:55 │ INFO    │ Reference Similarity: 65%
+09:39:55 │ INFO    │   ✓ curiosity: 10/10
+09:39:55 │ INFO    │   ✗ financial_opportunity: 4/10
+09:39:55 │ INFO    │   ✗ urgency: 4/10
+09:39:55 │ INFO    │   ✗ trust: 7/10
+09:39:55 │ INFO    │   ✗ visual_appeal: 7/10
+09:39:55 │ INFO    │   ✗ shareability: 6/10
+09:39:55 │ INFO    │   ✗ engagement_potential: 5/10
+09:39:55 │ INFO    │   ✗ local_relevance: 6/10
+09:39:55 │ INFO    │   ✗ lead_generation: 4/10
+09:39:55 │ INFO    │   ✓ humanization: 8/10
+09:39:55 │ INFO    │ Humanization: FAIL (9/10)
+09:39:55 │ WARNING │   ⚠ No clear CTA in caption
+09:39:55 │ WARNING │ Virality check failed on: ['financial_opportunity', 'urgency', 'trust', 'visual_appeal', 'shareability', 'engagement_potential', 'local_relevance', 'lead_generation']
+09:39:55 │ WARNING │ Attempting regeneration...
+09:39:55 │ WARNING │ Humanization concerns detected — publishing with caution
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   DRY RUN — Skipping Instagram publish
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Dry run complete. Post would be published with:
+09:39:55 │ INFO    │   Headline: ❓ Is Your Business Missing This Benefit?
+09:39:55 │ INFO    │   Caption: 💰 Benefits you might be missing right now.
 
-Not all FSSAI licenses are the same. Picking the wrong one costs time and money.
-
-If you're in the food business — whe...
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │   Step 7: Saving to History
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │ History saved. Total posts: 3
-20:08:30 │ INFO    │ Result saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/output/result_2026-06-01.json
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │   PIPELINE SUMMARY
-20:08:30 │ INFO    │ ============================================================
-20:08:30 │ INFO    │ Date:      2026-06-01
-20:08:30 │ INFO    │ Category:  FSSAI
-20:08:30 │ INFO    │ Topic:     Basic vs State vs Central FSSAI License: Which One Do You Need?
-20:08:30 │ INFO    │ Headline:  Basic vs State vs Central FSSAI License
-20:08:30 │ INFO    │ Success:   True
-20:08:30 │ INFO    │ Skipped:   False
+The application process is simple and can be completed w...
+09:39:55 │ INFO    │ History saved. Total posts: 8
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │   PIPELINE SUMMARY
+09:39:55 │ INFO    │ ============================================================
+09:39:55 │ INFO    │ Date:      2026-06-01
+09:39:55 │ INFO    │ Template:  authority_card
+09:39:55 │ INFO    │ Pillar:    loans_subsidies
+09:39:55 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
+09:39:55 │ INFO    │ Virality:  61.2%
+09:39:55 │ INFO    │ Reference: 65%
+09:39:55 │ INFO    │ Success:   True

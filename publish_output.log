@@ -1,58 +1,74 @@
-20:08:47 │ INFO    │ Loaded 3 posts from history
-20:08:47 │ INFO    │ DedupEngine initialized: 3 posts in history, 3 topics tracked
-20:08:47 │ INFO    │ ============================================================
-20:08:47 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine Starting
-20:08:47 │ INFO    │ ============================================================
-20:08:47 │ INFO    │ ============================================================
-20:08:47 │ INFO    │   Step 1: Picking Category
-20:08:47 │ INFO    │ ============================================================
-20:08:47 │ INFO    │ Picked category: Startup Registration │ extra={'category_counts': {'GST': 1, 'MSME': 1, 'FSSAI': 1}}
-20:08:47 │ INFO    │ Selected category: Startup Registration
-20:08:47 │ INFO    │ ============================================================
-20:08:47 │ INFO    │   Step 2: Generating Content
-20:08:47 │ INFO    │ ============================================================
-20:08:47 │ WARNING │ Gemini rate limited (429), waiting 10s before retry │ extra={'attempt': 1}
-20:08:57 │ WARNING │ Gemini rate limited (429), waiting 20s before retry │ extra={'attempt': 2}
-20:09:17 │ WARNING │ Gemini rate limited (429), waiting 30s before retry │ extra={'attempt': 3}
-20:09:47 │ WARNING │ Gemini rate limited (429), waiting 40s before retry │ extra={'attempt': 4}
-20:10:27 │ WARNING │ Gemini rate limited (429), waiting 50s before retry │ extra={'attempt': 5}
-20:11:17 │ WARNING │ OPENAI_API_KEY not set, skipping OpenAI.
-20:11:17 │ WARNING │ Both APIs failed — using template fallback
-20:11:17 │ INFO    │ Content generated │ category=Startup Registration | topic=A-Z Guide to DPIIT Recognition for Startups
-20:11:17 │ INFO    │ Topic: A-Z Guide to DPIIT Recognition for Startups
-20:11:17 │ INFO    │ Headline: A-Z Guide to DPIIT Recognition for Startups
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │   Step 3: Duplicate Check
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │   Step 4: Building Caption
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │ Caption built (648 chars)
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │   Step 5: Generating Image
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
-20:11:17 │ INFO    │ Image generated: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_2026-06-01.png
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │   Step 6: Publishing to Instagram
-20:11:17 │ INFO    │ ============================================================
-20:11:17 │ INFO    │ Using IMAGE_URL_OVERRIDE: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_2026-06-01.png
-20:11:22 │ INFO    │ Media container created: 18129021046537976
-20:11:22 │ INFO    │ Waiting for media processing...
-20:11:36 │ INFO    │ Container published: 17877250158468806
-20:11:36 │ INFO    │ Post published successfully! Media ID: 17877250158468806
-20:11:36 │ INFO    │ Published! Media ID: 17877250158468806
-20:11:36 │ INFO    │ ============================================================
-20:11:36 │ INFO    │   Step 7: Saving to History
-20:11:36 │ INFO    │ ============================================================
-20:11:36 │ INFO    │ History saved. Total posts: 4
-20:11:36 │ INFO    │ Result saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/output/result_2026-06-01.json
-20:11:36 │ INFO    │ ============================================================
-20:11:36 │ INFO    │   PIPELINE SUMMARY
-20:11:36 │ INFO    │ ============================================================
-20:11:36 │ INFO    │ Date:      2026-06-01
-20:11:36 │ INFO    │ Category:  Startup Registration
-20:11:36 │ INFO    │ Topic:     A-Z Guide to DPIIT Recognition for Startups
-20:11:36 │ INFO    │ Headline:  A-Z Guide to DPIIT Recognition for Startups
-20:11:36 │ INFO    │ Success:   True
-20:11:36 │ INFO    │ Skipped:   False
+09:40:11 │ INFO    │ DedupEngine initialized: 8 posts in history, 8 topics tracked
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 1: Post Strategy
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Strategy: quick_tips | Pillar: compliance_updates | Face: True
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 2: Trend Research
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Found 6 topics from research
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 3: Topic Selection
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Selected: 📢 What&#039;s MSME
+09:40:11 │ INFO    │ Category: government_scheme | Score: 57.2/100
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 4: Style Analysis
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Template: authority_card
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 5: Headline Competition
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
+09:40:11 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 6: Content Creation
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ English caption: 177 chars
+09:40:11 │ INFO    │ Marathi caption: 167 chars
+09:40:11 │ INFO    │ Hashtags: 12
+09:40:11 │ INFO    │ CTA: 🔁 Share With Friends
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 7: Image Composition
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1780306811.png
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 8: Quality Gate
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Virality Score: 59.4%
+09:40:11 │ INFO    │ Reference Similarity: 65%
+09:40:11 │ INFO    │   ✓ curiosity: 10/10
+09:40:11 │ INFO    │   ✗ financial_opportunity: 4/10
+09:40:11 │ INFO    │   ✗ urgency: 4/10
+09:40:11 │ INFO    │   ✗ trust: 7/10
+09:40:11 │ INFO    │   ✗ visual_appeal: 7/10
+09:40:11 │ INFO    │   ✗ shareability: 6/10
+09:40:11 │ INFO    │   ✗ engagement_potential: 5/10
+09:40:11 │ INFO    │   ✗ local_relevance: 5/10
+09:40:11 │ INFO    │   ✗ lead_generation: 4/10
+09:40:11 │ INFO    │   ✗ humanization: 7/10
+09:40:11 │ INFO    │ Humanization: FAIL (9/10)
+09:40:11 │ WARNING │   ⚠ No clear CTA in caption
+09:40:11 │ WARNING │ Virality check failed on: ['financial_opportunity', 'urgency', 'trust', 'visual_appeal', 'shareability', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
+09:40:11 │ WARNING │ Attempting regeneration...
+09:40:11 │ WARNING │ Humanization concerns detected — publishing with caution
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   Step 9: Publishing to Instagram
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Using image URL override: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1780306795.png
+09:40:11 │ ERROR   │ Publish failed: Image file not found: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1780306795.png
+09:40:11 │ INFO    │ History saved. Total posts: 9
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │   PIPELINE SUMMARY
+09:40:11 │ INFO    │ ============================================================
+09:40:11 │ INFO    │ Date:      2026-06-01
+09:40:11 │ INFO    │ Template:  authority_card
+09:40:11 │ INFO    │ Pillar:    compliance_updates
+09:40:11 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
+09:40:11 │ INFO    │ Virality:  59.4%
+09:40:11 │ INFO    │ Reference: 65%
+09:40:11 │ INFO    │ Success:   False
+09:40:11 │ INFO    │ Error:     Image file not found: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1780306795.png
