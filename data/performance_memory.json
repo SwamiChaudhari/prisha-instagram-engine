@@ -237,11 +237,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20260604_140739",
+      "date": "2026-06-04T14:07:39.526906+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "What&#039;s MSME",
+      "template": "social_proof",
+      "pillar": "government_schemes",
+      "category": "government_scheme",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 4,
+        "urgency": 4,
+        "trust": 7,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 6,
+        "lead_generation": 4,
+        "humanization": 7
+      },
+      "overall_virality": 60.1,
+      "reference_similarity": 60,
+      "cta": "📩 Send Message For Details",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 7,
-    "last_updated": "2026-06-03T14:43:02.868627+05:30",
+    "total_posts": 8,
+    "last_updated": "2026-06-04T14:07:39.526915+05:30",
     "posts_with_engagement": 0
   }
 }
