@@ -2025,5 +2025,71 @@
     "published": false,
     "media_id": "",
     "dry_run": false
+  },
+  {
+    "date": "2026-06-14",
+    "timestamp": "2026-06-14T14:03:10.869870+05:30",
+    "headline": "❓ Is Your Business Missing This Benefit?",
+    "topic": "What&#039;s MSME",
+    "category": "government_scheme",
+    "pillar": "government_schemes",
+    "template": "infographic_story",
+    "captions": {
+      "english": "💰 Benefits you might be missing right now.\n\nThe application process is simple and can be completed with proper documentation. Don't miss this opportunity to get official government recognition and benefits.",
+      "marathi": "📢 नवीन सरकारी योजना — तुम्ही पात्र आहात का?\n\nएक नवीन सरकारी योजना सुरू करण्यात आली आहे जी थेट लहान व्यवसाय मालकांना, उद्योजकांना आणि स्वयंरोजगार व्यावसायिकांना फायदेशीर ठरते.",
+      "full_caption": "❓ Is Your Business Missing This Benefit?\n\n💰 Benefits you might be missing right now.\n\nThe application process is simple and can be completed with proper documentation. Don't miss this opportunity to get official government recognition and benefits.\n\n📢 नवीन सरकारी योजना — तुम्ही पात्र आहात का?\n\nएक नवीन सरकारी योजना सुरू करण्यात आली आहे जी थेट लहान व्यवसाय मालकांना, उद्योजकांना आणि स्वयंरोजगार व्यावसायिकांना फायदेशीर ठरते.\n\n✅ Scheme guidance and awareness\n✅ Registration assistance\n✅ Documentation support\n✅ Application assistance\n✅ Business growth support\n\n🤝 Reliable Guidance\n📄 Complete Documentation Support\n⚡ Fast Process\n📞 Dedicated Assistance\n\n📞 Contact us today.\n\n📍 Balaji Nagar, Ambi Road, Varale\n📞 9145564291\n\n✨ Customer Satisfaction is Our Priority ✨\n✨ ग्राहक सेवा हाच आमचा उद्देश ✨\n\n#PrishaOnlineCentre #PrishaOnlineDocumentation #MahaESewa #CSC #BusinessRegistration #MSME #GovernmentSchemes #MaharashtraBusiness #SarkarYojana #GovernmentBenefit #BusinessSupport #India",
+      "hashtags": [
+        "PrishaOnlineCentre",
+        "PrishaOnlineDocumentation",
+        "MahaESewa",
+        "CSC",
+        "BusinessRegistration",
+        "MSME",
+        "GovernmentSchemes",
+        "MaharashtraBusiness",
+        "SarkarYojana",
+        "GovernmentBenefit",
+        "BusinessSupport",
+        "India"
+      ]
+    },
+    "cta": "📞 Contact Us Today",
+    "info_blocks": [
+      {
+        "icon": "✓",
+        "text": "What&#039;s MSME",
+        "highlight": ""
+      },
+      {
+        "icon": "📄",
+        "text": "Easy process available",
+        "highlight": ""
+      },
+      {
+        "icon": "📩",
+        "text": "Contact for details",
+        "highlight": ""
+      }
+    ],
+    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1781425990.png",
+    "use_face": false,
+    "virality_scores": {
+      "curiosity": 10,
+      "financial_opportunity": 4,
+      "urgency": 4,
+      "trust": 7,
+      "visual_appeal": 7,
+      "shareability": 6,
+      "engagement_potential": 5,
+      "local_relevance": 6,
+      "lead_generation": 4,
+      "humanization": 8
+    },
+    "overall_virality": 61.2,
+    "reference_similarity": 60,
+    "humanization_score": 9,
+    "published": false,
+    "media_id": "",
+    "dry_run": true
   }
 ]
