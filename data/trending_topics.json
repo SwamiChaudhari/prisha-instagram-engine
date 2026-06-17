@@ -1,66 +1,186 @@
 {
-  "cached_at": "2026-06-15T16:14:00.904293+05:30",
-  "count": 6,
+  "cached_at": "2026-06-17T14:47:16.896407+05:30",
+  "count": 18,
   "topics": [
     {
-      "topic": "What&#039;s MSME",
-      "headline": "📢 What&#039;s MSME",
-      "source": "msme",
-      "category": "government_scheme",
-      "date": "2026-06-15T16:14:00.903326+05:30",
-      "estimated_impact": 7,
-      "url": "https://msme.gov.in/know-about-msme",
-      "summary": "What&#039;s MSME"
+      "topic": "Monsoon business opportunities for MSMEs",
+      "headline": "📢 Monsoon business opportunities for MSMEs",
+      "source": "ai_fallback",
+      "category": "business_growth",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 6,
+      "url": "",
+      "summary": "Monsoon business opportunities for MSMEs"
     },
     {
-      "topic": "E-Book On Schemes of MSME-2025 (English)",
-      "headline": "🏛 New Government Scheme: E-Book On Schemes of MSME-2025 (English)",
-      "source": "msme",
-      "category": "government_scheme",
-      "date": "2026-06-15T16:14:00.903350+05:30",
-      "estimated_impact": 7,
-      "url": "https://msme.gov.in/e-book-schemes-msme",
-      "summary": "E-Book On Schemes of MSME-2025 (English)"
+      "topic": "Scholarship applications open for students",
+      "headline": "📢 Scholarship applications open for students",
+      "source": "ai_fallback",
+      "category": "scholarship",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 8,
+      "url": "",
+      "summary": "Scholarship applications open for students"
     },
     {
-      "topic": "E-Book On Schemes of MSME-2025 (Hindi)",
-      "headline": "🏛 New Government Scheme: E-Book On Schemes of MSME-2025 (Hindi)",
-      "source": "msme",
-      "category": "government_scheme",
-      "date": "2026-06-15T16:14:00.903357+05:30",
+      "topic": "Mid-year GST compliance checkup for businesses",
+      "headline": "📢 Mid-year GST compliance checkup for businesses",
+      "source": "ai_fallback",
+      "category": "compliance",
+      "date": "2026-06-17T14:47:16.895713+05:30",
       "estimated_impact": 7,
-      "url": "https://msme.gov.in/sites/default/files/MSME-Schemes-Booklet-Hindi.pdf",
-      "summary": "E-Book On Schemes of MSME-2025 (Hindi)"
+      "url": "",
+      "summary": "Mid-year GST compliance checkup for businesses"
     },
     {
-      "topic": "MSME Champions Portal",
-      "headline": "📢 MSME Champions Portal",
-      "source": "msme",
-      "category": "government_scheme",
-      "date": "2026-06-15T16:14:00.903364+05:30",
-      "estimated_impact": 7,
-      "url": "https://champions.gov.in",
-      "summary": "MSME Champions Portal"
+      "topic": "PMEGP loan: Government gives up to Rs 25 lakh subsidy",
+      "headline": "💰 Government Giving RS 25 LAKH Support — Are You Eligible?",
+      "source": "ai_fallback",
+      "category": "loan_subsidy",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 10,
+      "url": "",
+      "summary": "PMEGP loan: Government gives up to Rs 25 lakh subsidy"
     },
     {
-      "topic": "MSME SAMADHAAN- Delayed Payment Monitoring System",
-      "headline": "📢 MSME SAMADHAAN- Delayed Payment Monitoring System",
-      "source": "msme",
-      "category": "government_scheme",
-      "date": "2026-06-15T16:14:00.903372+05:30",
-      "estimated_impact": 7,
-      "url": "https://samadhaan.msme.gov.in",
-      "summary": "MSME SAMADHAAN- Delayed Payment Monitoring System"
+      "topic": "Mudra Loan: Get up to Rs 10 lakh without collateral",
+      "headline": "💰 Government Giving RS 10 LAKH Support — Are You Eligible?",
+      "source": "ai_fallback",
+      "category": "loan_subsidy",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 10,
+      "url": "",
+      "summary": "Mudra Loan: Get up to Rs 10 lakh without collateral"
     },
     {
-      "topic": "Udyam Registration (Online Registration for MSME)",
-      "headline": "📢 Udyam Registration (Online Registration for MSME)",
-      "source": "msme",
-      "category": "government_scheme",
-      "date": "2026-06-15T16:14:00.903383+05:30",
+      "topic": "PM Vishwakarma Scheme: Free registration and toolkit for artisans",
+      "headline": "🏛 New Government Scheme: PM Vishwakarma Scheme: Free registration and toolkit for art",
+      "source": "ai_fallback",
+      "category": "government_schemes",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 9,
+      "url": "",
+      "summary": "PM Vishwakarma Scheme: Free registration and toolkit for artisans"
+    },
+    {
+      "topic": "Udyam Registration: Free government recognition for MSMEs",
+      "headline": "📢 Udyam Registration: Free government recognition for MSMEs",
+      "source": "ai_fallback",
+      "category": "business_registration",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 9,
+      "url": "",
+      "summary": "Udyam Registration: Free government recognition for MSMEs"
+    },
+    {
+      "topic": "GST Registration mandatory requirements changed",
+      "headline": "🚨 Important Update: GST Registration mandatory requirements changed",
+      "source": "ai_fallback",
+      "category": "compliance",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 8,
+      "url": "",
+      "summary": "GST Registration mandatory requirements changed"
+    },
+    {
+      "topic": "Startup India tax benefits you didn't know about",
+      "headline": "📢 Startup India tax benefits you didn't know about",
+      "source": "ai_fallback",
+      "category": "business_growth",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 8,
+      "url": "",
+      "summary": "Startup India tax benefits you didn't know about"
+    },
+    {
+      "topic": "FSSAI license required for home-based food businesses",
+      "headline": "🚨 Important Update: FSSAI license required for home-based food businesses",
+      "source": "ai_fallback",
+      "category": "compliance",
+      "date": "2026-06-17T14:47:16.895713+05:30",
       "estimated_impact": 7,
-      "url": "https://udyamregistration.gov.in",
-      "summary": "Udyam Registration (Online Registration for MSME)"
+      "url": "",
+      "summary": "FSSAI license required for home-based food businesses"
+    },
+    {
+      "topic": "Shop Act license online process and penalties",
+      "headline": "📢 Shop Act license online process and penalties",
+      "source": "ai_fallback",
+      "category": "compliance",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 7,
+      "url": "",
+      "summary": "Shop Act license online process and penalties"
+    },
+    {
+      "topic": "Maharashtra government schemes for small businesses",
+      "headline": "🏛 New Government Scheme: Maharashtra government schemes for small businesses",
+      "source": "ai_fallback",
+      "category": "government_schemes",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 9,
+      "url": "",
+      "summary": "Maharashtra government schemes for small businesses"
+    },
+    {
+      "topic": "PAN card now mandatory for business above Rs 5 lakh turnover",
+      "headline": "💰 Government Giving RS 5 LAKH Support — Are You Eligible?",
+      "source": "ai_fallback",
+      "category": "registration",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 6,
+      "url": "",
+      "summary": "PAN card now mandatory for business above Rs 5 lakh turnover"
+    },
+    {
+      "topic": "Caste certificate online application process simplified",
+      "headline": "📢 Caste certificate online application process simplified",
+      "source": "ai_fallback",
+      "category": "certificates",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 7,
+      "url": "",
+      "summary": "Caste certificate online application process simplified"
+    },
+    {
+      "topic": "Income certificate required for scholarship applications",
+      "headline": "🚨 Important Update: Income certificate required for scholarship applications",
+      "source": "ai_fallback",
+      "category": "certificates",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 7,
+      "url": "",
+      "summary": "Income certificate required for scholarship applications"
+    },
+    {
+      "topic": "Scholarship deadline approaching for SC/ST/OBC students",
+      "headline": "⚠️ Deadline Alert: Scholarship deadline approaching for SC/ST/OBC students",
+      "source": "ai_fallback",
+      "category": "scholarship",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 8,
+      "url": "",
+      "summary": "Scholarship deadline approaching for SC/ST/OBC students"
+    },
+    {
+      "topic": "Aadhaar linking deadline for bank accounts and PAN",
+      "headline": "⚠️ Deadline Alert: Aadhaar linking deadline for bank accounts and PAN",
+      "source": "ai_fallback",
+      "category": "compliance",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 7,
+      "url": "",
+      "summary": "Aadhaar linking deadline for bank accounts and PAN"
+    },
+    {
+      "topic": "Passport application new rules and fast-track process",
+      "headline": "🏛 New Government Scheme: Passport application new rules and fast-track process",
+      "source": "ai_fallback",
+      "category": "certificates",
+      "date": "2026-06-17T14:47:16.895713+05:30",
+      "estimated_impact": 6,
+      "url": "",
+      "summary": "Passport application new rules and fast-track process"
     }
   ]
 }
