@@ -2644,5 +2644,71 @@
     "published": false,
     "media_id": "",
     "dry_run": true
+  },
+  {
+    "date": "2026-06-18",
+    "timestamp": "2026-06-18T14:29:17.741553+05:30",
+    "headline": "❓ Is Your Business Missing This Benefit?",
+    "topic": "PAN card now mandatory for business above Rs 5 lakh turnover",
+    "category": "registration",
+    "pillar": "loans_subsidies",
+    "template": "social_proof",
+    "captions": {
+      "english": "💰 Benefits you might be missing right now.\n\nThe application process is simple and can be completed with proper documentation. Don't miss this opportunity to get official government recognition and benefits.",
+      "marathi": "💰 फायदे जे तुम्ही आत्ताच गमावत असाल.\n\nअर्ज प्रक्रिया सोपी आहे आणि योग्य कागदपत्रांसह पूर्ण केली जाऊ शकते. अधिकृत सरकाने मान्यता आणि फायदे मिळवण्याची ही संधी गमावू नका.",
+      "full_caption": "❓ Is Your Business Missing This Benefit?\n\n💰 Benefits you might be missing right now.\n\nThe application process is simple and can be completed with proper documentation. Don't miss this opportunity to get official government recognition and benefits.\n\n💰 फायदे जे तुम्ही आत्ताच गमावत असाल.\n\nअर्ज प्रक्रिया सोपी आहे आणि योग्य कागदपत्रांसह पूर्ण केली जाऊ शकते. अधिकृत सरकाने मान्यता आणि फायदे मिळवण्याची ही संधी गमावू नका.\n\n✅ Scheme guidance and awareness\n✅ Registration assistance\n✅ Documentation support\n✅ Application assistance\n✅ Business growth support\n\n🤝 Reliable Guidance\n📄 Complete Documentation Support\n⚡ Fast Process\n📞 Dedicated Assistance\n\n📩 DM us for more information.\n\n📍 Balaji Nagar, Ambi Road, Varale\n📞 9145564291\n\n✨ Customer Satisfaction is Our Priority ✨\n✨ ग्राहक सेवा हाच आमचा उद्देश ✨\n\n#PrishaOnlineCentre #PrishaOnlineDocumentation #MahaESewa #CSC #BusinessRegistration #MSME #GovernmentSchemes #MaharashtraBusiness #SarkarYojana #GovernmentBenefit #BusinessSupport #India",
+      "hashtags": [
+        "PrishaOnlineCentre",
+        "PrishaOnlineDocumentation",
+        "MahaESewa",
+        "CSC",
+        "BusinessRegistration",
+        "MSME",
+        "GovernmentSchemes",
+        "MaharashtraBusiness",
+        "SarkarYojana",
+        "GovernmentBenefit",
+        "BusinessSupport",
+        "India"
+      ]
+    },
+    "cta": "📞 Call For Free Consultation",
+    "info_blocks": [
+      {
+        "icon": "✓",
+        "text": "PAN card now mandatory for business above Rs 5 lak",
+        "highlight": ""
+      },
+      {
+        "icon": "📄",
+        "text": "Easy process available",
+        "highlight": ""
+      },
+      {
+        "icon": "📩",
+        "text": "Contact for details",
+        "highlight": ""
+      }
+    ],
+    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1781773157.png",
+    "use_face": false,
+    "virality_scores": {
+      "curiosity": 10,
+      "financial_opportunity": 9,
+      "urgency": 4,
+      "trust": 5,
+      "visual_appeal": 7,
+      "shareability": 6,
+      "engagement_potential": 5,
+      "local_relevance": 6,
+      "lead_generation": 4,
+      "humanization": 8
+    },
+    "overall_virality": 65.4,
+    "reference_similarity": 55,
+    "humanization_score": 9,
+    "published": false,
+    "media_id": "",
+    "dry_run": false
   }
 ]
