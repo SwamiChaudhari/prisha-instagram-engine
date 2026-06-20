@@ -781,11 +781,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20260620_133244",
+      "date": "2026-06-20T13:32:44.170007+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "Scholarship deadline approaching for SC/ST/OBC students",
+      "template": "breaking_impact",
+      "pillar": "loans_subsidies",
+      "category": "scholarship",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 7,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 6,
+        "lead_generation": 4,
+        "humanization": 8
+      },
+      "overall_virality": 62.9,
+      "reference_similarity": 55,
+      "cta": "📩 Send Message For Details",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 23,
-    "last_updated": "2026-06-19T14:47:54.821243+05:30",
+    "total_posts": 24,
+    "last_updated": "2026-06-20T13:32:44.170016+05:30",
     "posts_with_engagement": 0
   }
 }
