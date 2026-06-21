@@ -815,11 +815,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20260621_141537",
+      "date": "2026-06-21T14:15:37.000888+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "Startup India tax benefits you didn't know about",
+      "template": "infographic_story",
+      "pillar": "compliance_updates",
+      "category": "business_growth",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 4,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 5,
+        "lead_generation": 4,
+        "humanization": 7
+      },
+      "overall_virality": 57.4,
+      "reference_similarity": 60,
+      "cta": "💬 Comment 'HELP'",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 24,
-    "last_updated": "2026-06-20T13:32:44.170016+05:30",
+    "total_posts": 25,
+    "last_updated": "2026-06-21T14:15:37.000897+05:30",
     "posts_with_engagement": 0
   }
 }
