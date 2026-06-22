@@ -3121,5 +3121,76 @@
     "published": false,
     "media_id": "",
     "dry_run": false
+  },
+  {
+    "date": "2026-06-22",
+    "timestamp": "2026-06-22T15:50:01.051202+05:30",
+    "headline": "❓ Is Your Business Missing This Benefit?",
+    "topic": "Aadhaar linking deadline for bank accounts and PAN",
+    "category": "compliance",
+    "pillar": "student_services",
+    "template": "breaking_impact",
+    "captions": {
+      "english": "⚠️ Missing deadlines can cost you heavily.\n\nMissing compliance deadlines can lead to heavy penalties and legal trouble for your business.",
+      "marathi": "📅 व्यवसाय मालकांसाठी महत्त्वाची डेडलाइन जवळ आली आहे.\n\nकंप्लायन्स डेडलाइन चुकवल्यास तुमच्या व्यवसायासाठी जबरदस्त दंड आणि कायदेशीर अडचणी निर्माण होऊ शकतात.",
+      "full_caption": "❓ Is Your Business Missing This Benefit?\n\n⚠️ Missing deadlines can cost you heavily.\n\nMissing compliance deadlines can lead to heavy penalties and legal trouble for your business.\n\n📅 व्यवसाय मालकांसाठी महत्त्वाची डेडलाइन जवळ आली आहे.\n\nकंप्लायन्स डेडलाइन चुकवल्यास तुमच्या व्यवसायासाठी जबरदस्त दंड आणि कायदेशीर अडचणी निर्माण होऊ शकतात.\n\n✅ Avoid penalties and fines\n✅ Stay legally protected\n✅ Timely filing support\n✅ Complete documentation\n✅ Expert guidance\n\n🤝 Reliable Guidance\n📄 Complete Documentation Support\n⚡ Fast Process\n📞 Dedicated Assistance\n\n📞 Contact us today.\n\n📍 Balaji Nagar, Ambi Road, Varale\n📞 9145564291\n\n✨ Customer Satisfaction is Our Priority ✨\n✨ ग्राहक सेवा हाच आमचा उद्देश ✨\n\n#PrishaOnlineCentre #PrishaOnlineDocumentation #MahaESewa #CSC #BusinessRegistration #MSME #GovernmentSchemes #MaharashtraBusiness #BusinessCompliance #GSTFiling #LegalCompliance #BusinessUpdate",
+      "hashtags": [
+        "PrishaOnlineCentre",
+        "PrishaOnlineDocumentation",
+        "MahaESewa",
+        "CSC",
+        "BusinessRegistration",
+        "MSME",
+        "GovernmentSchemes",
+        "MaharashtraBusiness",
+        "BusinessCompliance",
+        "GSTFiling",
+        "LegalCompliance",
+        "BusinessUpdate"
+      ]
+    },
+    "cta": "📌 Share With Business Friends",
+    "info_blocks": [
+      {
+        "icon": "⚠️",
+        "text": "Deadline approaching",
+        "highlight": ""
+      },
+      {
+        "icon": "📅",
+        "text": "Act before due date",
+        "highlight": ""
+      },
+      {
+        "icon": "📄",
+        "text": "Required for all businesses",
+        "highlight": ""
+      },
+      {
+        "icon": "✓",
+        "text": "Avoid penalties",
+        "highlight": ""
+      }
+    ],
+    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1782123600.png",
+    "use_face": false,
+    "virality_scores": {
+      "curiosity": 10,
+      "financial_opportunity": 4,
+      "urgency": 4,
+      "trust": 5,
+      "visual_appeal": 7,
+      "shareability": 6,
+      "engagement_potential": 5,
+      "local_relevance": 5,
+      "lead_generation": 5,
+      "humanization": 7
+    },
+    "overall_virality": 58.7,
+    "reference_similarity": 75,
+    "humanization_score": 9,
+    "published": false,
+    "media_id": "",
+    "dry_run": true
   }
 ]
