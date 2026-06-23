@@ -883,11 +883,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20260623_133146",
+      "date": "2026-06-23T13:31:46.175851+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "Scholarship applications open for students",
+      "template": "infographic_story",
+      "pillar": "myth_vs_reality",
+      "category": "scholarship",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 7,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 5,
+        "lead_generation": 4,
+        "humanization": 7
+      },
+      "overall_virality": 61.2,
+      "reference_similarity": 60,
+      "cta": "📌 Save This Post",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 26,
-    "last_updated": "2026-06-22T15:50:01.055958+05:30",
+    "total_posts": 27,
+    "last_updated": "2026-06-23T13:31:46.175862+05:30",
     "posts_with_engagement": 0
   }
 }
