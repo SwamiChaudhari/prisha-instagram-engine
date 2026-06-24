@@ -3466,5 +3466,71 @@
     "published": false,
     "media_id": "",
     "dry_run": true
+  },
+  {
+    "date": "2026-06-24",
+    "timestamp": "2026-06-24T13:27:41.853634+05:30",
+    "headline": "❓ Is Your Business Missing This Benefit?",
+    "topic": "Monsoon business opportunities for MSMEs",
+    "category": "business_growth",
+    "pillar": "loans_subsidies",
+    "template": "social_proof",
+    "captions": {
+      "english": "⚠️ Most business owners don't know this.\n\nThe application process is simple and can be completed with proper documentation. Don't miss this opportunity to get official government recognition and benefits.",
+      "marathi": "⚠️ बहुतेक व्यवसाय मालकांना हे माहित नाही.\n\nएक नवीन सरकारी योजना सुरू करण्यात आली आहे जी थेट लहान व्यवसाय मालकांना, उद्योजकांना आणि स्वयंरोजगार व्यावसायिकांना फायदेशीर ठरते.",
+      "full_caption": "❓ Is Your Business Missing This Benefit?\n\n⚠️ Most business owners don't know this.\n\nThe application process is simple and can be completed with proper documentation. Don't miss this opportunity to get official government recognition and benefits.\n\n⚠️ बहुतेक व्यवसाय मालकांना हे माहित नाही.\n\nएक नवीन सरकारी योजना सुरू करण्यात आली आहे जी थेट लहान व्यवसाय मालकांना, उद्योजकांना आणि स्वयंरोजगार व्यावसायिकांना फायदेशीर ठरते.\n\n✅ Scheme guidance and awareness\n✅ Registration assistance\n✅ Documentation support\n✅ Application assistance\n✅ Business growth support\n\n🤝 Reliable Guidance\n📄 Complete Documentation Support\n⚡ Fast Process\n📞 Dedicated Assistance\n\n📞 Contact us today.\n\n📍 Balaji Nagar, Ambi Road, Varale\n📞 9145564291\n\n✨ Customer Satisfaction is Our Priority ✨\n✨ ग्राहक सेवा हाच आमचा उद्देश ✨\n\n#PrishaOnlineCentre #PrishaOnlineDocumentation #MahaESewa #CSC #BusinessRegistration #MSME #GovernmentSchemes #MaharashtraBusiness #SarkarYojana #GovernmentBenefit #BusinessSupport #India",
+      "hashtags": [
+        "PrishaOnlineCentre",
+        "PrishaOnlineDocumentation",
+        "MahaESewa",
+        "CSC",
+        "BusinessRegistration",
+        "MSME",
+        "GovernmentSchemes",
+        "MaharashtraBusiness",
+        "SarkarYojana",
+        "GovernmentBenefit",
+        "BusinessSupport",
+        "India"
+      ]
+    },
+    "cta": "📩 DM 'INFO'",
+    "info_blocks": [
+      {
+        "icon": "✓",
+        "text": "Monsoon business opportunities for MSMEs",
+        "highlight": ""
+      },
+      {
+        "icon": "📄",
+        "text": "Easy process available",
+        "highlight": ""
+      },
+      {
+        "icon": "📩",
+        "text": "Contact for details",
+        "highlight": ""
+      }
+    ],
+    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1782287861.png",
+    "use_face": false,
+    "virality_scores": {
+      "curiosity": 10,
+      "financial_opportunity": 4,
+      "urgency": 4,
+      "trust": 5,
+      "visual_appeal": 7,
+      "shareability": 6,
+      "engagement_potential": 5,
+      "local_relevance": 6,
+      "lead_generation": 4,
+      "humanization": 8
+    },
+    "overall_virality": 59.2,
+    "reference_similarity": 60,
+    "humanization_score": 9,
+    "published": false,
+    "media_id": "",
+    "dry_run": false
   }
 ]
