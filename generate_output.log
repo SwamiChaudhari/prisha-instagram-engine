@@ -1,76 +1,76 @@
-07:57:19 │ INFO    │ DedupEngine initialized: 53 posts in history, 53 topics tracked
-07:57:19 │ INFO    │ ============================================================
-07:57:19 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
-07:57:19 │ INFO    │ ============================================================
-07:57:19 │ INFO    │ ============================================================
-07:57:19 │ INFO    │   Step 1: Post Strategy
-07:57:19 │ INFO    │ ============================================================
-07:57:19 │ INFO    │ Strategy: government_scheme | Pillar: compliance_updates | Face: False
-07:57:19 │ INFO    │ ============================================================
-07:57:19 │ INFO    │   Step 2: Trend Research
-07:57:19 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Found 18 topics from research
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   Step 3: Topic Selection
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Selected: 📢 Caste certificate online application process simplified
-07:57:25 │ INFO    │ Category: certificates | Score: 51.3/100
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   Step 4: Style Analysis
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Template: infographic_story
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   Step 5: Headline Competition
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
-07:57:25 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   Step 6: Content Creation
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ English caption: 204 chars
-07:57:25 │ INFO    │ Marathi caption: 177 chars
-07:57:25 │ INFO    │ Hashtags: 12
-07:57:25 │ INFO    │ CTA: 💬 Comment Your Business Type
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   Step 7: Image Composition
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1782287845.png
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   Step 8: Quality Gate
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Virality Score: 58.5%
-07:57:25 │ INFO    │ Reference Similarity: 60%
-07:57:25 │ INFO    │   ✓ curiosity: 10/10
-07:57:25 │ INFO    │   ✗ financial_opportunity: 4/10
-07:57:25 │ INFO    │   ✗ urgency: 4/10
-07:57:25 │ INFO    │   ✗ trust: 5/10
-07:57:25 │ INFO    │   ✗ visual_appeal: 7/10
-07:57:25 │ INFO    │   ✗ shareability: 6/10
-07:57:25 │ INFO    │   ✗ engagement_potential: 5/10
-07:57:25 │ INFO    │   ✗ local_relevance: 5/10
-07:57:25 │ INFO    │   ✗ lead_generation: 4/10
-07:57:25 │ INFO    │   ✓ humanization: 8/10
-07:57:25 │ INFO    │ Humanization: FAIL (9/10)
-07:57:25 │ WARNING │   ⚠ No clear CTA in caption
-07:57:25 │ WARNING │ Virality check failed on: ['financial_opportunity', 'urgency', 'trust', 'visual_appeal', 'shareability', 'engagement_potential', 'local_relevance', 'lead_generation']
-07:57:25 │ WARNING │ Attempting regeneration...
-07:57:25 │ WARNING │ Humanization concerns detected — publishing with caution
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   DRY RUN — Skipping Instagram publish
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Dry run complete. Post would be published with:
-07:57:25 │ INFO    │   Headline: ❓ Is Your Business Missing This Benefit?
-07:57:25 │ INFO    │   Caption: ⚠️ Most business owners don't know this.
+07:58:45 │ INFO    │ DedupEngine initialized: 55 posts in history, 55 topics tracked
+07:58:45 │ INFO    │ ============================================================
+07:58:45 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+07:58:45 │ INFO    │ ============================================================
+07:58:45 │ INFO    │ ============================================================
+07:58:45 │ INFO    │   Step 1: Post Strategy
+07:58:45 │ INFO    │ ============================================================
+07:58:45 │ INFO    │ Strategy: social_proof | Pillar: compliance_updates | Face: True
+07:58:45 │ INFO    │ ============================================================
+07:58:45 │ INFO    │   Step 2: Trend Research
+07:58:45 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Found 18 topics from research
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   Step 3: Topic Selection
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Selected: 📢 Mid-year GST compliance checkup for businesses
+07:59:00 │ INFO    │ Category: compliance | Score: 50.7/100
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   Step 4: Style Analysis
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Template: social_proof
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   Step 5: Headline Competition
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
+07:59:00 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   Step 6: Content Creation
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ English caption: 129 chars
+07:59:00 │ INFO    │ Marathi caption: 187 chars
+07:59:00 │ INFO    │ Hashtags: 12
+07:59:00 │ INFO    │ CTA: 🔗 Link In Bio
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   Step 7: Image Composition
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1782374340.png
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   Step 8: Quality Gate
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Virality Score: 58.7%
+07:59:00 │ INFO    │ Reference Similarity: 70%
+07:59:00 │ INFO    │   ✓ curiosity: 10/10
+07:59:00 │ INFO    │   ✗ financial_opportunity: 4/10
+07:59:00 │ INFO    │   ✗ urgency: 4/10
+07:59:00 │ INFO    │   ✗ trust: 5/10
+07:59:00 │ INFO    │   ✗ visual_appeal: 7/10
+07:59:00 │ INFO    │   ✗ shareability: 6/10
+07:59:00 │ INFO    │   ✗ engagement_potential: 5/10
+07:59:00 │ INFO    │   ✗ local_relevance: 5/10
+07:59:00 │ INFO    │   ✗ lead_generation: 5/10
+07:59:00 │ INFO    │   ✗ humanization: 7/10
+07:59:00 │ INFO    │ Humanization: FAIL (9/10)
+07:59:00 │ WARNING │   ⚠ No clear CTA in caption
+07:59:00 │ WARNING │ Virality check failed on: ['financial_opportunity', 'urgency', 'trust', 'visual_appeal', 'shareability', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
+07:59:00 │ WARNING │ Attempting regeneration...
+07:59:00 │ WARNING │ Humanization concerns detected — publishing with caution
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   DRY RUN — Skipping Instagram publish
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Dry run complete. Post would be published with:
+07:59:00 │ INFO    │   Headline: ❓ Is Your Business Missing This Benefit?
+07:59:00 │ INFO    │   Caption: ⚠️ Stay compliant, stay protected.
 
-The application process is simple and can be completed wit...
-07:57:25 │ INFO    │ History saved. Total posts: 54
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │   PIPELINE SUMMARY
-07:57:25 │ INFO    │ ============================================================
-07:57:25 │ INFO    │ Date:      2026-06-24
-07:57:25 │ INFO    │ Template:  infographic_story
-07:57:25 │ INFO    │ Pillar:    compliance_updates
-07:57:25 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
-07:57:25 │ INFO    │ Virality:  58.5%
-07:57:25 │ INFO    │ Reference: 60%
-07:57:25 │ INFO    │ Success:   True
+Missing compliance deadlines can lead to heavy penalties and leg...
+07:59:00 │ INFO    │ History saved. Total posts: 56
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │   PIPELINE SUMMARY
+07:59:00 │ INFO    │ ============================================================
+07:59:00 │ INFO    │ Date:      2026-06-25
+07:59:00 │ INFO    │ Template:  social_proof
+07:59:00 │ INFO    │ Pillar:    compliance_updates
+07:59:00 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
+07:59:00 │ INFO    │ Virality:  58.7%
+07:59:00 │ INFO    │ Reference: 70%
+07:59:00 │ INFO    │ Success:   True
