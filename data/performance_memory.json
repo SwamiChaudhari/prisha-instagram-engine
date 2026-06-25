@@ -951,11 +951,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20260625_132900",
+      "date": "2026-06-25T13:29:00.421364+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "Mid-year GST compliance checkup for businesses",
+      "template": "social_proof",
+      "pillar": "compliance_updates",
+      "category": "compliance",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 4,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 5,
+        "lead_generation": 5,
+        "humanization": 7
+      },
+      "overall_virality": 58.7,
+      "reference_similarity": 70,
+      "cta": "🔗 Link In Bio",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 28,
-    "last_updated": "2026-06-24T13:27:25.265850+05:30",
+    "total_posts": 29,
+    "last_updated": "2026-06-25T13:29:00.421377+05:30",
     "posts_with_engagement": 0
   }
 }
