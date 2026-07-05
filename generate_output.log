@@ -1,76 +1,76 @@
-07:20:23 │ INFO    │ DedupEngine initialized: 73 posts in history, 73 topics tracked
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   Step 1: Post Strategy
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │ Strategy: breaking_news | Pillar: government_schemes | Face: False
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   Step 2: Trend Research
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │ Found 18 topics from research
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   Step 3: Topic Selection
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │ Selected: 💰 Government Giving RS 25 LAKH Support — Are You Eligible?
-07:20:23 │ INFO    │ Category: loan_subsidy | Score: 73.2/100
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   Step 4: Style Analysis
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │ Template: authority_card
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   Step 5: Headline Competition
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
-07:20:23 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   Step 6: Content Creation
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │ English caption: 245 chars
-07:20:23 │ INFO    │ Marathi caption: 207 chars
-07:20:23 │ INFO    │ Hashtags: 12
-07:20:23 │ INFO    │ CTA: 💬 Comment 'GUIDE'
-07:20:23 │ INFO    │ ============================================================
-07:20:23 │ INFO    │   Step 7: Image Composition
-07:20:23 │ INFO    │ ============================================================
-07:20:24 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1783149623.png
-07:20:24 │ INFO    │ ============================================================
-07:20:24 │ INFO    │   Step 8: Quality Gate
-07:20:24 │ INFO    │ ============================================================
-07:20:24 │ INFO    │ Virality Score: 69.7%
-07:20:24 │ INFO    │ Reference Similarity: 75%
-07:20:24 │ INFO    │   ✓ curiosity: 10/10
-07:20:24 │ INFO    │   ✓ financial_opportunity: 10/10
-07:20:24 │ INFO    │   ✗ urgency: 4/10
-07:20:24 │ INFO    │   ✗ trust: 5/10
-07:20:24 │ INFO    │   ✗ visual_appeal: 7/10
-07:20:24 │ INFO    │   ✓ shareability: 8/10
-07:20:24 │ INFO    │   ✗ engagement_potential: 5/10
-07:20:24 │ INFO    │   ✗ local_relevance: 6/10
-07:20:24 │ INFO    │   ✗ lead_generation: 6/10
-07:20:24 │ INFO    │   ✗ humanization: 7/10
-07:20:24 │ INFO    │ Humanization: FAIL (9/10)
-07:20:24 │ WARNING │   ⚠ No clear CTA in caption
-07:20:24 │ WARNING │ Virality check failed on: ['urgency', 'trust', 'visual_appeal', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
-07:20:24 │ WARNING │ Attempting regeneration...
-07:20:24 │ WARNING │ Humanization concerns detected — publishing with caution
-07:20:24 │ INFO    │ ============================================================
-07:20:24 │ INFO    │   DRY RUN — Skipping Instagram publish
-07:20:24 │ INFO    │ ============================================================
-07:20:24 │ INFO    │ Dry run complete. Post would be published with:
-07:20:24 │ INFO    │   Headline: ❓ Is Your Business Missing This Benefit?
-07:20:24 │ INFO    │   Caption: 📢 Important funding update for small business owners.
+07:44:41 │ INFO    │ DedupEngine initialized: 75 posts in history, 75 topics tracked
+07:44:41 │ INFO    │ ============================================================
+07:44:41 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+07:44:41 │ INFO    │ ============================================================
+07:44:41 │ INFO    │ ============================================================
+07:44:41 │ INFO    │   Step 1: Post Strategy
+07:44:41 │ INFO    │ ============================================================
+07:44:41 │ INFO    │ Strategy: infographic_story | Pillar: government_schemes | Face: True
+07:44:41 │ INFO    │ ============================================================
+07:44:41 │ INFO    │   Step 2: Trend Research
+07:44:41 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Found 18 topics from research
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   Step 3: Topic Selection
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Selected: 💰 Government Giving RS 25 LAKH Support — Are You Eligible?
+07:44:46 │ INFO    │ Category: loan_subsidy | Score: 73.2/100
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   Step 4: Style Analysis
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Template: infographic_story
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   Step 5: Headline Competition
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
+07:44:46 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   Step 6: Content Creation
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ English caption: 241 chars
+07:44:46 │ INFO    │ Marathi caption: 217 chars
+07:44:46 │ INFO    │ Hashtags: 12
+07:44:46 │ INFO    │ CTA: 💬 Comment 'HELP'
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   Step 7: Image Composition
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1783237486.png
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   Step 8: Quality Gate
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Virality Score: 69.7%
+07:44:46 │ INFO    │ Reference Similarity: 75%
+07:44:46 │ INFO    │   ✓ curiosity: 10/10
+07:44:46 │ INFO    │   ✓ financial_opportunity: 10/10
+07:44:46 │ INFO    │   ✗ urgency: 4/10
+07:44:46 │ INFO    │   ✗ trust: 5/10
+07:44:46 │ INFO    │   ✗ visual_appeal: 7/10
+07:44:46 │ INFO    │   ✓ shareability: 8/10
+07:44:46 │ INFO    │   ✗ engagement_potential: 5/10
+07:44:46 │ INFO    │   ✗ local_relevance: 6/10
+07:44:46 │ INFO    │   ✗ lead_generation: 6/10
+07:44:46 │ INFO    │   ✗ humanization: 7/10
+07:44:46 │ INFO    │ Humanization: FAIL (9/10)
+07:44:46 │ WARNING │   ⚠ No clear CTA in caption
+07:44:46 │ WARNING │ Virality check failed on: ['urgency', 'trust', 'visual_appeal', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
+07:44:46 │ WARNING │ Attempting regeneration...
+07:44:46 │ WARNING │ Humanization concerns detected — publishing with caution
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   DRY RUN — Skipping Instagram publish
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Dry run complete. Post would be published with:
+07:44:46 │ INFO    │   Headline: ❓ Is Your Business Missing This Benefit?
+07:44:46 │ INFO    │   Caption: ⚠️ Most business owners don't know about this funding option.
 
-The government is offering financial support ...
-07:20:24 │ INFO    │ History saved. Total posts: 74
-07:20:24 │ INFO    │ ============================================================
-07:20:24 │ INFO    │   PIPELINE SUMMARY
-07:20:24 │ INFO    │ ============================================================
-07:20:24 │ INFO    │ Date:      2026-07-04
-07:20:24 │ INFO    │ Template:  authority_card
-07:20:24 │ INFO    │ Pillar:    government_schemes
-07:20:24 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
-07:20:24 │ INFO    │ Virality:  69.7%
-07:20:24 │ INFO    │ Reference: 75%
-07:20:24 │ INFO    │ Success:   True
+Many small business owners have alrea...
+07:44:46 │ INFO    │ History saved. Total posts: 76
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │   PIPELINE SUMMARY
+07:44:46 │ INFO    │ ============================================================
+07:44:46 │ INFO    │ Date:      2026-07-05
+07:44:46 │ INFO    │ Template:  infographic_story
+07:44:46 │ INFO    │ Pillar:    government_schemes
+07:44:46 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
+07:44:46 │ INFO    │ Virality:  69.7%
+07:44:46 │ INFO    │ Reference: 75%
+07:44:46 │ INFO    │ Success:   True
