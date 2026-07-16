@@ -6709,5 +6709,81 @@
     "published": false,
     "media_id": "",
     "dry_run": false
+  },
+  {
+    "date": "2026-07-16",
+    "timestamp": "2026-07-16T12:09:31.277865+05:30",
+    "headline": "❓ Is Your Business Missing This Benefit?",
+    "topic": "PMEGP loan: Government gives up to Rs 25 lakh subsidy",
+    "category": "loan_subsidy",
+    "pillar": "government_schemes",
+    "template": "social_proof",
+    "captions": {
+      "english": "📢 Important funding update for small business owners.\n\nThe government is offering financial support to help small businesses grow. Whether you're starting fresh or expanding, this scheme can provide funding without heavy collateral requirements.",
+      "marathi": "⚠️ बहुतेक व्यवसाय मालकांना या निधीबद्दल माहिती नाही.\n\nबरेच लहान व्यवसाय मालकांनी या योजनेचा फायदा घेतला आहे. अर्ज प्रक्रिया सोपी आहे आणि सपोर्ट टीम तुम्हाला प्रत्येक पायरीवर मार्गदर्शन करण्यासाठी उपलब्ध आहे.",
+      "full_caption": "❓ Is Your Business Missing This Benefit?\n\n📢 Important funding update for small business owners.\n\nThe government is offering financial support to help small businesses grow. Whether you're starting fresh or expanding, this scheme can provide funding without heavy collateral requirements.\n\n⚠️ बहुतेक व्यवसाय मालकांना या निधीबद्दल माहिती नाही.\n\nबरेच लहान व्यवसाय मालकांनी या योजनेचा फायदा घेतला आहे. अर्ज प्रक्रिया सोपी आहे आणि सपोर्ट टीम तुम्हाला प्रत्येक पायरीवर मार्गदर्शन करण्यासाठी उपलब्ध आहे.\n\n✅ Faster approval process\n✅ Government-recognized funding\n✅ Better business credibility\n✅ Access to applicable schemes\n✅ Proper documentation support\n\n🤝 Reliable Guidance\n📄 Complete Documentation Support\n⚡ Fast Process\n📞 Dedicated Assistance\n\n📩 DM us for more information.\n\n📍 Balaji Nagar, Ambi Road, Varale\n📞 9145564291\n\n✨ Customer Satisfaction is Our Priority ✨\n✨ ग्राहक सेवा हाच आमचा उद्देश ✨\n\n#PrishaOnlineCentre #PrishaOnlineDocumentation #MahaESewa #CSC #BusinessRegistration #MSME #GovernmentSchemes #MaharashtraBusiness #MudraLoan #PMEGP #BusinessLoan #SmallBusiness",
+      "hashtags": [
+        "PrishaOnlineCentre",
+        "PrishaOnlineDocumentation",
+        "MahaESewa",
+        "CSC",
+        "BusinessRegistration",
+        "MSME",
+        "GovernmentSchemes",
+        "MaharashtraBusiness",
+        "MudraLoan",
+        "PMEGP",
+        "BusinessLoan",
+        "SmallBusiness"
+      ]
+    },
+    "cta": "📌 Save This Post",
+    "info_blocks": [
+      {
+        "icon": "💰",
+        "text": "Financial support available",
+        "highlight": ""
+      },
+      {
+        "icon": "✓",
+        "text": "No collateral required",
+        "highlight": ""
+      },
+      {
+        "icon": "📄",
+        "text": "Simple documentation",
+        "highlight": ""
+      },
+      {
+        "icon": "🏢",
+        "text": "For new & existing businesses",
+        "highlight": ""
+      },
+      {
+        "icon": "📱",
+        "text": "Online application process",
+        "highlight": ""
+      }
+    ],
+    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1784183971.png",
+    "use_face": false,
+    "virality_scores": {
+      "curiosity": 10,
+      "financial_opportunity": 10,
+      "urgency": 4,
+      "trust": 5,
+      "visual_appeal": 7,
+      "shareability": 8,
+      "engagement_potential": 5,
+      "local_relevance": 6,
+      "lead_generation": 6,
+      "humanization": 7
+    },
+    "overall_virality": 69.7,
+    "reference_similarity": 75,
+    "humanization_score": 9,
+    "published": false,
+    "media_id": "",
+    "dry_run": true
   }
 ]
