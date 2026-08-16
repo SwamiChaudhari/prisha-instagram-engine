@@ -1,74 +1,74 @@
-04:54:04 │ INFO    │ DedupEngine initialized: 158 posts in history, 158 topics tracked
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 1: Post Strategy
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Strategy: quick_tips | Pillar: business_registration | Face: True
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 2: Trend Research
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Found 18 topics from research
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 3: Topic Selection
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Selected: 💰 Government Giving RS 25 LAKH Support — Are You Eligible?
-04:54:04 │ INFO    │ Category: loan_subsidy | Score: 73.2/100
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 4: Style Analysis
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Template: authority_card
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 5: Headline Competition
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
-04:54:04 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 6: Content Creation
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ English caption: 253 chars
-04:54:04 │ INFO    │ Marathi caption: 200 chars
-04:54:04 │ INFO    │ Hashtags: 12
-04:54:04 │ INFO    │ CTA: 💬 Comment Your Business Type
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 7: Image Composition
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1786769644.png
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 8: Quality Gate
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Virality Score: 69.7%
-04:54:04 │ INFO    │ Reference Similarity: 75%
-04:54:04 │ INFO    │   ✓ curiosity: 10/10
-04:54:04 │ INFO    │   ✓ financial_opportunity: 10/10
-04:54:04 │ INFO    │   ✗ urgency: 4/10
-04:54:04 │ INFO    │   ✗ trust: 5/10
-04:54:04 │ INFO    │   ✗ visual_appeal: 7/10
-04:54:04 │ INFO    │   ✓ shareability: 8/10
-04:54:04 │ INFO    │   ✗ engagement_potential: 5/10
-04:54:04 │ INFO    │   ✗ local_relevance: 6/10
-04:54:04 │ INFO    │   ✗ lead_generation: 6/10
-04:54:04 │ INFO    │   ✗ humanization: 7/10
-04:54:04 │ INFO    │ Humanization: FAIL (9/10)
-04:54:04 │ WARNING │   ⚠ No clear CTA in caption
-04:54:04 │ WARNING │ Virality check failed on: ['urgency', 'trust', 'visual_appeal', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
-04:54:04 │ WARNING │ Attempting regeneration...
-04:54:04 │ WARNING │ Humanization concerns detected — publishing with caution
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   Step 9: Publishing to Instagram
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Using image URL override: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1786769627.png
-04:54:04 │ ERROR   │ Publish failed: Image file not found: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1786769627.png
-04:54:04 │ INFO    │ History saved. Total posts: 159
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │   PIPELINE SUMMARY
-04:54:04 │ INFO    │ ============================================================
-04:54:04 │ INFO    │ Date:      2026-08-15
-04:54:04 │ INFO    │ Template:  authority_card
-04:54:04 │ INFO    │ Pillar:    business_registration
-04:54:04 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
-04:54:04 │ INFO    │ Virality:  69.7%
-04:54:04 │ INFO    │ Reference: 75%
-04:54:04 │ INFO    │ Success:   False
-04:54:04 │ INFO    │ Error:     Image file not found: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1786769627.png
+04:57:16 │ INFO    │ DedupEngine initialized: 160 posts in history, 160 topics tracked
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   PRISHA ONLINE DOCUMENTATION — Instagram Engine v2.0 Starting
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 1: Post Strategy
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Strategy: infographic_story | Pillar: business_registration | Face: True
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 2: Trend Research
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Found 18 topics from research
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 3: Topic Selection
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Selected: 💰 Government Giving RS 25 LAKH Support — Are You Eligible?
+04:57:16 │ INFO    │ Category: loan_subsidy | Score: 73.2/100
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 4: Style Analysis
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Template: infographic_story
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 5: Headline Competition
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Winner: ❓ Is Your Business Missing This Benefit?
+04:57:16 │ INFO    │ Scores: {'curiosity': 10, 'brevity': 9, 'emotional_trigger': 5, 'clarity': 7, '_total': 31}
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 6: Content Creation
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ English caption: 222 chars
+04:57:16 │ INFO    │ Marathi caption: 208 chars
+04:57:16 │ INFO    │ Hashtags: 12
+04:57:16 │ INFO    │ CTA: 📩 DM 'INFO'
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 7: Image Composition
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Image saved: /home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1786856236.png
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 8: Quality Gate
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Virality Score: 69.7%
+04:57:16 │ INFO    │ Reference Similarity: 75%
+04:57:16 │ INFO    │   ✓ curiosity: 10/10
+04:57:16 │ INFO    │   ✓ financial_opportunity: 10/10
+04:57:16 │ INFO    │   ✗ urgency: 4/10
+04:57:16 │ INFO    │   ✗ trust: 5/10
+04:57:16 │ INFO    │   ✗ visual_appeal: 7/10
+04:57:16 │ INFO    │   ✓ shareability: 8/10
+04:57:16 │ INFO    │   ✗ engagement_potential: 5/10
+04:57:16 │ INFO    │   ✗ local_relevance: 6/10
+04:57:16 │ INFO    │   ✗ lead_generation: 6/10
+04:57:16 │ INFO    │   ✗ humanization: 7/10
+04:57:16 │ INFO    │ Humanization: FAIL (9/10)
+04:57:16 │ WARNING │   ⚠ No clear CTA in caption
+04:57:16 │ WARNING │ Virality check failed on: ['urgency', 'trust', 'visual_appeal', 'engagement_potential', 'local_relevance', 'lead_generation', 'humanization']
+04:57:16 │ WARNING │ Attempting regeneration...
+04:57:16 │ WARNING │ Humanization concerns detected — publishing with caution
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   Step 9: Publishing to Instagram
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Using image URL override: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1786856218.png
+04:57:16 │ ERROR   │ Publish failed: Image file not found: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1786856218.png
+04:57:16 │ INFO    │ History saved. Total posts: 161
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │   PIPELINE SUMMARY
+04:57:16 │ INFO    │ ============================================================
+04:57:16 │ INFO    │ Date:      2026-08-16
+04:57:16 │ INFO    │ Template:  infographic_story
+04:57:16 │ INFO    │ Pillar:    business_registration
+04:57:16 │ INFO    │ Headline:  ❓ Is Your Business Missing This Benefit?
+04:57:16 │ INFO    │ Virality:  69.7%
+04:57:16 │ INFO    │ Reference: 75%
+04:57:16 │ INFO    │ Success:   False
+04:57:16 │ INFO    │ Error:     Image file not found: https://raw.githubusercontent.com/SwamiChaudhari/prisha-instagram-engine/main/images/post_v3_1786856218.png
