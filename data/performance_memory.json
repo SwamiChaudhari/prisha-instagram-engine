@@ -2753,11 +2753,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20260817_103427",
+      "date": "2026-08-17T10:34:27.780797+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "PMEGP loan: Government gives up to Rs 25 lakh subsidy",
+      "template": "authority_card",
+      "pillar": "student_services",
+      "category": "loan_subsidy",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 10,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 8,
+        "engagement_potential": 5,
+        "local_relevance": 5,
+        "lead_generation": 6,
+        "humanization": 7
+      },
+      "overall_virality": 69.1,
+      "reference_similarity": 75,
+      "cta": "🔁 Share With Friends",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 81,
-    "last_updated": "2026-08-16T10:26:58.922925+05:30",
+    "total_posts": 82,
+    "last_updated": "2026-08-17T10:34:27.780808+05:30",
     "posts_with_engagement": 0
   }
 }
