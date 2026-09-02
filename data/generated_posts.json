@@ -14081,5 +14081,76 @@
     "published": false,
     "media_id": "",
     "dry_run": true
+  },
+  {
+    "date": "2026-09-02",
+    "timestamp": "2026-09-02T14:23:43.161761+05:30",
+    "headline": "❓ Is Your Business Missing This Benefit?",
+    "topic": "Festive season business registration offers",
+    "category": "business_registration",
+    "pillar": "compliance_updates",
+    "template": "breaking_impact",
+    "captions": {
+      "english": "❌ Don't operate without proper registration.\n\nFrom tax advantages to government tenders, a registered business has access to opportunities that unregistered ones don't. The process is simpler than you think.",
+      "marathi": "⚠️ तुमचा व्यवसाय कायदेशीर नोंदणीकृत आहे का?\n\nव्यवसाय नोंदणी करणे हे फक्त कायदेशीरतेबद्दल नाही — हे तुम्हाला वाढण्यास मदत करणाऱ्या फायदे उघड करणे आहे.",
+      "full_caption": "❓ Is Your Business Missing This Benefit?\n\n❌ Don't operate without proper registration.\n\nFrom tax advantages to government tenders, a registered business has access to opportunities that unregistered ones don't. The process is simpler than you think.\n\n⚠️ तुमचा व्यवसाय कायदेशीर नोंदणीकृत आहे का?\n\nव्यवसाय नोंदणी करणे हे फक्त कायदेशीरतेबद्दल नाही — हे तुम्हाला वाढण्यास मदत करणाऱ्या फायदे उघड करणे आहे.\n\n✅ Quick registration process\n✅ Lifetime validity\n✅ Tax benefits unlocked\n✅ Government recognized\n✅ Access to tenders and loans\n\n🤝 Reliable Guidance\n📄 Complete Documentation Support\n⚡ Fast Process\n📞 Dedicated Assistance\n\n📩 DM us for more information.\n\n📍 Balaji Nagar, Ambi Road, Varale\n📞 9145564291\n\n✨ Customer Satisfaction is Our Priority ✨\n✨ ग्राहक सेवा हाच आमचा उद्देश ✨\n\n#PrishaOnlineCentre #PrishaOnlineDocumentation #MahaESewa #CSC #BusinessRegistration #MSME #GovernmentSchemes #MaharashtraBusiness #GSTRegistration #UdyamRegistration #StartupIndia #BusinessIndia",
+      "hashtags": [
+        "PrishaOnlineCentre",
+        "PrishaOnlineDocumentation",
+        "MahaESewa",
+        "CSC",
+        "BusinessRegistration",
+        "MSME",
+        "GovernmentSchemes",
+        "MaharashtraBusiness",
+        "GSTRegistration",
+        "UdyamRegistration",
+        "StartupIndia",
+        "BusinessIndia"
+      ]
+    },
+    "cta": "📩 Send Message For Details",
+    "info_blocks": [
+      {
+        "icon": "📝",
+        "text": "Quick registration process",
+        "highlight": ""
+      },
+      {
+        "icon": "✓",
+        "text": "Lifetime validity",
+        "highlight": ""
+      },
+      {
+        "icon": "💰",
+        "text": "Tax benefits unlocked",
+        "highlight": ""
+      },
+      {
+        "icon": "🏛",
+        "text": "Government recognized",
+        "highlight": ""
+      }
+    ],
+    "image_path": "/home/runner/work/prisha-instagram-engine/prisha-instagram-engine/images/post_v3_1788339223.png",
+    "use_face": false,
+    "virality_scores": {
+      "curiosity": 10,
+      "financial_opportunity": 7,
+      "urgency": 4,
+      "trust": 5,
+      "visual_appeal": 7,
+      "shareability": 6,
+      "engagement_potential": 7,
+      "local_relevance": 5,
+      "lead_generation": 6,
+      "humanization": 7
+    },
+    "overall_virality": 65.3,
+    "reference_similarity": 60,
+    "humanization_score": 9,
+    "published": false,
+    "media_id": "",
+    "dry_run": false
   }
 ]
