@@ -3331,11 +3331,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20260903_143219",
+      "date": "2026-09-03T14:32:19.781425+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "Pre-festival GST rate updates for businesses",
+      "template": "social_proof",
+      "pillar": "student_services",
+      "category": "tax",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 4,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 5,
+        "lead_generation": 5,
+        "humanization": 7
+      },
+      "overall_virality": 58.7,
+      "reference_similarity": 60,
+      "cta": "📌 Share With Business Friends",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 98,
-    "last_updated": "2026-09-02T14:23:25.940731+05:30",
+    "total_posts": 99,
+    "last_updated": "2026-09-03T14:32:19.781440+05:30",
     "posts_with_engagement": 0
   }
 }
