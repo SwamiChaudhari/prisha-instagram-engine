@@ -5337,11 +5337,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20261101_165403",
+      "date": "2026-11-01T16:54:03.779618+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "Year-end compliance deadlines every business must know",
+      "template": "infographic_story",
+      "pillar": "government_schemes",
+      "category": "compliance",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 4,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 6,
+        "lead_generation": 5,
+        "humanization": 7
+      },
+      "overall_virality": 59.3,
+      "reference_similarity": 75,
+      "cta": "💬 Comment 'HELP'",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 157,
-    "last_updated": "2026-10-31T15:59:15.914515+05:30",
+    "total_posts": 158,
+    "last_updated": "2026-11-01T16:54:03.779629+05:30",
     "posts_with_engagement": 0
   }
 }
