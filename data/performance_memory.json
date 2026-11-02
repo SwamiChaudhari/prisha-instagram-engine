@@ -5371,11 +5371,45 @@
         "profile_visits": 0,
         "dms": 0
       }
+    },
+    {
+      "id": "post_20261102_181223",
+      "date": "2026-11-02T18:12:23.132061+05:30",
+      "headline": "❓ Is Your Business Missing This Benefit?",
+      "topic": "GST audit preparation tips for businesses",
+      "template": "breaking_impact",
+      "pillar": "business_registration",
+      "category": "tax",
+      "virality_scores": {
+        "curiosity": 10,
+        "financial_opportunity": 4,
+        "urgency": 4,
+        "trust": 5,
+        "visual_appeal": 7,
+        "shareability": 6,
+        "engagement_potential": 5,
+        "local_relevance": 6,
+        "lead_generation": 5,
+        "humanization": 8
+      },
+      "overall_virality": 60.4,
+      "reference_similarity": 60,
+      "cta": "💬 Comment 'GUIDE'",
+      "use_face": false,
+      "engagement": {
+        "reach": 0,
+        "likes": 0,
+        "saves": 0,
+        "shares": 0,
+        "comments": 0,
+        "profile_visits": 0,
+        "dms": 0
+      }
     }
   ],
   "summary": {
-    "total_posts": 158,
-    "last_updated": "2026-11-01T16:54:03.779629+05:30",
+    "total_posts": 159,
+    "last_updated": "2026-11-02T18:12:23.132076+05:30",
     "posts_with_engagement": 0
   }
 }
